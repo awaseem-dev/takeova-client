@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearwater Dental — Gentle Dentistry for the Whole Family</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--teal:#1FA4A0;--teal-d:#147C79;--deep:#0E3A38;--mint:#E6F4F1;--mint2:#F3FAF8;--slate:#5A6B6A;--white:#fff}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Karla',sans-serif;color:var(--deep);background:var(--white);line-height:1.65}
+  h1,h2,h3{font-family:'Sora',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+  a{color:inherit;text-decoration:none}
+  nav{background:var(--white);border-bottom:1px solid var(--mint);position:sticky;top:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:16px 26px}
+  .logo{font-family:'Sora';font-weight:700;font-size:1.3rem;display:flex;align-items:center;gap:10px;color:var(--deep)}
+  .mark{width:30px;height:30px;border-radius:9px;background:var(--teal);display:grid;place-items:center;color:#fff;font-size:1rem}
+  .nlinks{display:flex;gap:30px;font-weight:500;font-size:.96rem;color:var(--slate)}
+  .nlinks a:hover{color:var(--teal)}
+  .book{background:var(--teal);color:#fff;padding:11px 22px;border-radius:30px;font-family:'Sora';font-weight:600;font-size:.92rem;transition:.2s}
+  .book:hover{background:var(--teal-d)}
+  /* hero */
+  .hero{background:linear-gradient(160deg,var(--mint2),var(--mint));padding:72px 0}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--teal-d);padding:7px 16px;border-radius:30px;font-weight:600;font-size:.82rem;box-shadow:0 4px 14px rgba(31,164,160,.12);margin-bottom:22px}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:700;line-height:1.08;margin-bottom:18px}
+  .hero h1 span{color:var(--teal)}
+  .hero p{font-size:1.15rem;color:var(--slate);max-width:42ch;margin-bottom:30px}
+  .hbtns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .pri{background:var(--teal);color:#fff;padding:15px 28px;border-radius:30px;font-family:'Sora';font-weight:600;transition:.2s}
+  .pri:hover{background:var(--teal-d);transform:translateY(-2px)}
+  .ph{color:var(--deep);font-weight:600;display:flex;align-items:center;gap:8px}
+  /* booking card */
+  .card{background:#fff;border-radius:20px;padding:30px;box-shadow:0 24px 60px rgba(14,58,56,.14)}
+  .card h3{font-size:1.15rem;font-weight:600;margin-bottom:18px}
+  .field{margin-bottom:14px}
+  .field label{font-size:.82rem;color:var(--slate);display:block;margin-bottom:6px;font-weight:500}
+  .field input,.field select{width:100%;padding:13px 14px;border:1px solid var(--mint);border-radius:11px;background:var(--mint2);font-family:'Karla';font-size:.95rem;color:var(--deep)}
+  .field input:focus,.field select:focus{outline:2px solid var(--teal);border-color:transparent}
+  .submit{width:100%;background:var(--teal);color:#fff;border:none;padding:15px;border-radius:11px;font-family:'Sora';font-weight:600;font-size:1rem;cursor:pointer;transition:.2s}
+  .submit:hover{background:var(--teal-d)}
+  .note{text-align:center;font-size:.8rem;color:var(--slate);margin-top:12px}
+  /* trust */
+  .strip{padding:30px 0;border-bottom:1px solid var(--mint)}
+  .strip .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;text-align:center}
+  .strip .n{font-family:'Sora';font-weight:700;font-size:1.9rem;color:var(--teal)}
+  .strip .l{color:var(--slate);font-size:.9rem}
+  /* services */
+  .sec{padding:84px 0}
+  .center{text-align:center;max-width:600px;margin:0 auto 50px}
+  .eyebrow{color:var(--teal);font-family:'Sora';font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;margin-bottom:12px}
+  .center h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;margin-bottom:12px}
+  .center p{color:var(--slate);font-size:1.05rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .svc{background:var(--mint2);border:1px solid var(--mint);border-radius:16px;padding:28px;transition:.2s}
+  .svc:hover{background:#fff;box-shadow:0 14px 34px rgba(14,58,56,.1);transform:translateY(-3px)}
+  .svc .ic{width:48px;height:48px;border-radius:12px;background:#fff;display:grid;place-items:center;font-size:1.4rem;margin-bottom:16px;box-shadow:0 4px 12px rgba(31,164,160,.12)}
+  .svc h3{font-size:1.15rem;font-weight:600;margin-bottom:7px}
+  .svc p{color:var(--slate);font-size:.94rem}
+  /* cta */
+  .band{background:var(--deep);color:#fff;text-align:center;padding:72px 0}
+  .band h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:14px;color:#fff}
+  .band p{opacity:.82;font-size:1.1rem;margin-bottom:28px}
+  .band a{background:var(--teal);color:#fff;padding:15px 32px;border-radius:30px;font-family:'Sora';font-weight:600;display:inline-block;transition:.2s}
+  .band a:hover{background:var(--teal-d)}
+  footer{background:var(--deep);color:#8FB3B1;padding:40px 0 28px;font-size:.9rem;border-top:1px solid rgba(255,255,255,.08)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center}
+  footer .logo{color:#fff}footer a:hover{color:var(--teal)}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.nlinks{display:none}}
+  @media(prefers-reduced-motion){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="#" class="logo"><span class="mark">◠</span>Clearwater Dental</a>
+  <div class="nlinks"><a href="#services">Services</a><a href="#about">About</a><a href="#">New Patients</a><a href="#book">Contact</a></div>
+  <a href="#book" class="book">Book online</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="chip">Now welcoming new patients</div>
+    <h1>Dentistry that <span>doesn't</span> make you nervous.</h1>
+    <p>Gentle, modern care for your whole family — from first check-ups to confident smiles, in a calm clinic that runs on time.</p>
+    <div class="hbtns"><a href="#book" class="pri">Book an appointment</a><a href="tel:0731120088" class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:.9em;height:.9em;display:inline-block;vertical-align:middle"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> (07) 3112 0088</a></div>
+  </div>
+  <div class="card" id="book">
+    <h3>Request an appointment</h3>
+    <div class="field"><label>Your name</label><input type="text" placeholder="Jane Smith"></div>
+    <div class="field"><label>Phone</label><input type="tel" placeholder="0400 000 000"></div>
+    <div class="field"><label>What do you need?</label><select><option>General check-up &amp; clean</option><option>Emergency / toothache</option><option>Cosmetic consult</option><option>Invisalign</option><option>Children's dentistry</option></select></div>
+    <button class="submit">Request my appointment</button>
+    <div class="note">We'll call within one business hour to confirm a time.</div>
+  </div>
+</div></header>
+
+<section class="strip"><div class="wrap">
+  <div><div class="n">12k+</div><div class="l">Happy local patients</div></div>
+  <div><div class="n"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg> 4.9</div><div class="l">Google rating</div></div>
+  <div><div class="n">Same-day</div><div class="l">Emergency visits</div></div>
+  <div><div class="n">0%</div><div class="l">Interest payment plans</div></div>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="center"><div class="eyebrow">Our services</div><h2>Everything your smile needs, under one roof</h2><p>No referrals bouncing around town — we handle your family's dental care start to finish.</p></div>
+  <div class="grid">
+    <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M7 4c-1.5 0-2.5 1.6-3 4-.4 2-.5 5 1.5 11 .3 1 .6 1 1-1 .5-2 .7-3 1.5-3s1 1 1.5 3c.4 2 .7 2 1-1 .5-2 .4-5 0-7-.5-2.4-1.5-4-3-4-1 0-1.5.5-1.5.5S8 4 7 4z"/></svg></div><h3>Check-ups &amp; Cleans</h3><p>Thorough six-month exams and hygiene visits to keep small problems small.</p></div>
+    <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg></div><h3>Cosmetic Dentistry</h3><p>Whitening, veneers and smile makeovers tailored to look natural, never overdone.</p></div>
+    <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M7 4c-1.5 0-2.5 1.6-3 4-.4 2-.5 5 1.5 11 .3 1 .6 1 1-1 .5-2 .7-3 1.5-3s1 1 1.5 3c.4 2 .7 2 1-1 .5-2 .4-5 0-7-.5-2.4-1.5-4-3-4-1 0-1.5.5-1.5.5S8 4 7 4z"/></svg></div><h3>Invisalign</h3><p>Clear, removable aligners that straighten your teeth without anyone noticing.</p></div>
+    <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9.5" x2="9" y2="9.6"/><line x1="15" y1="9.5" x2="15" y2="9.6"/></svg></div><h3>Children's Dentistry</h3><p>Friendly, patient care that helps kids feel safe — and actually look forward to visits.</p></div>
+    <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Emergency Care</h3><p>Chipped, knocked-out or aching? We keep same-day slots open for urgent help.</p></div>
+    <div class="svc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M14.5 6.5a3.8 3.8 0 0 0-5 5l-6 6 2 2 6-6a3.8 3.8 0 0 0 5-5l-2.3 2.3-1.7-1.7z"/></svg></div><h3>Implants &amp; Crowns</h3><p>Restorations that rebuild your bite and last, using the latest digital scanning.</p></div>
+  </div>
+</div></section>
+
+<section class="band">
+  <div class="wrap" id="about">
+    <h2>Care you can finally relax into</h2>
+    <p>Warm towels, calming music, and a team that explains everything before they do it.</p>
+    <a href="#book">Book your first visit</a>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="logo" style="font-size:1.1rem;display:flex;align-items:center;gap:8px"><span class="mark">◠</span>Clearwater Dental</div>
+  <div>Shop 4, 88 Riverside Drive, Bulimba QLD · (07) 3112 0088</div>
+  <div>© 2026 Clearwater Dental · Built with MINE</div>
+</div></footer>
+</body>
+</html>

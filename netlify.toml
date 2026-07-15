@@ -1,0 +1,7 @@
+[build]
+  publish = "live"
+
+[[redirects]]
+  from = "/"
+  to = "/mine-live-dashboard.html"
+  status = 200

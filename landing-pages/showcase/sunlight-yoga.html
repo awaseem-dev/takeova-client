@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunlight Yoga — Breathe, Move, Belong · New Farm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--sage:#7C8C6E;--sage-d:#5E6B52;--cream:#FBF8F3;--blush:#D8A7A0;--ink:#33352F;--soft:#EFE9DF}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito Sans',sans-serif;color:var(--ink);background:var(--cream);line-height:1.75;font-weight:300}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:300;letter-spacing:-.01em}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  nav{padding:28px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1080px;margin:0 auto;padding:0 28px}
+  .logo{font-family:'Fraunces';font-size:1.5rem;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+  .sun{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle,var(--blush),var(--sage))}
+  .nlinks{display:flex;gap:34px;font-size:.95rem;letter-spacing:.02em}
+  .nlinks a{position:relative;padding-bottom:3px}
+  .nlinks a:hover{color:var(--sage)}
+  .join{border:1px solid var(--sage);color:var(--sage-d);padding:10px 22px;border-radius:30px;font-size:.9rem;transition:.3s}
+  .join:hover{background:var(--sage);color:#fff}
+  /* hero */
+  .hero{text-align:center;padding:72px 0 80px}
+  .kicker{color:var(--blush);font-size:.85rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:26px}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.05;font-weight:300;margin-bottom:26px}
+  .hero h1 em{font-style:italic;color:var(--sage)}
+  .hero p{font-size:1.2rem;max-width:44ch;margin:0 auto 38px;color:#6B6D63}
+  .pill{display:inline-block;background:var(--sage);color:#fff;padding:15px 34px;border-radius:34px;letter-spacing:.04em;transition:.3s}
+  .pill:hover{background:var(--sage-d);transform:translateY(-2px)}
+  .breathe{margin:54px auto 0;width:120px;height:120px;border-radius:50%;border:1px solid var(--blush);display:grid;place-items:center;color:var(--sage);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;animation:br 7s ease-in-out infinite}
+  @keyframes br{0%,100%{transform:scale(.9);opacity:.6}50%{transform:scale(1.08);opacity:1}}
+  /* band */
+  .quiet{background:var(--soft);padding:90px 0;margin-top:30px}
+  .quiet .wrap{text-align:center}
+  .quiet h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:18px}
+  .quiet p{max-width:52ch;margin:0 auto;color:#6B6D63;font-size:1.1rem}
+  /* classes */
+  .sec{padding:88px 0}
+  .center{text-align:center;margin-bottom:54px}
+  .center .kicker{margin-bottom:16px}
+  .center h2{font-size:clamp(2rem,4vw,3rem)}
+  .classes{max-width:720px;margin:0 auto}
+  .cls{display:flex;justify-content:space-between;align-items:baseline;padding:26px 6px;border-bottom:1px solid #E3DCD0}
+  .cls:hover{padding-left:14px;transition:.3s}
+  .cls .nm{font-family:'Fraunces';font-size:1.5rem}
+  .cls .nm small{font-family:'Nunito Sans';display:block;font-size:.92rem;color:#8A8C82;margin-top:3px;letter-spacing:0}
+  .cls .tm{color:var(--sage-d);font-size:.95rem;letter-spacing:.04em;text-align:right;white-space:nowrap}
+  /* offer */
+  .offer{background:var(--sage);color:#fff;text-align:center;padding:84px 0}
+  .offer h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:16px;color:#fff}
+  .offer p{max-width:40ch;margin:0 auto 30px;opacity:.92;font-size:1.15rem}
+  .offer .pill{background:var(--cream);color:var(--sage-d)}
+  .offer .pill:hover{background:#fff}
+  footer{padding:60px 0 34px;text-align:center;color:#8A8C82;font-size:.92rem}
+  footer .logo{justify-content:center;margin-bottom:14px;color:var(--ink)}
+  footer .links{display:flex;gap:26px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+  footer a:hover{color:var(--sage)}
+  @media(max-width:760px){.nlinks{display:none}.cls{flex-direction:column;gap:6px}.cls .tm{text-align:left}}
+  @media(prefers-reduced-motion){*{animation:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="#" class="logo"><span class="sun"></span>Sunlight</a>
+  <div class="nlinks"><a href="#about">Studio</a><a href="#classes">Classes</a><a href="#schedule">Schedule</a><a href="#visit">Visit</a></div>
+  <a href="#visit" class="join">First class free</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">New Farm · Brisbane</div>
+  <h1>Breathe in.<br><em>Begin again.</em></h1>
+  <p>A warm, light-filled studio where every body is welcome — from your very first sun salutation to your hundredth.</p>
+  <a href="#visit" class="pill">Book your free first class</a>
+  <div class="breathe">inhale<br>exhale</div>
+</div></header>
+
+<section class="quiet"><div class="wrap" id="about">
+  <h2>Less performance. More presence.</h2>
+  <p>Sunlight is a place to slow down. No mirrors, no competition, no rush — just steady breath, gentle movement, and teachers who actually learn your name.</p>
+</div></section>
+
+<section class="sec" id="classes"><div class="wrap">
+  <div class="center"><div class="kicker">Find your practice</div><h2>Classes for every season of life</h2></div>
+  <div class="classes" id="schedule">
+    <div class="cls"><div class="nm">Slow Flow Vinyasa<small>All levels · 60 min</small></div><div class="tm">Mon &amp; Wed · 6:00am<br>Fri · 9:30am</div></div>
+    <div class="cls"><div class="nm">Yin &amp; Restore<small>Deep stretch · 75 min</small></div><div class="tm">Tue · 7:00pm<br>Sun · 4:00pm</div></div>
+    <div class="cls"><div class="nm">Hatha Foundations<small>Beginner friendly · 60 min</small></div><div class="tm">Thu · 10:00am<br>Sat · 8:00am</div></div>
+    <div class="cls"><div class="nm">Prenatal Yoga<small>Every trimester · 50 min</small></div><div class="tm">Wed · 11:00am</div></div>
+    <div class="cls"><div class="nm">Candlelit Meditation<small>Guided · 45 min</small></div><div class="tm">Fri · 7:30pm</div></div>
+  </div>
+</div></section>
+
+<section class="offer" id="visit">
+  <h2>Your first class is on us</h2>
+  <p>Come as you are. Mats provided, no experience needed — just bring yourself.</p>
+  <a href="#" class="pill">Reserve your spot</a>
+</section>
+
+<footer><div class="wrap">
+  <div class="logo"><span class="sun"></span>Sunlight Yoga</div>
+  <p>3 Brunswick Street, New Farm QLD 4005</p>
+  <div class="links"><a href="#">Schedule</a><a href="#">Memberships</a><a href="#">Teacher Training</a><a href="#">Contact</a></div>
+  <p style="font-size:.82rem">© 2026 Sunlight Yoga · Built with MINE</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Never bake secrets or data into the image
+.env
+.env.*
+!.env.example
+
+# Runtime data - should be mounted as volumes
+data/
+uploads/
+*.db
+
+# Dev dependencies and tooling
+node_modules/
+npm-debug.log*
+*.log
+
+# Git
+.git/
+.gitignore
+
+# Tests and CI
+*.test.js
+*.spec.js
+coverage/
+.nyc_output/
+
+# Editor
+.vscode/
+.idea/

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildflower Weddings — Brisbane Wedding Photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--mauve:#8B6F7D;--mauve-d:#6B5360;--blush:#E8D5D0;--blush-l:#F4EBE8;--char:#332B2E;--cream:#FBF7F5;--grey:#8A7E82}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Mulish',sans-serif;color:var(--char);background:var(--cream);line-height:1.8;font-weight:300}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:.01em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 30px}
+  a{color:inherit;text-decoration:none}
+  nav{position:absolute;top:0;left:0;right:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:28px 30px;color:#fff}
+  .logo{font-family:'Cormorant Garamond';font-size:1.7rem;font-style:italic;letter-spacing:.03em}
+  .nlinks{display:flex;gap:34px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+  .nlinks a:hover{opacity:.7}
+  .enq{border:1px solid rgba(255,255,255,.6);padding:9px 22px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;transition:.4s}
+  .enq:hover{background:#fff;color:var(--mauve-d)}
+  /* hero */
+  .hero{height:92vh;min-height:560px;background:linear-gradient(rgba(51,43,46,.28),rgba(51,43,46,.42)),linear-gradient(135deg,#8B6F7D,#E8D5D0 60%,#B89AA6);background-size:cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;position:relative}
+  .hero .wrap{max-width:760px}
+  .hero .pre{letter-spacing:.34em;text-transform:uppercase;font-size:.78rem;margin-bottom:28px}
+  .hero h1{font-size:clamp(3rem,8vw,6rem);font-weight:400;line-height:1.04;margin-bottom:24px}
+  .hero h1 em{font-style:italic}
+  .hero p{font-size:1.15rem;opacity:.94;max-width:40ch;margin:0 auto 34px;font-weight:300}
+  .hbtn{border:1px solid #fff;color:#fff;padding:15px 38px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;display:inline-block;transition:.4s}
+  .hbtn:hover{background:#fff;color:var(--mauve-d)}
+  .scroll{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+  /* intro */
+  .intro{padding:96px 0;text-align:center}
+  .intro .pre{color:var(--mauve);letter-spacing:.24em;text-transform:uppercase;font-size:.76rem;margin-bottom:20px}
+  .intro h2{font-size:clamp(2rem,4.5vw,3.2rem);max-width:20ch;margin:0 auto 22px;line-height:1.25}
+  .intro h2 em{font-style:italic;color:var(--mauve)}
+  .intro p{max-width:50ch;margin:0 auto;color:var(--grey);font-size:1.08rem}
+  /* gallery */
+  .gal{padding:0 0 90px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+  .ph{border-radius:2px;overflow:hidden;position:relative}
+  .ph::after{content:"";position:absolute;inset:0;background:rgba(107,83,96,0);transition:.4s}
+  .ph:hover::after{background:rgba(107,83,96,.15)}
+  .g1{background:linear-gradient(135deg,#8B6F7D,#6B5360);grid-row:span 2}
+  .g2{background:linear-gradient(135deg,#E8D5D0,#C9AEB6)}
+  .g3{background:linear-gradient(135deg,#B89AA6,#8B6F7D)}
+  .g4{background:linear-gradient(135deg,#D8BFC6,#E8D5D0);grid-column:span 2}
+  .g5{background:linear-gradient(135deg,#6B5360,#332B2E)}
+  .g6{background:linear-gradient(135deg,#E8D5D0,#B89AA6);grid-row:span 2}
+  .g7{background:linear-gradient(135deg,#8B6F7D,#B89AA6)}
+  .g8{background:linear-gradient(135deg,#C9AEB6,#8B6F7D)}
+  .g9{background:linear-gradient(135deg,#F4EBE8,#D8BFC6);grid-column:span 2}
+  /* packages */
+  .pk{background:var(--blush-l);padding:94px 0;text-align:center}
+  .pk .pre{color:var(--mauve);letter-spacing:.22em;text-transform:uppercase;font-size:.76rem;margin-bottom:16px}
+  .pk h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:50px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;max-width:980px;margin:0 auto}
+  .pc{background:var(--cream);padding:44px 30px;border:1px solid var(--blush);transition:.3s}
+  .pc:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(139,111,125,.16)}
+  .pc .nm{font-style:italic;color:var(--mauve);font-family:'Cormorant Garamond';font-size:1.1rem;margin-bottom:6px}
+  .pc h3{font-size:2.2rem;margin-bottom:14px}
+  .pc .pr{font-family:'Cormorant Garamond';font-size:1.6rem;color:var(--char);margin-bottom:20px}
+  .pc ul{list-style:none;text-align:left;color:var(--grey);font-size:.94rem}
+  .pc li{padding:7px 0;border-bottom:1px solid var(--blush)}
+  .pc li::before{content:"— ";color:var(--mauve)}
+  /* cta */
+  .band{padding:96px 0;text-align:center}
+  .band h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:16px}
+  .band h2 em{font-style:italic;color:var(--mauve)}
+  .band p{color:var(--grey);font-size:1.1rem;max-width:40ch;margin:0 auto 30px}
+  .band a{background:var(--mauve);color:#fff;padding:16px 40px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;display:inline-block;transition:.3s}
+  .band a:hover{background:var(--mauve-d)}
+  footer{background:var(--char);color:#B3A6AB;padding:50px 0 30px;text-align:center;font-size:.86rem}
+  footer .logo{color:#fff;font-style:italic;font-size:1.6rem;margin-bottom:14px}
+  footer .links{display:flex;gap:26px;justify-content:center;margin:16px 0;flex-wrap:wrap;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+  footer a:hover{color:var(--blush)}
+  @media(max-width:860px){.grid{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr}.nlinks{display:none}.g4,.g9{grid-column:span 2}}
+  @media(prefers-reduced-motion){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="#" class="logo">Wildflower</a>
+  <div class="nlinks"><a href="#portfolio">Portfolio</a><a href="#about">About</a><a href="#packages">Investment</a><a href="#enquire">Enquire</a></div>
+  <a href="#enquire" class="enq">Check your date</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="pre">Brisbane &amp; Beyond · Wedding Photography</div>
+  <h1>The day goes fast.<br><em>The photos stay.</em></h1>
+  <p>Soft, honest, unhurried wedding photography for couples who want to remember how it felt — not just how it looked.</p>
+  <a href="#portfolio" class="hbtn">View the portfolio</a>
+  <div class="scroll">scroll ↓</div>
+</div></header>
+
+<section class="intro" id="about"><div class="wrap">
+  <div class="pre">Hello, I'm Amara</div>
+  <h2>I photograph the <em>in-between moments</em> — the ones you'll cry over in twenty years.</h2>
+  <p>The held breath before the doors open. Your dad's face. That uncontrollable laugh on the dance floor. I stay close, stay quiet, and let your day unfold the way it's meant to.</p>
+</div></section>
+
+<section class="gal" id="portfolio"><div class="wrap">
+  <div class="grid">
+    <div class="ph g1"></div><div class="ph g2"></div><div class="ph g3"></div>
+    <div class="ph g4"></div><div class="ph g5"></div><div class="ph g6"></div>
+    <div class="ph g7"></div><div class="ph g8"></div><div class="ph g9"></div>
+  </div>
+</div></section>
+
+<section class="pk" id="packages"><div class="wrap">
+  <div class="pre">The Investment</div>
+  <h2>Collections for every kind of wedding</h2>
+  <div class="cards">
+    <div class="pc"><div class="nm">Half day</div><h3>The Elopement</h3><div class="pr">from $2,400</div><ul><li>5 hours coverage</li><li>One photographer</li><li>250+ edited images</li><li>Online gallery</li></ul></div>
+    <div class="pc"><div class="nm">Most loved</div><h3>The Celebration</h3><div class="pr">from $3,900</div><ul><li>9 hours coverage</li><li>Second shooter</li><li>600+ edited images</li><li>Engagement session</li><li>Fine-art album</li></ul></div>
+    <div class="pc"><div class="nm">All of it</div><h3>The Weekend</h3><div class="pr">from $5,600</div><ul><li>Two days coverage</li><li>Second shooter</li><li>900+ edited images</li><li>Rehearsal &amp; recovery</li><li>Heirloom album set</li></ul></div>
+  </div>
+</div></section>
+
+<section class="band" id="enquire"><div class="wrap">
+  <h2>Is your date <em>still free?</em></h2>
+  <p>Tell me about your day — I only take a handful of weddings each season.</p>
+  <a href="#">Enquire now</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo">Wildflower</div>
+  <div class="links"><a href="#">Portfolio</a><a href="#">About</a><a href="#">Investment</a><a href="#">Journal</a></div>
+  <p>© 2026 Wildflower Weddings · hello@wildflowerweddings.com.au · Built with MINE</p>
+</div></footer>
+</body>
+</html>

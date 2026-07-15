@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help &amp; Getting Started — TAKEOVA</title>
+<meta name="description" content="Get started with TAKEOVA in four steps, and find answers to common questions about sites, domains, billing, AI employees, your account and support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--p:#2563EB;--p-700:#1D4ED8;--tx:#0F172A;--mt:#64748B;--dm:#94A3B8;--bd:#E2E8F0;--bg:#F8FAFC;--card:#fff;--ink-grad:linear-gradient(135deg,#1D4ED8,#2563EB)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--tx);background:var(--bg);line-height:1.65}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  nav{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:15px 28px}
+  .logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.4rem;display:flex;align-items:center;gap:9px}
+  .logo .m{width:30px;height:30px;border-radius:8px;background:var(--ink-grad);display:grid;place-items:center;color:#fff;font-size:.9rem}
+  .nlinks{display:flex;gap:30px;font-weight:500;font-size:.95rem;color:var(--mt)}
+  .nlinks a:hover{color:var(--tx)}
+  .cta{background:var(--p);color:#fff;padding:11px 22px;border-radius:10px;font-weight:600;font-size:.92rem;transition:.2s}
+  .cta:hover{background:var(--p-700)}
+  .hero{text-align:center;padding:72px 0 26px}
+  .pre{display:inline-flex;align-items:center;gap:8px;background:#EFF4FF;color:var(--p-700);padding:7px 16px;border-radius:30px;font-weight:600;font-size:.82rem;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;line-height:1.06;margin-bottom:18px}
+  .hero p{font-size:1.18rem;color:var(--mt);max-width:54ch;margin:0 auto}
+  .search{max-width:560px;margin:26px auto 0;display:flex;gap:10px;background:#fff;border:1px solid var(--bd);border-radius:14px;padding:8px 8px 8px 18px;box-shadow:0 6px 20px rgba(15,23,42,.05)}
+  .search input{flex:1;border:0;outline:0;font-size:1rem;font-family:inherit;color:var(--tx);background:transparent}
+  .search button{background:var(--p);color:#fff;border:0;border-radius:9px;padding:11px 20px;font-weight:600;font-family:inherit;cursor:pointer}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:48px 0 20px}
+  .step{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:26px;position:relative}
+  .step .n{width:34px;height:34px;border-radius:9px;background:var(--ink-grad);color:#fff;font-family:'Bricolage Grotesque';font-weight:800;display:grid;place-items:center;margin-bottom:14px}
+  .step h3{font-size:1.08rem;margin-bottom:7px}
+  .step p{color:var(--mt);font-size:.94rem}
+  /* faq */
+  .faqwrap{padding:30px 0 10px}
+  .faqwrap h2{font-size:clamp(1.8rem,3.6vw,2.4rem);font-weight:800;text-align:center;margin-bottom:8px}
+  .faqwrap .sub{text-align:center;color:var(--mt);margin-bottom:30px}
+  .cat{font-family:'Bricolage Grotesque';font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--p-700);margin:26px 0 10px}
+  details{background:#fff;border:1px solid var(--bd);border-radius:13px;margin-bottom:10px;overflow:hidden;transition:.2s}
+  details[open]{border-color:#CBD5E1;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+  summary{padding:18px 22px;font-weight:600;font-size:1.02rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.5rem;color:var(--dm);font-weight:400;transition:.2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details .a{padding:0 22px 20px;color:var(--mt);font-size:.98rem}
+  details .a a{color:var(--p-700);font-weight:600}
+  .band{background:var(--tx);color:#fff;border-radius:22px;padding:54px 40px;text-align:center;margin:46px 0 70px;position:relative;overflow:hidden}
+  .band::after{content:"";position:absolute;width:360px;height:360px;background:radial-gradient(circle,rgba(37,99,235,.4),transparent 70%);top:-120px;right:-80px}
+  .band>*{position:relative;z-index:2}
+  .band h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:12px}
+  .band p{color:#CBD5E1;font-size:1.1rem;max-width:48ch;margin:0 auto 26px}
+  .band a{background:var(--p);color:#fff;padding:15px 32px;border-radius:12px;font-weight:600;font-size:1.03rem;display:inline-block;transition:.2s}
+  .band a:hover{background:var(--p-700);transform:translateY(-2px)}
+  footer{border-top:1px solid var(--bd);padding:40px 0;color:var(--mt);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+  footer .links{display:flex;gap:22px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:760px){.nlinks{display:none}.steps{grid-template-columns:1fr}.band{padding:44px 24px}}
+  @media(prefers-reduced-motion){*{transition:none!important;scroll-behavior:auto}}
+
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--tx);border-radius:2px;transition:.25s;display:block}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--bd);padding:6px 28px 16px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:14px 4px;font-weight:600;color:var(--tx);border-bottom:1px solid var(--bd);font-size:1rem}
+  .mobile-menu a:last-child{border-bottom:0}
+  .mobile-menu .mcta{background:var(--p);color:#fff;border-radius:10px;text-align:center;margin-top:12px;padding:14px;border-bottom:0}
+  @media(max-width:760px){.burger{display:flex}.nav .cta{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="landing2.html" class="logo">TAKEOVA</a>
+  <div class="nlinks"><a href="learn.html">Features</a><a href="showcase.html">Showcase</a><a href="about.html">About</a><a href="help.html">Help</a><a href="contact.html">Contact</a></div>
+  <a href="landing2.html#build" class="cta">Build your site free</a>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="learn.html">Features</a>
+  <a href="showcase.html">Showcase</a>
+  <a href="about.html">About</a>
+  <a href="help.html">Help</a>
+  <a href="contact.html">Contact</a>
+  <a href="landing2.html#build" class="mcta">Build your site free</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="pre">Help centre</div>
+  <h1>Help &amp; getting started</h1>
+  <p>New to TAKEOVA, or stuck on something? Start with the four steps below, or search the common questions.</p>
+  <div class="search">
+    <input id="q" type="text" placeholder="Search help — e.g. 'custom domain', 'cancel', 'AI employees'" aria-label="Search help">
+    <button onclick="runSearch()">Search</button>
+  </div>
+</div></header>
+
+<section class="wrap">
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Describe your business</h3><p>One sentence — what you do, where, and the vibe. "A warm modern site for my Brisbane coffee roastery with an online shop."</p></div>
+    <div class="step"><div class="n">2</div><h3>TAKEOVA builds it</h3><p>In minutes you get a real website plus the back office behind it — bookings, customers, invoicing and payments wired in.</p></div>
+    <div class="step"><div class="n">3</div><h3>Make it yours</h3><p>Change anything by chatting with TAKEOVA, or fine-tune text, images and colours yourself in the dashboard.</p></div>
+    <div class="step"><div class="n">4</div><h3>Publish &amp; connect</h3><p>Go live on your free TAKEOVA address, or connect a domain you already own. Your AI employees start working immediately.</p></div>
+  </div>
+</section>
+
+<section class="wrap faqwrap" id="faq">
+  <h2>Common questions</h2>
+  <div class="sub">Can't find it here? <a href="contact.html" style="color:var(--p-700);font-weight:600">Get in touch</a> and a human will help.</div>
+
+  <div class="cat">Getting started</div>
+  <details><summary>Do I need any technical skills?</summary><div class="a">No. TAKEOVA is built for non-technical owners. If you can describe your business in plain English, you can build and run it — there's no code, and nothing to install.</div></details>
+  <details><summary>How long does it take to get a site?</summary><div class="a">Minutes. TAKEOVA generates the design, copy, layout and structure from your description, then you refine from there at your own pace.</div></details>
+  <details><summary>Can I change what TAKEOVA builds?</summary><div class="a">Yes — everything. Ask TAKEOVA in chat ("make the hero darker", "add a bookings page") or edit text, images and colours directly in the dashboard editor.</div></details>
+
+  <div class="cat">Your site &amp; domain</div>
+  <details><summary>Can I use my own domain?</summary><div class="a">Yes. Publish on your free TAKEOVA address to start, then connect a domain you already own whenever you're ready. If you don't have one yet, you can use the free address indefinitely.</div></details>
+  <details><summary>Is hosting included?</summary><div class="a">Yes. Your published site is hosted for you — there's no separate hosting bill or server to manage.</div></details>
+  <details><summary>Can I edit the site myself after it's built?</summary><div class="a">Absolutely. The dashboard editor lets you adjust copy, swap images, change colours and rearrange sections. Bigger changes are as easy as asking TAKEOVA in chat.</div></details>
+
+  <div class="cat">Billing</div>
+  <details><summary>What does TAKEOVA cost?</summary><div class="a">You can start building for free. Paid plans and current pricing are listed on the <a href="landing2.html#pricing">pricing section</a> of the home page. Billing is in Australian dollars (AUD).</div></details>
+  <details><summary>Can I cancel anytime?</summary><div class="a">Yes. There's no lock-in — you can cancel from your account settings at any time. See the <a href="legal.html">Terms &amp; Refund policy</a> for details on billing periods.</div></details>
+  <details><summary>Do you offer refunds?</summary><div class="a">Refunds are handled under our published Refund &amp; Cancellation policy — read it in full on the <a href="legal.html">Legal</a> page.</div></details>
+
+  <div class="cat">AI employees</div>
+  <details><summary>What are AI employees?</summary><div class="a">They're built-in assistants that handle the ongoing busywork of running your business — things like answering enquiries, following up with customers, drafting content, preparing invoices and sending outreach — so going live isn't another pile of admin.</div></details>
+  <details><summary>Do I have to use them?</summary><div class="a">No. They're there to help, but you stay in control — turn on the ones you want, review their work, and switch any of them off whenever you like.</div></details>
+
+  <div class="cat">Account &amp; data</div>
+  <details><summary>Is my data safe?</summary><div class="a">Your data is yours. We handle it under our <a href="legal.html">Privacy policy</a>, which covers how it's stored, who can access it, and our sub-processors. You can export or delete your data from your account.</div></details>
+  <details><summary>How do I export or delete my account?</summary><div class="a">From account settings you can request an export of your data or delete your account. If you need a hand, <a href="contact.html">contact us</a> and we'll walk you through it.</div></details>
+
+  <div class="cat">Support</div>
+  <details><summary>How do I get help from a person?</summary><div class="a">Head to the <a href="contact.html">Contact</a> page or email <a href="mailto:support@takeova.ai">support@takeova.ai</a>. We aim to reply within one business day.</div></details>
+</section>
+
+<div class="wrap">
+  <section class="band">
+    <h2>Still stuck?</h2>
+    <p>A real person is happy to help you get unblocked.</p>
+    <a href="contact.html">Contact support →</a>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  <div>© 2026 TAKEOVA · Powered by TAKEOVA</div>
+  <div class="links"><a href="learn.html">Features</a><a href="showcase.html">Showcase</a><a href="about.html">About</a><a href="help.html">Help</a><a href="contact.html">Contact</a><a href="legal.html">Legal</a></div>
+</div></footer>
+<script>
+  function runSearch(){
+    var t=(document.getElementById('q').value||'').toLowerCase().trim();
+    var ds=document.querySelectorAll('details');
+    if(!t){ds.forEach(function(d){d.style.display='';d.open=false;});return;}
+    var first=null;
+    ds.forEach(function(d){
+      var hit=d.textContent.toLowerCase().indexOf(t)>-1;
+      d.style.display=hit?'':'none';
+      d.open=hit;
+      if(hit&&!first)first=d;
+    });
+    if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  document.getElementById('q').addEventListener('keydown',function(e){if(e.key==='Enter')runSearch();});
+</script>
+<script>
+function toggleMenu(btn){
+  var m=document.getElementById('mobileMenu');
+  var open=m.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',open?'true':'false');
+}
+</script>
+</body>
+</html>

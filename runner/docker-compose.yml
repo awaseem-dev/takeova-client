@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  runner:
+    build: .
+    container_name: mine-webhands-runner
+    ports:
+      - "8000:8000"
+      - "5900:5900"  # x11vnc — only exposed when ENABLE_VNC=true
+    environment:
+      INTERNAL_API_KEY: "${INTERNAL_API_KEY:-change-me-to-a-real-shared-secret}"
+      ENABLE_VNC: "${ENABLE_VNC:-false}"  # set true locally to peek at the browser
+    shm_size: 2gb  # Chrome needs shared memory
+    restart: unless-stopped

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Forge Gym — Get Strong. Stay Strong.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--coal:#161616;--coal2:#202020;--concrete:#2B2B2B;--ember:#FF4D2E;--ash:#9A9A9A;--bone:#F4F1EC}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Barlow',sans-serif;color:var(--bone);background:var(--coal);line-height:1.6}
+  h1,h2,h3,.disp{font-family:'Anton',sans-serif;letter-spacing:.01em;text-transform:uppercase;font-weight:400}
+  .cond{font-family:'Barlow Condensed',sans-serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  a{color:inherit;text-decoration:none}
+  nav{border-bottom:2px solid var(--concrete);position:sticky;top:0;background:var(--coal);z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:16px 26px}
+  .logo{font-family:'Anton';font-size:1.5rem;display:flex;align-items:center;gap:10px;letter-spacing:.02em}
+  .logo span{color:var(--ember)}
+  .bolt{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:18px solid var(--ember)}
+  .nlinks{display:flex;gap:30px;font-family:'Barlow Condensed';font-weight:600;font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em}
+  .nlinks a:hover{color:var(--ember)}
+  .join{background:var(--ember);color:#fff;padding:11px 24px;font-family:'Barlow Condensed';font-weight:700;font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%)}
+  .join:hover{background:#ff6448}
+  /* hero */
+  .hero{position:relative;padding:90px 0 100px;overflow:hidden;background:linear-gradient(120deg,var(--coal) 60%,var(--concrete))}
+  .ghost{position:absolute;right:-30px;top:-20px;font-family:'Anton';font-size:26rem;color:var(--coal2);line-height:.8;z-index:0;user-select:none}
+  .hero .wrap{position:relative;z-index:2}
+  .flag{display:inline-block;background:var(--ember);color:#fff;font-family:'Barlow Condensed';font-weight:700;padding:6px 16px;text-transform:uppercase;letter-spacing:.1em;font-size:.9rem;margin-bottom:22px}
+  .hero h1{font-size:clamp(3.4rem,10vw,8rem);line-height:.86;margin-bottom:22px}
+  .hero h1 span{color:var(--ember)}
+  .hero p{font-size:1.2rem;color:var(--ash);max-width:42ch;margin-bottom:32px}
+  .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .b1{background:var(--ember);color:#fff;padding:16px 32px;font-family:'Barlow Condensed';font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.04em;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
+  .b2{border:2px solid var(--ash);color:var(--bone);padding:14px 30px;font-family:'Barlow Condensed';font-weight:700;font-size:1.2rem;text-transform:uppercase}
+  .b1:hover{background:#ff6448}.b2:hover{border-color:var(--ember);color:var(--ember)}
+  /* stats */
+  .stats{background:var(--ember);color:#fff;padding:0}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:34px 18px;text-align:center;border-right:1px solid rgba(0,0,0,.15)}
+  .stat:last-child{border:none}
+  .stat .n{font-family:'Anton';font-size:3rem;line-height:1}
+  .stat .l{font-family:'Barlow Condensed';font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem}
+  /* programs */
+  .sec{padding:84px 0}
+  .lbl{color:var(--ember);font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:1rem;margin-bottom:10px}
+  .sec h2{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:40px}
+  .progs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;background:var(--concrete)}
+  .prog{background:var(--coal2);padding:34px 28px;transition:.2s;border-top:3px solid transparent}
+  .prog:hover{background:var(--concrete);border-top-color:var(--ember)}
+  .prog .num{font-family:'Anton';font-size:1.6rem;color:var(--concrete);-webkit-text-stroke:1px var(--ember);margin-bottom:14px}
+  .prog:hover .num{color:var(--ember);-webkit-text-stroke:0}
+  .prog h3{font-size:1.6rem;margin-bottom:10px}
+  .prog p{color:var(--ash);font-size:.97rem}
+  /* timetable */
+  .tt{background:var(--coal2);padding:80px 0}
+  .tt h2{font-size:clamp(2.2rem,5vw,3.2rem);margin-bottom:34px}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:var(--coal);margin-bottom:8px;border-left:4px solid var(--ember);flex-wrap:wrap;gap:12px}
+  .row .cls{font-family:'Barlow Condensed';font-weight:700;font-size:1.5rem;text-transform:uppercase}
+  .row .tm{font-family:'Barlow Condensed';color:var(--ash);font-size:1.1rem;letter-spacing:.04em}
+  .row .sp{background:var(--concrete);color:var(--ember);font-family:'Barlow Condensed';font-weight:700;padding:5px 14px;font-size:.9rem;text-transform:uppercase}
+  /* cta */
+  .band{padding:90px 0;text-align:center;background:linear-gradient(120deg,var(--concrete),var(--coal))}
+  .band h2{font-size:clamp(2.6rem,7vw,5rem);line-height:.9;margin-bottom:16px}
+  .band h2 span{color:var(--ember)}
+  .band p{color:var(--ash);font-size:1.2rem;margin-bottom:28px}
+  footer{background:var(--coal);border-top:2px solid var(--concrete);padding:40px 0 26px;color:var(--ash);font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center}
+  footer .logo{color:var(--bone);font-size:1.3rem}footer a:hover{color:var(--ember)}
+  @media(max-width:760px){.nlinks{display:none}.stats .wrap{grid-template-columns:1fr 1fr}.stat{border-bottom:1px solid rgba(0,0,0,.15)}}
+  @media(prefers-reduced-motion){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="#" class="logo"><span class="bolt"></span>IRON<span>FORGE</span></a>
+  <div class="nlinks"><a href="#programs">Programs</a><a href="#timetable">Timetable</a><a href="#">Coaches</a><a href="#join">Membership</a></div>
+  <a href="#join" class="join">Start 7-day trial</a>
+</div></nav>
+
+<header class="hero">
+  <div class="ghost">IF</div>
+  <div class="wrap">
+    <span class="flag">Brisbane · Fortitude Valley</span>
+    <h1>Forge a<br>body that<br><span>won't quit.</span></h1>
+    <p>Strength training, conditioning and coaching for people who are done mucking about. No mirrors-and-selfies fluff — just real work that works.</p>
+    <div class="btns"><a href="#join" class="b1">Claim your 7-day trial</a><a href="#programs" class="b2">View programs</a></div>
+  </div>
+</header>
+
+<section class="stats"><div class="wrap">
+  <div class="stat"><div class="n">2,400</div><div class="l">Members strong</div></div>
+  <div class="stat"><div class="n">38</div><div class="l">Classes / week</div></div>
+  <div class="stat"><div class="n">12</div><div class="l">Expert coaches</div></div>
+  <div class="stat"><div class="n">24/7</div><div class="l">Gym access</div></div>
+</div></section>
+
+<section class="sec" id="programs"><div class="wrap">
+  <div class="lbl">What we train</div>
+  <h2>Pick your fight</h2>
+  <div class="progs">
+    <div class="prog"><div class="num">01</div><h3>Strength</h3><p>Barbell-based programming to build raw, usable strength — squat, press, pull, repeat.</p></div>
+    <div class="prog"><div class="num">02</div><h3>Hyrox &amp; Conditioning</h3><p>Engine-building HIIT and functional racing prep that'll leave you breathing fire.</p></div>
+    <div class="prog"><div class="num">03</div><h3>Personal Training</h3><p>One-on-one coaching built around your goals, your schedule, your starting point.</p></div>
+    <div class="prog"><div class="num">04</div><h3>Beginners' Forge</h3><p>Never lifted? Start here. Six weeks of small-group coaching to learn the lifts safely.</p></div>
+  </div>
+</div></section>
+
+<section class="tt" id="timetable"><div class="wrap">
+  <h2>This week's timetable</h2>
+  <div class="row"><span class="cls">Strength · Lower</span><span class="tm">Mon · 6:00am / 5:30pm</span><span class="sp">4 spots</span></div>
+  <div class="row"><span class="cls">Hyrox Conditioning</span><span class="tm">Tue · 6:00am / 6:30pm</span><span class="sp">Open</span></div>
+  <div class="row"><span class="cls">Strength · Upper</span><span class="tm">Wed · 6:00am / 5:30pm</span><span class="sp">2 spots</span></div>
+  <div class="row"><span class="cls">Engine Builder</span><span class="tm">Thu · 6:30pm</span><span class="sp">Open</span></div>
+  <div class="row"><span class="cls">Saturday Grind</span><span class="tm">Sat · 8:00am</span><span class="sp">Filling fast</span></div>
+</div></section>
+
+<section class="band" id="join"><div class="wrap">
+  <h2>Seven days.<br><span>No excuses.</span></h2>
+  <p>Train free for a week. Bring your worst — leave stronger.</p>
+  <a href="#" class="b1">Start your free trial</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo" style="display:flex;align-items:center;gap:8px"><span class="bolt"></span>IRONFORGE</div>
+  <div>24 Warner Street, Fortitude Valley · (07) 3211 4400</div>
+  <div>© 2026 Iron Forge Gym · Built with MINE</div>
+</div></footer>
+</body>
+</html>

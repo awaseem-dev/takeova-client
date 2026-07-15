@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riverbend Coffee — Your corner for good coffee in West End</title>
+<meta name="description" content="A neighbourhood café serving specialty coffee, all-day brunch, and house-baked treats. Open 7 days on the river end of West End.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --esp:#2B1B12; --esp-2:#3D2A1C; --caramel:#C57B42; --caramel-d:#A55F2C;
+    --sage:#7E8B6B; --cream:#F3E8D8; --paper:#FBF5EC; --ink:#2B1B12; --body:#6E5E50; --line:#E7D9C5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;color:var(--body);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.dsp{font-family:'DM Serif Display',serif;color:var(--ink);font-weight:400;line-height:1.08}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'DM Sans';font-weight:600;font-size:15px;padding:14px 28px;border-radius:40px;cursor:pointer;border:none;transition:.18s}
+  .btn-fill{background:var(--caramel);color:#fff}
+  .btn-fill:hover{background:var(--caramel-d)}
+  .btn-dark{background:var(--esp);color:var(--cream)}
+  .btn-dark:hover{background:var(--esp-2)}
+  .btn-line{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn-line:hover{background:var(--ink);color:var(--cream)}
+  nav{position:sticky;top:0;z-index:50;background:rgba(251,245,236,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'DM Serif Display';font-size:24px;color:var(--ink)}
+  .logo .cup{width:32px;height:32px;background:var(--caramel);border-radius:50%;display:grid;place-items:center}
+  .logo .cup svg{width:18px;height:18px;color:#fff}
+  .nlinks{display:flex;gap:30px;align-items:center}
+  .nlinks a{font-size:15px;font-weight:500;color:var(--body);transition:.15s}
+  .nlinks a:hover{color:var(--caramel-d)}
+  .burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px}
+  .burger span{width:24px;height:2px;background:var(--ink);border-radius:2px}
+  /* hero */
+  .hero{background:linear-gradient(160deg,var(--cream),var(--paper));position:relative;overflow:hidden}
+  .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:80px 0 90px}
+  .pre{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:22px}
+  .pre .d{width:7px;height:7px;background:var(--sage);border-radius:50%}
+  .hero h1{font-size:clamp(44px,6.2vw,80px);margin-bottom:22px}
+  .hero h1 em{font-style:italic;color:var(--caramel-d)}
+  .hero p{font-size:18px;max-width:430px;margin-bottom:32px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .open-now{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);margin-top:24px}
+  .open-now .pulse{width:9px;height:9px;background:#3DAE5F;border-radius:50%;box-shadow:0 0 0 4px rgba(61,174,95,.2)}
+  /* hero art */
+  .h-art{aspect-ratio:1;border-radius:24px;background:linear-gradient(155deg,var(--esp),var(--esp-2));position:relative;overflow:hidden;display:grid;place-items:center;box-shadow:0 26px 60px rgba(43,27,18,.3)}
+  .h-art::before{content:"";position:absolute;width:280px;height:280px;background:radial-gradient(circle,rgba(197,123,66,.3),transparent 65%);top:-10%;right:-10%;border-radius:50%}
+  .h-cup{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+  .h-cup .steam{display:flex;gap:7px;margin-bottom:8px}
+  .h-cup .steam i{width:3px;height:26px;background:linear-gradient(180deg,transparent,rgba(243,232,216,.55));border-radius:3px;animation:rise 3s ease-in-out infinite}
+  .h-cup .steam i:nth-child(2){animation-delay:.6s;height:34px}
+  .h-cup .steam i:nth-child(3){animation-delay:1.2s}
+  @keyframes rise{0%,100%{opacity:.3;transform:translateY(3px)}50%{opacity:.8;transform:translateY(-3px)}}
+  .h-cup .mug{width:120px;height:96px;background:var(--cream);border-radius:8px 8px 50px 50px;position:relative}
+  .h-cup .mug::after{content:"";position:absolute;right:-26px;top:18px;width:30px;height:42px;border:9px solid var(--cream);border-left:none;border-radius:0 30px 30px 0}
+  .h-cup .mug .crema{position:absolute;top:10px;left:12px;right:12px;height:18px;background:var(--caramel);border-radius:50%}
+  .h-tag{position:absolute;bottom:26px;left:26px;background:var(--paper);border-radius:14px;padding:13px 17px;z-index:3;box-shadow:0 12px 30px rgba(43,27,18,.25)}
+  .h-tag b{font-family:'DM Serif Display';font-size:18px;color:var(--ink);display:block;line-height:1.1}
+  .h-tag small{font-size:12px;color:var(--body)}
+  /* sections */
+  section{padding:92px 0}
+  .center{margin-left:auto;margin-right:auto;text-align:center}
+  .sh{font-size:clamp(34px,4.4vw,52px);margin-bottom:14px}
+  .sh em{font-style:italic;color:var(--caramel-d)}
+  .lead{font-size:17px;max-width:520px}
+  /* menu */
+  .band{background:var(--cream)}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:54px}
+  .mcol h3{font-size:28px;margin-bottom:6px;display:flex;align-items:center;gap:12px}
+  .mcol h3 .ln{flex:1;height:1px;background:var(--line)}
+  .mcol .csub{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:22px;font-weight:600}
+  .mitem{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .mitem:last-child{border-bottom:none}
+  .mitem .nm{font-weight:600;color:var(--ink);font-size:16px}
+  .mitem .ds{font-size:13.5px;color:var(--body);display:block;font-weight:400;margin-top:2px}
+  .mitem .dots{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);margin:0 4px}
+  .mitem .pr{font-family:'DM Serif Display';font-size:18px;color:var(--caramel-d);white-space:nowrap}
+  /* visit */
+  .visit-in{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .hours{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:36px 38px}
+  .hours h3{font-size:26px;margin-bottom:20px}
+  .hrow{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .hrow:last-child{border-bottom:none}
+  .hrow .d{font-weight:600;color:var(--ink)}
+  .hrow .t{color:var(--body)}
+  .hrow.today{color:var(--caramel-d)}
+  .hrow.today .d,.hrow.today .t{color:var(--caramel-d);font-weight:600}
+  .map{aspect-ratio:4/3;border-radius:20px;background:linear-gradient(150deg,var(--sage),#5f6b4e);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:30px}
+  .map::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(255,255,255,.06) 28px,rgba(255,255,255,.06) 29px),repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(255,255,255,.06) 28px,rgba(255,255,255,.06) 29px)}
+  .map .pin{position:absolute;top:42%;left:46%;width:24px;height:24px;background:var(--caramel);border:3px solid #fff;border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .map .addr{position:relative;z-index:2;color:#fff}
+  .map .addr b{font-family:'DM Serif Display';font-size:22px;display:block;line-height:1.15}
+  .map .addr span{font-size:14px;opacity:.9}
+  /* cta */
+  .order{background:var(--esp);color:var(--cream);text-align:center}
+  .order h2{color:var(--cream);font-size:clamp(32px,4.2vw,52px);margin-bottom:14px}
+  .order h2 em{font-style:italic;color:var(--caramel)}
+  .order p{color:rgba(243,232,216,.72);font-size:17px;max-width:440px;margin:0 auto 30px}
+  .order .btn-fill{background:var(--cream);color:var(--esp)}
+  .order .btn-fill:hover{background:#fff}
+  /* footer */
+  footer{background:var(--paper);border-top:1px solid var(--line);padding:56px 0 28px}
+  .f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:38px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+  .f-logo{display:flex;align-items:center;gap:10px;font-family:'DM Serif Display';font-size:23px;color:var(--ink);margin-bottom:14px}
+  .f-logo .cup{width:30px;height:30px;background:var(--caramel);border-radius:50%;display:grid;place-items:center}
+  .f-logo .cup svg{width:16px;height:16px;color:#fff}
+  footer h4{font-family:'DM Sans';font-weight:700;color:var(--ink);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:15px}
+  footer ul{list-style:none}footer ul li{margin-bottom:9px;font-size:14.5px}
+  footer ul a:hover{color:var(--caramel-d)}
+  .f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--body)}
+  .made{display:inline-flex;align-items:center;gap:7px;color:var(--body);transition:.15s}
+  .made:hover{color:var(--caramel-d)}.made b{color:var(--ink);font-weight:700}
+  .made .m{width:17px;height:17px;background:#2563EB;border-radius:5px;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:700}
+  @media(max-width:920px){
+    .hero-in,.menu-grid,.visit-in{grid-template-columns:1fr;gap:40px}
+    .h-art{max-width:380px;margin:0 auto}.f-top{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){.nlinks{display:none}.burger{display:flex}.f-top{grid-template-columns:1fr}section{padding:62px 0}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="logo"><span class="cup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h2a2 2 0 0 1 0 4h-2"/></svg></span>Riverbend</a>
+    <div class="nlinks">
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+      <a href="#hours">Hours</a>
+      <a href="#">Catering</a>
+      <a href="#order" class="btn btn-line" style="padding:10px 22px">Order ahead</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.nlinks').style.display='flex'"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="pre"><span class="d"></span>West End · Brisbane</span>
+      <h1>Good coffee, <em>good company,</em> good morning.</h1>
+      <p>Specialty coffee roasted down the road, all-day brunch, and treats baked in-house every morning. Pull up a stool — you're a regular now.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn btn-dark">See the menu</a>
+        <a href="#order" class="btn btn-line">Order ahead</a>
+      </div>
+      <div class="open-now"><span class="pulse"></span>Open now · until 3:00pm today</div>
+    </div>
+    <div style="position:relative">
+      <div class="h-art">
+        <div class="h-cup">
+          <div class="steam"><i></i><i></i><i></i></div>
+          <div class="mug"><div class="crema"></div></div>
+        </div>
+      </div>
+      <div class="h-tag"><b>Single-origin</b><small>Roasted weekly in Brisbane</small></div>
+    </div>
+  </div>
+</header>
+
+<section id="menu" class="band">
+  <div class="wrap">
+    <div class="center" style="max-width:540px">
+      <span class="pre" style="justify-content:center"><span class="d"></span>On the menu</span>
+      <h2 class="sh">Brewed, baked &amp; <em>made fresh</em></h2>
+    </div>
+    <div class="menu-grid">
+      <div class="mcol">
+        <h3>Coffee <span class="ln"></span></h3>
+        <div class="csub">Espresso · Filter · Cold</div>
+        <div class="mitem"><div><span class="nm">Espresso / Long Black</span><span class="ds">Single origin, rotating</span></div><span class="dots"></span><span class="pr">$4.5</span></div>
+        <div class="mitem"><div><span class="nm">Flat White / Latte / Cap</span><span class="ds">Full cream, oat or almond</span></div><span class="dots"></span><span class="pr">$5.5</span></div>
+        <div class="mitem"><div><span class="nm">Batch Filter</span><span class="ds">Brewed all morning</span></div><span class="dots"></span><span class="pr">$5.0</span></div>
+        <div class="mitem"><div><span class="nm">Cold Brew</span><span class="ds">18-hour steep, on tap</span></div><span class="dots"></span><span class="pr">$6.0</span></div>
+        <div class="mitem"><div><span class="nm">Iced Latte / Mocha</span></div><span class="dots"></span><span class="pr">$6.5</span></div>
+      </div>
+      <div class="mcol">
+        <h3>Kitchen <span class="ln"></span></h3>
+        <div class="csub">All day · 7am–2:30pm</div>
+        <div class="mitem"><div><span class="nm">Smashed Avo</span><span class="ds">Sourdough, feta, dukkah, lemon</span></div><span class="dots"></span><span class="pr">$18</span></div>
+        <div class="mitem"><div><span class="nm">Bacon & Egg Roll</span><span class="ds">Milk bun, smoky BBQ relish</span></div><span class="dots"></span><span class="pr">$14</span></div>
+        <div class="mitem"><div><span class="nm">Riverbend Big Breakfast</span><span class="ds">Eggs, bacon, mushroom, tomato, toast</span></div><span class="dots"></span><span class="pr">$24</span></div>
+        <div class="mitem"><div><span class="nm">Banana Bread</span><span class="ds">House-baked, grilled with butter</span></div><span class="dots"></span><span class="pr">$8</span></div>
+        <div class="mitem"><div><span class="nm">Daily Pastry</span><span class="ds">Ask at the counter</span></div><span class="dots"></span><span class="pr">$6.5</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="center" style="max-width:540px">
+      <span class="pre" style="justify-content:center"><span class="d"></span>Come say hi</span>
+      <h2 class="sh">Find us on the <em>river end</em></h2>
+    </div>
+    <div class="visit-in" id="hours">
+      <div class="hours">
+        <h3>Opening hours</h3>
+        <div class="hrow"><span class="d">Monday – Friday</span><span class="t">6:30am – 3:00pm</span></div>
+        <div class="hrow today"><span class="d">Saturday (today)</span><span class="t">7:00am – 3:00pm</span></div>
+        <div class="hrow"><span class="d">Sunday</span><span class="t">7:00am – 2:00pm</span></div>
+        <div class="hrow"><span class="d">Public holidays</span><span class="t">8:00am – 1:00pm</span></div>
+        <a href="#order" class="btn btn-fill" style="margin-top:22px;width:100%;justify-content:center">Order ahead for pickup</a>
+      </div>
+      <div class="map">
+        <span class="pin"></span>
+        <div class="addr"><b>118 Boundary Street</b><span>West End QLD 4101 · Free street parking</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap">
+    <h2>Skip the queue, <em>keep the warmth</em></h2>
+    <p>Order ahead and your coffee's ready when you walk in. Earn a free brew on every tenth cup.</p>
+    <a href="#" class="btn btn-fill">Order ahead now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <div class="f-logo"><span class="cup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h2a2 2 0 0 1 0 4h-2"/></svg></span>Riverbend Coffee</div>
+        <p style="max-width:290px">A neighbourhood café on Boundary Street, West End. Good coffee since 2018.</p>
+      </div>
+      <div><h4>Visit</h4><ul><li>118 Boundary St, West End</li><li>Open 7 days</li><li><a href="#menu">Menu</a></li><li><a href="#order">Order ahead</a></li></ul></div>
+      <div><h4>Say hi</h4><ul><li><a href="#">hello@riverbend.coffee</a></li><li><a href="#">07 3000 1188</a></li><li><a href="#">@riverbendcoffee</a></li><li><a href="#">Catering enquiries</a></li></ul></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Riverbend Coffee. See you tomorrow.</span>
+      <a href="../landing2.html" class="made"><span class="m">M</span>Made with <b>MINE</b></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAKEOVA Showdown — $500 Cash Monthly Prize</title>
+<meta name="description" content="Top 5% of TAKEOVA stores by revenue win $500 cash every month. $1M prize pool. Enter free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fff;
+  color: #0F172A;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4 { font-family: 'Bricolage Grotesque', sans-serif; }
+
+/* ── NAV ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px,4vw,40px);
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #E2E8F0;
+}
+.logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  background: linear-gradient(135deg,#635BFF,#818CF8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+.nav-link { font-size:13px; color:#64748B; text-decoration:none; font-weight:600; transition:color .15s; }
+.nav-link:hover { color:#0F172A; }
+
+/* ── HERO ── */
+.hero {
+  padding: clamp(64px,10vw,120px) clamp(16px,4vw,40px) clamp(56px,8vw,100px);
+  text-align: center;
+  background: linear-gradient(180deg, #F8F9FF 0%, #fff 100%);
+  border-bottom: 1px solid #E2E8F0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; left: 50%;
+  transform: translateX(-50%);
+  width:100%;max-width:800px; height: 500px;
+  background: radial-gradient(ellipse, rgba(99,91,255,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(99,91,255,.06);
+  border: 1px solid rgba(99,91,255,.2);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #635BFF;
+  letter-spacing: .3px;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: clamp(44px,8vw,88px);
+  font-weight: 900;
+  letter-spacing: -2.5px;
+  line-height: 1.0;
+  margin-bottom: 24px;
+  color: #0F172A;
+}
+.grad { background: linear-gradient(135deg,#635BFF,#818CF8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.gold { background: linear-gradient(135deg,#F59E0B,#EC4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+.hero-sub {
+  font-size: clamp(15px,2.2vw,19px);
+  color: #475569;
+  max-width: 580px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+.hero-sub strong { color: #0F172A; }
+
+/* ── POOL STATS ── */
+.pool-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+.pool-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 560px;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media(max-width:560px){
+  .pool-bar { grid-template-columns: 1fr 1fr; }
+  .pool-stat:nth-child(1),
+  .pool-stat:nth-child(2) { border-bottom: 1px solid var(--bd); }
+  .pool-stat:nth-child(2) { border-right: none; }
+}
+.pool-stat {
+  padding: 18px 12px;
+  text-align: center;
+  border-right: 1px solid #E2E8F0;
+}
+.pool-stat:last-child { border-right: none; }
+@media(max-width:600px){
+  .pool-stat:nth-child(2) { border-right: none; }
+  .pool-stat:nth-child(3) { border-top: 1px solid #E2E8F0; }
+  .pool-stat:nth-child(4) { border-top: 1px solid #E2E8F0; border-right: none; }
+}
+.pool-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(22px,3.5vw,32px);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.pool-num.purple { background: linear-gradient(135deg,#635BFF,#818CF8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.pool-num.gold { background: linear-gradient(135deg,#F59E0B,#EC4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.pool-num.green { color: #16A34A; }
+.pool-num.blue { color: #2563EB; }
+.pool-label { font-size:10px; color:#94A3B8; font-weight:700; text-transform:uppercase; letter-spacing:.8px; }
+
+/* ── BUTTONS ── */
+.btn-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.btn-primary {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(135deg,#635BFF,#818CF8);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 8px 28px rgba(99,91,255,.32);
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(99,91,255,.45); }
+.btn-ghost {
+  display: inline-block;
+  padding: 15px 32px;
+  background: #fff;
+  color: #475569;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color:#94A3B8; color:#0F172A; }
+
+/* ── SECTIONS ── */
+.section { padding: clamp(40px,5vw,72px) clamp(16px,4vw,40px); }
+.section.bg-light { background: #F8FAFC; border-top:1px solid #E2E8F0; border-bottom:1px solid #E2E8F0; }
+.wrap { max-width:1080px; margin:0 auto; }
+.wrap-sm { max-width:660px; margin:0 auto; }
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: rgba(99,91,255,.07);
+  border: 1px solid rgba(99,91,255,.18);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #635BFF;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-size: clamp(30px,5vw,52px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.08;
+  margin-bottom: 14px;
+  color: #0F172A;
+}
+.section-sub { font-size:16px; color:#64748B; line-height:1.7; max-width:540px; }
+
+/* ── STEPS ── */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+.step-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 28px;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.step-card:hover { border-color: rgba(99,91,255,.3); transform:translateY(-3px); box-shadow:0 12px 32px rgba(99,91,255,.08); }
+.step-num {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg,#635BFF,#818CF8);
+  border-radius: 12px;
+  display: flex; align-items:center; justify-content:center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px; font-weight: 900; color: #fff;
+  margin-bottom: 18px;
+}
+.step-card h3 { font-size:17px; font-weight:800; margin-bottom:8px; letter-spacing:-.3px; color:#0F172A; }
+.step-card p { font-size:13px; color:#64748B; line-height:1.7; }
+
+/* ── PRIZE HERO ── */
+.prize-banner {
+  background: linear-gradient(135deg,#1E1B4B,#312E81);
+  border-radius: 24px;
+  padding: clamp(28px,5vw,64px) clamp(16px,4vw,56px);
+  text-align: center;
+  margin-top: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.prize-banner::before {
+  content:'';
+  position:absolute;
+  top:-100px; left:50%;
+  transform:translateX(-50%);
+  width:100%;max-width:500px; height:500px;
+  background:radial-gradient(circle,rgba(99,91,255,.25) 0%,transparent 70%);
+  pointer-events:none;
+}
+.prize-amount {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(52px,14vw,120px);
+  font-weight: 900;
+  background: linear-gradient(135deg,#F59E0B,#FBBF24,#FCD34D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: clamp(-2px,-0.5vw,-4px);
+  margin-bottom: 8px;
+}
+.prize-sub { font-size:clamp(13px,2vw,17px); color:rgba(255,255,255,.7); margin-bottom:28px; }
+.prize-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+.prize-stat { padding:12px 6px; border-right:1px solid rgba(255,255,255,.08); text-align:center; }
+.prize-stat:last-child { border-right:none; }
+.prize-stat-num { font-family:'Bricolage Grotesque',sans-serif; font-size:clamp(14px,3.5vw,22px); font-weight:900; color:#fff; }
+.prize-stat-label { font-size:10px; color:rgba(255,255,255,.4); margin-top:2px; text-transform:uppercase; letter-spacing:.8px; }
+
+/* ── RANK CARDS ── */
+.rank-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+  gap: 12px;
+  margin-top: 40px;
+}
+.rank-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 28px;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.rank-card:hover { border-color:rgba(99,91,255,.3); transform:translateY(-3px); box-shadow:0 12px 32px rgba(99,91,255,.08); }
+.rank-icon { font-size:30px; margin-bottom:14px; }
+.rank-card h3 { font-size:16px; font-weight:800; margin-bottom:8px; color:#0F172A; letter-spacing:-.2px; }
+.rank-card p { font-size:13px; color:#64748B; line-height:1.7; }
+
+/* ── COMPARE ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 48px;
+}
+@media(max-width:480px){
+  .prize-stats { grid-template-columns:1fr 1fr; }
+  .prize-stat:nth-child(1),.prize-stat:nth-child(2){ border-bottom:1px solid rgba(255,255,255,.08); }
+  .prize-stat:nth-child(2){ border-right:none; }
+  .prize-stat:nth-child(4){ border-right:none; }
+}
+@media(max-width:640px){ .compare-grid { grid-template-columns:1fr; } }
+.compare-card { border-radius:20px; padding:28px; text-align:left; }
+.compare-mine { background:linear-gradient(135deg,rgba(99,91,255,.06),rgba(129,140,248,.03)); border:1.5px solid rgba(99,91,255,.2); }
+.compare-tactics { background:linear-gradient(135deg,rgba(34,197,94,.05),rgba(16,185,129,.03)); border:1.5px solid rgba(34,197,94,.2); }
+.compare-card h3 { font-size:13px; font-weight:800; margin-bottom:18px; letter-spacing:-.1px; text-align:left; }
+.compare-card h3.purple { color:#635BFF; }
+.compare-card h3.green { color:#16A34A; }
+.compare-item { display:flex; align-items:flex-start; gap:8px; padding:8px 0; font-size:13px; color:#475569; border-bottom:1px solid #F1F5F9; line-height:1.5; text-align:left; }
+.compare-item:last-child { border-bottom:none; }
+.compare-verdict { margin-top:18px; padding:10px 16px; border-radius:10px; font-size:12px; font-weight:700; text-align:center; }
+.verdict-purple { background:rgba(99,91,255,.08); color:#635BFF; }
+.verdict-green { background:rgba(34,197,94,.08); color:#16A34A; }
+
+/* ── FORM SECTION ── */
+.form-section {
+  padding: clamp(64px,8vw,100px) clamp(16px,4vw,40px);
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+.form-card {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: clamp(28px,4vw,48px);
+  max-width: 540px;
+  margin: 40px auto 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,.04);
+}
+.field-label { display:block; font-size:11px; font-weight:700; color:#64748B; text-transform:uppercase; letter-spacing:.8px; margin-bottom:8px; }
+.field-input {
+  width: 100%;
+  padding: 13px 16px;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  color: #0F172A;
+  font-size: 14px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+  outline: none;
+}
+.field-input:focus { border-color:#635BFF; background:#fff; box-shadow:0 0 0 3px rgba(99,91,255,.1); }
+.field-input::placeholder { color:#94A3B8; }
+.biz-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.biz-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #E2E8F0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  transition: all .15s;
+  background: #F8FAFC;
+  user-select: none;
+}
+.biz-check:hover { border-color:#635BFF; }
+.biz-check input { display:none; }
+.biz-check.checked { border-color:#635BFF; background:rgba(99,91,255,.05); color:#635BFF; }
+.error-msg {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #DC2626;
+  display: none;
+}
+.info-box {
+  background: rgba(99,91,255,.05);
+  border: 1px solid rgba(99,91,255,.15);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #635BFF;
+  font-weight: 600;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.success-box { text-align:center; padding:32px 0; }
+.success-icon { font-size:56px; margin-bottom:16px; }
+
+/* ── LEADERBOARD ── */
+.lb-section { padding:clamp(64px,8vw,100px) clamp(16px,4vw,40px); }
+.lb-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  margin-bottom: 8px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.lb-row:hover { border-color:rgba(99,91,255,.3); box-shadow:0 4px 16px rgba(99,91,255,.06); }
+.lb-rank { font-family:'Bricolage Grotesque',sans-serif; font-size:20px; font-weight:900; color:#94A3B8; width:36px; flex-shrink:0; text-align:center; }
+.lb-rank.gold { color:#F59E0B; }
+.lb-name { font-weight:700; font-size:15px; color:#0F172A; margin-bottom:2px; }
+.lb-meta { font-size:12px; color:#94A3B8; }
+.lb-badge { margin-left:auto; padding:5px 14px; border-radius:100px; font-size:11px; font-weight:700; flex-shrink:0; }
+.lb-badge.win { background:rgba(22,163,74,.08); color:#16A34A; border:1px solid rgba(22,163,74,.2); }
+.lb-empty { text-align:center; padding:48px; color:#94A3B8; font-size:15px; }
+
+/* ── FAQ ── */
+.faq-section { padding:clamp(64px,8vw,100px) clamp(16px,4vw,40px); background:#F8FAFC; border-top:1px solid #E2E8F0; }
+details { border:1px solid #E2E8F0; border-radius:14px; margin-bottom:8px; background:#fff; overflow:hidden; transition:border-color .2s; }
+details:hover { border-color:rgba(99,91,255,.3); }
+details[open] { border-color:#635BFF; }
+summary { padding:18px 24px; cursor:pointer; font-size:15px; font-weight:700; color:#0F172A; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+summary::after { content:'+'; font-size:20px; color:#635BFF; flex-shrink:0; transition:transform .2s; }
+details[open] summary::after { transform:rotate(45deg); }
+details p { padding:0 24px 20px; font-size:14px; color:#64748B; line-height:1.8; }
+
+/* ── FOOTER ── */
+footer { padding:36px clamp(16px,4vw,40px); border-top:1px solid #E2E8F0; text-align:center; font-size:12px; color:#94A3B8; }
+footer a { color:#64748B; text-decoration:none; }
+footer a:hover { color:#0F172A; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="logo">TAKEOVA</a>
+  <a href="/" class="nav-link">← Back to TAKEOVA</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🏆 $1,000,000 Prize Pool · 6-Month Season</div>
+  <h1>Top 5% of stores<br>win <span class="gold">$500 cash</span><br><span class="grad">every month.</span></h1>
+  <p class="hero-sub">
+    Use TAKEOVA to run your business. Generate revenue. The top 5% of stores by daily average revenue automatically win <strong>$500 cash</strong> at month end. No submission. No judging.
+  </p>
+
+  <div class="pool-wrap">
+    <div class="pool-bar">
+      <div class="pool-stat">
+        <div class="pool-num purple" id="pool-remaining">$1,000,000</div>
+        <div class="pool-label">Prize pool</div>
+      </div>
+      <div class="pool-stat">
+        <div class="pool-num blue" id="pool-winners">0</div>
+        <div class="pool-label">Winners so far</div>
+      </div>
+      <div class="pool-stat">
+        <div class="pool-num gold">$500</div>
+        <div class="pool-label">Per winner</div>
+      </div>
+      <div class="pool-stat">
+        <div class="pool-num green">5%</div>
+        <div class="pool-label">Monthly win rate</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <a href="#enter" class="btn-primary" style="font-size:16px;padding:17px 48px;">Enter the Showdown →</a>
+    <a href="#how" class="btn-ghost">How it works</a>
+  </div>
+  <p style="font-size:12px;color:#94A3B8;margin-top:14px;">Free 14-day trial for new users · No credit card · Open worldwide</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-badge">How it works</div>
+    <h2 class="section-title">Four steps to $500</h2>
+    <p class="section-sub" style="margin:0 auto;">Use TAKEOVA to build your business. Generate revenue. Top earners win automatically each month.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Enter free</h3>
+        <p>Fill in your name and email below. New to TAKEOVA? Your free 14-day trial activates instantly — no card required. Already on TAKEOVA? Enter your account email and you're in.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Build your business</h3>
+        <p>Set up your store, bookings, invoicing, email funnels — everything TAKEOVA gives you. The more tools you use, the more revenue channels you open.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Generate revenue</h3>
+        <p>Process orders, collect bookings, send invoices. Every dollar earned through TAKEOVA counts. Your AI employees' revenue counts too — put them to work.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>Win $500 automatically</h3>
+        <p>At month end, top 5% by daily average revenue win $500 cash. You get a claim email. No submission, no judging — results decide everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIZE -->
+<section class="section bg-light">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-badge">The prize</div>
+    <h2 class="section-title">Real money.<br><span class="gold">Every month.</span></h2>
+    <p class="section-sub" style="margin:0 auto;">$500 per winner. Paid via Stripe directly to your bank within 1 business day. No gift cards, no credits, no catch.</p>
+    <div class="prize-banner">
+      <div class="prize-amount">$500</div>
+      <div class="prize-sub">cash per winner · every month</div>
+      <div class="prize-stats">
+        <div class="prize-stat"><div class="prize-stat-num">$1M</div><div class="prize-stat-label">Total pool</div></div>
+        <div class="prize-stat"><div class="prize-stat-num">2,000</div><div class="prize-stat-label">Total winners</div></div>
+        <div class="prize-stat"><div class="prize-stat-num">6</div><div class="prize-stat-label">Month season</div></div>
+        <div class="prize-stat"><div class="prize-stat-num">~333</div><div class="prize-stat-label">Per month</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIR RANKING -->
+<section class="section">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-badge">The ranking</div>
+    <h2 class="section-title">Fair for everyone —<br><span class="grad">even late joiners.</span></h2>
+    <p class="section-sub" style="margin:0 auto;">We rank by daily average revenue, not total. Join mid-month and you compete on equal footing.</p>
+    <div class="rank-grid">
+      <div class="rank-card"><div class="rank-icon">📊</div><h3>Daily average revenue</h3><p>Total revenue ÷ days active. Joining on the 15th is as fair as the 1st. Performance per day is all that matters.</p></div>
+      <div class="rank-card"><div class="rank-icon">🏪</div><h3>Existing users rewarded</h3><p>Already generating revenue on TAKEOVA? Enter now — your revenue from the start of this month counts toward your total.</p></div>
+      <div class="rank-card"><div class="rank-icon">🤖</div><h3>AI employees count</h3><p>Revenue from your AI Sales Rep, Marketing Manager, chatbot leads, and abandoned cart recovery all counts toward your score.</p></div>
+      <div class="rank-card"><div class="rank-icon">⚡</div><h3>Automatic selection</h3><p>No submission needed. Winners are selected at month end. If you're top 5% you get a claim email with your $500 link.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TACTICS -->
+<section class="section bg-light">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-badge">Win tactics</div>
+    <h2 class="section-title">More tools.<br><span class="grad">More revenue.</span></h2>
+    <p class="section-sub" style="margin:0 auto;">Top Showdown performers use every TAKEOVA feature. Here's what separates winners from the rest.</p>
+    <div class="compare-grid">
+      <div class="compare-card compare-mine">
+        <h3 class="purple">✅ TAKEOVA — everything in one</h3>
+        <div class="compare-item">🛒 Online store + digital downloads + subscriptions</div>
+        <div class="compare-item">📅 Bookings + automated SMS reminders</div>
+        <div class="compare-item">👥 CRM + invoicing + contracts + proposals</div>
+        <div class="compare-item">📧 Email marketing + SMS funnels</div>
+        <div class="compare-item">🤖 AI employees — social, ads, sales, support</div>
+        <div class="compare-item">💬 AI chatbot for 24/7 lead capture</div>
+        <div class="compare-item">📊 Analytics + affiliate programme + A/B testing</div>
+        <div class="compare-verdict verdict-purple">All from $69/month</div>
+      </div>
+      <div class="compare-card compare-tactics">
+        <h3 class="green">⚡ Top Showdown tactics</h3>
+        <div class="compare-item">🤖 AI Sales Rep follows up every lead automatically</div>
+        <div class="compare-item">📢 AI Marketing Manager runs paid ads on autopilot</div>
+        <div class="compare-item">🛒 Abandoned cart SMS fires automatically</div>
+        <div class="compare-item">📧 Email funnels + upsells at checkout</div>
+        <div class="compare-item">💬 AI chatbot captures leads 24/7 — already active</div>
+        <div class="compare-item">⬆️ Upsells + order bumps boost average order value</div>
+        <div class="compare-item">📱 AI Social Manager posts daily across 6 platforms</div>
+        <div class="compare-verdict verdict-green">More automation = more daily revenue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIR PLAY RULES -->
+<section class="section" id="rules">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-badge" style="background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.2);color:#059669;">Fair play</div>
+    <h2 class="section-title">A real test of <span class="grad">your business —</span><br>not your ad budget.</h2>
+    <p class="section-sub" style="margin:0 auto;">Showdown rewards businesses that grow on merit, not on paid acquisition firepower. One simple rule keeps the leaderboard fair.</p>
+    <div class="rank-grid" style="max-width:920px;margin:40px auto 0;">
+      <div class="rank-card" style="border-color:rgba(16,185,129,.25);background:linear-gradient(180deg,#fff,#F0FDF4);">
+        <div class="rank-icon">💸</div>
+        <h3>$2,500 monthly ad cap</h3>
+        <p>If your total paid-ad spend across Meta, Google, and TikTok exceeds <strong>$2,500</strong> in a calendar month, your store is excluded from that month's leaderboard. You stay on TAKEOVA — you just don't rank for that month's $500.</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">🔌</div>
+        <h3>Connect your ad accounts</h3>
+        <p>After you enter, link your Meta Business Manager, Google Ads, and TikTok Ads accounts (read-only) from your TAKEOVA dashboard. We pull month-to-date spend automatically. No accounts? Self-report monthly — backed by spot audits.</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">📊</div>
+        <h3>Live spend counter</h3>
+        <p>Your dashboard shows <strong>$X / $2,500</strong> in real time. We sync daily and warn you at 80% of cap so nothing comes as a surprise. Cross the line and you're out for that month — but you're back in next month at $0.</p>
+      </div>
+      <div class="rank-card">
+        <div class="rank-icon">⚖️</div>
+        <h3>Why the rule exists</h3>
+        <p>Without a cap, whoever dumps the most personal capital into ads wins. That's not a meritocracy — it's a budget contest. The cap is high enough to run real campaigns, low enough that your business has to actually work.</p>
+      </div>
+    </div>
+    <p style="font-size:12px;color:#94A3B8;margin-top:24px;max-width:620px;margin-left:auto;margin-right:auto;">By entering you agree to monitoring of your monthly ad spend across Meta, Google, and TikTok. Capital injections during the month must be disclosed. See <a href="/legal.html" style="color:#635BFF;font-weight:700;">terms</a> for the full anti-gaming rules.</p>
+  </div>
+</section>
+
+<!-- ENTRY FORM -->
+<section class="form-section" id="enter">
+  <div style="text-align:center;">
+    <div class="section-badge">Enter now</div>
+    <h2 class="section-title">Ready to compete?</h2>
+    <p class="section-sub" style="margin:0 auto;">Enter once. Compete every month for 6 months. Winners selected automatically at month end.</p>
+  </div>
+  <div class="form-card">
+    <div class="info-box">Already on TAKEOVA? Enter your account email — your revenue from this month's start counts.</div>
+    <div id="entry-form">
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div>
+          <label class="field-label">Your name *</label>
+          <input id="f-name" type="text" class="field-input" placeholder="Jane Smith">
+        </div>
+        <div>
+          <label class="field-label">Email address *</label>
+          <input id="f-email" type="email" class="field-input" placeholder="jane@example.com">
+          <p style="font-size:11px;color:#94A3B8;margin-top:6px;">New users get a free 14-day TAKEOVA trial at this email. No credit card required.</p>
+        </div>
+        <div>
+          <label class="field-label">Business type (optional)</label>
+          <div class="biz-grid">
+            <label class="biz-check"><input type="checkbox" value="ecommerce"> 🛒 E-commerce</label>
+            <label class="biz-check"><input type="checkbox" value="services"> ✂️ Services</label>
+            <label class="biz-check"><input type="checkbox" value="courses"> 🎓 Courses</label>
+            <label class="biz-check"><input type="checkbox" value="freelance"> 💻 Freelance</label>
+            <label class="biz-check"><input type="checkbox" value="food"> 🍽️ Hospitality</label>
+            <label class="biz-check"><input type="checkbox" value="other"> ⚡ Other</label>
+          </div>
+        </div>
+        <div id="form-error" class="error-msg"></div>
+        <button onclick="submitEntry()" id="submit-btn" class="btn-primary" style="width:100%;padding:15px;border-radius:12px;font-size:15px;">Enter the Showdown →</button>
+        <p style="font-size:12px;color:#475569;text-align:center;line-height:1.6;margin-top:4px;">By entering you agree to the <a href="#rules" style="color:#635BFF;font-weight:700;">$2,500/month ad-spend cap</a>. Going over excludes you from that month's leaderboard, not the platform.</p>
+        <p style="font-size:11px;color:#94A3B8;text-align:center;">One entry per person · Open worldwide · Winners notified automatically at month end</p>
+      </div>
+    </div>
+    <div id="success-msg" style="display:none;">
+      <div class="success-box">
+        <div class="success-icon">🏆</div>
+        <h3 style="font-size:22px;font-weight:800;margin-bottom:10px;color:#0F172A;">You're in the Showdown!</h3>
+        <p style="color:#64748B;font-size:14px;line-height:1.7;margin-bottom:12px;">Check your email for confirmation. Every order you process from now on counts toward the leaderboard.</p>
+        <div style="background:#F0FDF4;border:1px solid rgba(16,185,129,.25);border-radius:10px;padding:12px 16px;margin:14px 0;text-align:left;">
+          <p style="font-size:13px;color:#065F46;font-weight:700;margin-bottom:4px;">⚠️ Don't forget the ad cap</p>
+          <p style="font-size:12px;color:#475569;line-height:1.5;">Once you log in, head to <strong>Showdown → Ad accounts</strong> and connect Meta / Google / TikTok so we can track your monthly spend automatically. The $2,500 cap resets each month.</p>
+        </div>
+        <p style="font-size:13px;color:#635BFF;font-weight:700;">Winners notified automatically at month end. Good luck! 🚀</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section class="lb-section">
+  <div class="wrap" style="text-align:center;">
+    <div class="section-badge" style="background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2);color:#D97706;">🏆 This month's leaders</div>
+    <h2 class="section-title">Monthly <span class="gold">Leaderboard</span></h2>
+    <p class="section-sub" style="margin:0 auto;">Ranked by daily average revenue. Updated in real time.</p>
+    <div id="leaderboard" style="max-width:620px;margin:40px auto 0;text-align:left;">
+      <div class="lb-empty">No entries yet this month — be the first on the board.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap-sm">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">Common questions</h2>
+    </div>
+    <details><summary>How is the winner chosen?</summary><p>At the end of each month we rank all entered stores by daily average revenue — total revenue since the month started, divided by days you've been active. Top 5% win $500 cash automatically. No submission needed.</p></details>
+    <details><summary>Is there really a $2,500 monthly ad-spend cap?</summary><p>Yes — and it's strict. If your combined paid-ad spend across Meta, Google, and TikTok exceeds $2,500 in a calendar month, your store is excluded from that month's leaderboard. You stay on TAKEOVA and you're back at $0 the next month — but for that month you don't rank, even if your revenue is top 5%. The cap exists so the Showdown rewards businesses that AI Employees can transform, not businesses with the biggest ad budget.</p></details>
+    <details><summary>How do you know how much I spent on ads?</summary><p>After you enter, your TAKEOVA dashboard has a <strong>Showdown → Ad accounts</strong> section. Connect your Meta Business Manager, Google Ads, and TikTok Ads accounts (read-only) and we pull month-to-date spend automatically every day. You'll see a live <strong>$X / $2,500</strong> counter and we warn you at 80% of cap. If you don't run paid ads on any platform, you self-attest at month end via a one-click form. Spot audits cover the honor-system path.</p></details>
+    <details><summary>I joined mid-month. Am I at a disadvantage?</summary><p>No — that's why we use daily average, not total. A store generating $500/day for 10 days ranks higher than a store generating $100/day for 30 days. Join any time and compete fairly.</p></details>
+    <details><summary>I'm already a TAKEOVA customer. Does my existing revenue count?</summary><p>Yes. Enter with your existing TAKEOVA account email and your revenue from the start of this month counts. Active stores are rewarded, not just new signups.</p></details>
+    <details><summary>What revenue counts toward the competition?</summary><p>Any order processed through TAKEOVA — store orders, bookings, invoices paid, course sales, and subscriptions. Revenue from your AI employees also counts — chatbot leads, Sales Rep follow-ups, Marketing Manager campaigns.</p></details>
+    <details><summary>Is the $1M pool real?</summary><p>Yes. 2,000 winners × $500 = $1,000,000. The pool runs across 6 monthly competitions — roughly 333 winners per month. The counter decrements publicly as winners are paid.</p></details>
+    <details><summary>How does the $500 payout work?</summary><p>If you win, you get an email with a claim link. Click it, connect your bank via Stripe (about 2 minutes), and we transfer $500 directly. Payouts process within 1 business day.</p></details>
+    <details><summary>Can I enter more than once?</summary><p>One entry per person per season. Once you're in, you automatically compete every month for the full 6 months — no need to re-enter.</p></details>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:6px;">© 2025 TAKEOVA Platform · <a href="/legal.html">Terms & Privacy</a> · Open until pool is exhausted · One entry per person</p>
+  <p>TAKEOVA Showdown is a monthly revenue competition for TAKEOVA platform users. Winners selected automatically by daily average revenue.</p>
+</footer>
+
+<script>
+const API = '/api/showdown';
+try { if (window.location.search.includes('from=showdown')) localStorage.setItem('mine_showdown_entry','1'); } catch(e) {}
+
+async function loadPool() {
+  try {
+    const r = await fetch(API + '/leaderboard');
+    const d = await r.json();
+    if (d.pool) {
+      document.getElementById('pool-remaining').textContent = '$' + (d.pool.remaining ?? 1000000).toLocaleString();
+      document.getElementById('pool-winners').textContent = (d.pool.winners ?? 0).toLocaleString();
+    }
+    const lb = document.getElementById('leaderboard');
+    if (d.entries && d.entries.length > 0) {
+      lb.innerHTML = d.entries.map((e,i) => `
+        <div class="lb-row">
+          <div class="lb-rank ${i===0?'gold':''}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1)}</div>
+          <div style="flex:1;">
+            <div class="lb-name">${e.name||'Anonymous'}</div>
+            <div class="lb-meta">${e.business_type||'TAKEOVA Store'}</div>
+          </div>
+          <div class="lb-badge ${e.review_result==='win'?'win':''}">${e.review_result==='win'?'🏆 Won $500':'Active'}</div>
+        </div>`).join('');
+    }
+  } catch(e) {}
+}
+loadPool();
+
+document.querySelectorAll('.biz-check').forEach(label => {
+  label.addEventListener('click', () => {
+    const cb = label.querySelector('input');
+    setTimeout(() => label.classList.toggle('checked', cb.checked), 10);
+  });
+});
+
+async function submitEntry() {
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const bizTypes = Array.from(document.querySelectorAll('.biz-check input:checked')).map(c => c.value);
+  if (!name) { showError('Please enter your name.'); return; }
+  if (!email || !email.includes('@')) { showError('Please enter a valid email address.'); return; }
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.textContent = 'Entering…';
+  try {
+    const r = await fetch(API + '/enter', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name, email, payout:'cash', business_type:bizTypes.join(', '), competitor_url:'revenue-competition', platforms_used:['TAKEOVA'], timer_id:'revenue-competition', mine_url:'' })
+    });
+    const d = await r.json();
+    if (!r.ok) { showError(d.error||'Something went wrong.'); btn.disabled=false; btn.textContent='Enter the Showdown →'; return; }
+    document.getElementById('entry-form').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+    localStorage.setItem('mine_showdown_entry','1');
+  } catch(e) { showError('Network error — please try again.'); btn.disabled=false; btn.textContent='Enter the Showdown →'; }
+}
+
+function showError(msg) { const el=document.getElementById('form-error'); el.textContent=msg; el.style.display='block'; }
+
+try {
+  const p = new URLSearchParams(location.search);
+  if (p.get('claim') && p.get('onboarded')==='1') alert('Your Stripe account is set up! Our team will process your $500 transfer within 1 business day.');
+} catch(e) {}
+</script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember & Oak — Hand-poured candles for slow evenings</title>
+<meta name="description" content="Small-batch soy candles hand-poured in Australia. Clean-burning, richly scented, and made to turn any room into a sanctuary.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --char:#1C1916; --char-2:#2A2622; --amber:#C8841C; --amber-d:#A66A10;
+    --cream:#F4EDE2; --paper:#FAF6EF; --ink:#1C1916; --body:#6B6258; --line:#E4DACB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;color:var(--body);background:var(--paper);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.dsp{font-family:'Cormorant Garamond',serif;color:var(--ink);font-weight:500;line-height:1.1;letter-spacing:.005em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Jost';font-weight:400;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:15px 30px;cursor:pointer;border:none;transition:.2s}
+  .btn-fill{background:var(--char);color:var(--cream)}
+  .btn-fill:hover{background:var(--amber-d);color:#fff}
+  .btn-line{background:transparent;color:var(--ink);border:1px solid var(--char)}
+  .btn-line:hover{background:var(--char);color:var(--cream)}
+  /* announce */
+  .ann{background:var(--char);color:var(--cream);text-align:center;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;padding:11px;font-weight:300}
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{font-family:'Cormorant Garamond';font-weight:600;font-size:27px;color:var(--ink);letter-spacing:.04em;display:flex;align-items:center;gap:9px}
+  .logo .fl{width:13px;height:20px;background:radial-gradient(ellipse at 50% 70%,var(--amber),var(--amber-d));border-radius:50% 50% 50% 50%/60% 60% 40% 40%;display:inline-block}
+  .nlinks{display:flex;gap:32px;align-items:center}
+  .nlinks a{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--body);font-weight:400;transition:.15s}
+  .nlinks a:hover{color:var(--amber-d)}
+  .cart{display:flex;align-items:center;gap:7px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  .cart svg{width:19px;height:19px}
+  .burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px}
+  .burger span{width:24px;height:1.5px;background:var(--ink)}
+  /* hero */
+  .hero{position:relative;overflow:hidden}
+  .hero-in{display:grid;grid-template-columns:1fr 1fr;min-height:78vh}
+  .hero-txt{display:flex;flex-direction:column;justify-content:center;padding:60px 70px 60px 0}
+  .pre{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber-d);margin-bottom:26px}
+  .hero h1{font-size:clamp(46px,6.5vw,86px);font-weight:400;margin-bottom:24px}
+  .hero h1 em{font-style:italic;color:var(--amber-d)}
+  .hero p{font-size:18px;max-width:400px;margin-bottom:36px}
+  .hero-art{background:linear-gradient(160deg,var(--char) 0%,var(--char-2) 70%,#3a342d 100%);position:relative;display:grid;place-items:center;overflow:hidden}
+  .hero-art::before{content:"";position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(200,132,28,.28),transparent 65%);top:30%;border-radius:50%;filter:blur(8px)}
+  .candle{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+  .candle .flame{width:18px;height:30px;background:radial-gradient(ellipse at 50% 70%,#FFD27A,#E8870C 60%,transparent);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;margin-bottom:-4px;animation:flick 3s ease-in-out infinite;filter:drop-shadow(0 0 14px rgba(232,135,12,.7))}
+  @keyframes flick{0%,100%{transform:scaleY(1) translateX(0)}50%{transform:scaleY(1.08) translateX(1px)}}
+  .candle .glass{width:140px;height:170px;background:linear-gradient(180deg,rgba(244,237,226,.14),rgba(244,237,226,.05));border:1px solid rgba(244,237,226,.18);border-radius:8px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:18px}
+  .candle .label{width:100px;height:64px;background:var(--cream);border-radius:3px;display:grid;place-content:center;text-align:center;color:var(--char)}
+  .candle .label b{font-family:'Cormorant Garamond';font-size:20px;display:block;line-height:1}
+  .candle .label small{font-size:8px;letter-spacing:.18em;text-transform:uppercase}
+  /* sections */
+  section{padding:96px 0}
+  .center{margin-left:auto;margin-right:auto;text-align:center}
+  .sh{font-size:clamp(34px,4.4vw,52px);font-weight:400;margin-bottom:14px}
+  .sh em{font-style:italic;color:var(--amber-d)}
+  .lead{font-size:17px;max-width:520px}
+  /* shop */
+  .shop{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}
+  .prod{transition:.2s}
+  .prod .img{aspect-ratio:1;border-radius:6px;position:relative;overflow:hidden;margin-bottom:18px;display:grid;place-items:center;cursor:pointer}
+  .prod .img .jar{width:72px;height:90px;border-radius:6px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:10px}
+  .prod .img .jar span{width:48px;height:30px;background:rgba(255,255,255,.9);border-radius:2px;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--char);display:grid;place-content:center;text-align:center;font-family:'Jost'}
+  .prod .add{position:absolute;bottom:14px;left:50%;transform:translateX(-50%) translateY(8px);opacity:0;background:var(--char);color:var(--cream);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;transition:.2s;white-space:nowrap}
+  .prod:hover .add{opacity:1;transform:translateX(-50%) translateY(0)}
+  .prod h3{font-size:23px;margin-bottom:2px}
+  .prod .scent{font-size:13px;color:var(--body);letter-spacing:.04em;margin-bottom:6px}
+  .prod .price{font-family:'Jost';font-size:15px;color:var(--ink);font-weight:400}
+  /* story */
+  .story{background:var(--cream)}
+  .story-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .story-art{aspect-ratio:5/4;border-radius:8px;background:linear-gradient(150deg,var(--amber),var(--amber-d));position:relative;overflow:hidden;display:grid;place-items:center}
+  .story-art::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),transparent 55%)}
+  .story-art svg{width:90px;height:90px;color:rgba(255,255,255,.85);position:relative;z-index:2}
+  .story-txt .pre{margin-bottom:18px}
+  .story-txt p{font-size:16.5px;margin-bottom:18px}
+  .story-feats{display:flex;gap:34px;margin-top:26px}
+  .story-feats div b{font-family:'Cormorant Garamond';font-size:34px;color:var(--ink);display:block;line-height:1}
+  .story-feats div small{font-size:12.5px;letter-spacing:.06em}
+  /* notes */
+  .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:54px;background:var(--line);border:1px solid var(--line)}
+  .note{background:var(--paper);padding:40px 30px;text-align:center}
+  .note .n{font-family:'Cormorant Garamond';font-size:18px;color:var(--amber-d);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+  .note h3{font-size:25px;margin-bottom:8px}
+  .note p{font-size:14px}
+  /* cta */
+  .sub{background:var(--char);color:var(--cream);text-align:center}
+  .sub h2{color:var(--cream);font-size:clamp(32px,4vw,50px);font-weight:400;margin-bottom:14px}
+  .sub h2 em{font-style:italic;color:var(--amber)}
+  .sub p{color:rgba(244,237,226,.7);font-size:16px;max-width:440px;margin:0 auto 30px}
+  .sub-form{display:flex;gap:0;max-width:420px;margin:0 auto;border:1px solid rgba(244,237,226,.25)}
+  .sub-form input{flex:1;background:transparent;border:none;padding:15px 18px;color:var(--cream);font-family:'Jost';font-size:14px;letter-spacing:.04em}
+  .sub-form input::placeholder{color:rgba(244,237,226,.45)}
+  .sub-form input:focus{outline:none}
+  .sub-form button{background:var(--amber);color:var(--char);border:none;padding:0 26px;font-family:'Jost';font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:.15s}
+  .sub-form button:hover{background:var(--cream)}
+  /* footer */
+  footer{background:var(--paper);border-top:1px solid var(--line);padding:60px 0 30px}
+  .f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;padding-bottom:38px;border-bottom:1px solid var(--line)}
+  .f-logo{font-family:'Cormorant Garamond';font-weight:600;font-size:24px;color:var(--ink);letter-spacing:.04em;margin-bottom:14px}
+  footer h4{font-family:'Jost';font-weight:400;color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+  footer ul{list-style:none}
+  footer ul li{margin-bottom:10px;font-size:14px}
+  footer ul a:hover{color:var(--amber-d)}
+  .f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;flex-wrap:wrap;gap:12px;font-size:12.5px;letter-spacing:.04em;color:var(--body)}
+  .made{display:inline-flex;align-items:center;gap:7px;color:var(--body);transition:.15s;letter-spacing:.03em}
+  .made:hover{color:var(--amber-d)}
+  .made b{color:var(--ink);font-weight:500}
+  .made .m{width:17px;height:17px;background:#2563EB;border-radius:5px;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:700;font-family:'Jost'}
+  @media(max-width:920px){
+    .hero-in,.story-in,.story-art{grid-template-columns:1fr}
+    .hero-txt{padding:70px 0 50px}.hero-art{min-height:340px;order:-1}
+    .shop,.notes{grid-template-columns:1fr 1fr}.f-top{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){.nlinks{display:none}.burger{display:flex}.shop,.notes{grid-template-columns:1fr}section{padding:64px 0}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="ann">Free shipping on orders over $80 · Hand-poured to order in Australia</div>
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="logo"><span class="fl"></span>Ember &amp; Oak</a>
+    <div class="nlinks">
+      <a href="#shop">Shop</a>
+      <a href="#story">Our Story</a>
+      <a href="#notes">Scents</a>
+      <a href="#">Gifting</a>
+      <a href="#" class="cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>Cart (0)</a>
+    </div>
+    <button class="burger" onclick="document.querySelector('.nlinks').style.display='flex'"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="wrap hero-txt" style="margin-right:0;max-width:580px;margin-left:auto;padding-left:28px">
+      <span class="pre">Small-batch · Soy wax · 60-hour burn</span>
+      <h1>Light the <em>evening.</em></h1>
+      <p>Richly scented, clean-burning candles hand-poured in small batches — made to turn an ordinary night into something worth slowing down for.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#shop" class="btn btn-fill">Shop the collection</a>
+        <a href="#story" class="btn btn-line">Our story</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="candle">
+        <div class="flame"></div>
+        <div class="glass"><div class="label"><b>No. 04</b><small>Smoked Cedar</small></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="center" style="max-width:540px">
+      <span class="pre">The collection</span>
+      <h2 class="sh">Find your <em>signature</em> scent</h2>
+      <p class="lead center">Nine fragrances, each poured by hand into reusable glass. Burn one, gift one, collect them all.</p>
+    </div>
+    <div class="shop">
+      <div class="prod"><div class="img" style="background:linear-gradient(150deg,#E9DCC6,#D7C3A0)"><div class="jar" style="background:linear-gradient(180deg,#8a5a2c,#5e3a18)"><span>No. 01</span></div><span class="add">Add to cart · $42</span></div><h3>Amber & Tonka</h3><div class="scent">Warm · sweet · grounding</div><div class="price">$42.00</div></div>
+      <div class="prod"><div class="img" style="background:linear-gradient(150deg,#DCE4D6,#B9C9AD)"><div class="jar" style="background:linear-gradient(180deg,#3f5a3a,#26371f)"><span>No. 02</span></div><span class="add">Add to cart · $42</span></div><h3>Wild Fig & Sage</h3><div class="scent">Green · fresh · herbal</div><div class="price">$42.00</div></div>
+      <div class="prod"><div class="img" style="background:linear-gradient(150deg,#E6D9DC,#CBA9B2)"><div class="jar" style="background:linear-gradient(180deg,#7a3a4a,#4d2330)"><span>No. 03</span></div><span class="add">Add to cart · $44</span></div><h3>Rose & Oud</h3><div class="scent">Floral · smoky · deep</div><div class="price">$44.00</div></div>
+      <div class="prod"><div class="img" style="background:linear-gradient(150deg,#E3DBCC,#C7B493)"><div class="jar" style="background:linear-gradient(180deg,#6b4a2c,#3f2a18)"><span>No. 04</span></div><span class="add">Add to cart · $42</span></div><h3>Smoked Cedar</h3><div class="scent">Woody · warm · smoky</div><div class="price">$42.00</div></div>
+      <div class="prod"><div class="img" style="background:linear-gradient(150deg,#DDE6E8,#AEC8CC)"><div class="jar" style="background:linear-gradient(180deg,#2f5a60,#1c373b)"><span>No. 05</span></div><span class="add">Add to cart · $42</span></div><h3>Sea Salt & Driftwood</h3><div class="scent">Fresh · mineral · airy</div><div class="price">$42.00</div></div>
+      <div class="prod"><div class="img" style="background:linear-gradient(150deg,#EEE2CE,#D8BE92)"><div class="jar" style="background:linear-gradient(180deg,#7a5a1c,#4d3810)"><span>No. 06</span></div><span class="add">Add to cart · $48</span></div><h3>Honey & Oat Milk</h3><div class="scent">Creamy · sweet · cosy</div><div class="price">$48.00</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="story" class="story">
+  <div class="wrap story-in">
+    <div class="story-art"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9 6 7 8 7 12a5 5 0 0 0 10 0c0-4-2-6-5-10z"/></svg></div>
+    <div class="story-txt">
+      <span class="pre">Our story</span>
+      <h2 class="sh">Made by hand, <em>made to matter</em></h2>
+      <p>Ember &amp; Oak began on a kitchen table with a single pot of wax and a stubborn belief that a candle should be honest — no shortcuts, no synthetic fillers, no waste.</p>
+      <p>Every candle is still poured by hand in small batches using 100% natural soy wax, cotton wicks, and phthalate-free fragrance. The glass is yours to keep, refill, and reuse.</p>
+      <div class="story-feats">
+        <div><b>100%</b><small>NATURAL SOY WAX</small></div>
+        <div><b>60hr</b><small>AVERAGE BURN</small></div>
+        <div><b>0</b><small>SYNTHETIC FILLERS</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="notes">
+  <div class="wrap">
+    <div class="center" style="max-width:540px">
+      <span class="pre">Scent families</span>
+      <h2 class="sh">Three moods, <em>endless evenings</em></h2>
+    </div>
+    <div class="notes">
+      <div class="note"><div class="n">I</div><h3>Warm & Sweet</h3><p>Amber, tonka, honey and vanilla — the scents of a fire going low and nowhere to be.</p></div>
+      <div class="note"><div class="n">II</div><h3>Fresh & Green</h3><p>Fig, sage, sea salt and driftwood — bright, open, and quietly alive.</p></div>
+      <div class="note"><div class="n">III</div><h3>Deep & Smoky</h3><p>Cedar, oud and smoked woods — rich, slow-burning, and impossibly cosy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sub">
+  <div class="wrap">
+    <h2>Join the <em>slow club</em></h2>
+    <p>Early access to new scents, seasonal pours, and 10% off your first order. No noise — just the good stuff.</p>
+    <div class="sub-form"><input type="email" placeholder="your@email.com"><button>Subscribe</button></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <div class="f-logo">Ember &amp; Oak</div>
+        <p style="max-width:280px">Hand-poured soy candles made in small batches in Brisbane, Australia. Burn slow.</p>
+      </div>
+      <div><h4>Shop</h4><ul><li><a href="#shop">All candles</a></li><li><a href="#">Bestsellers</a></li><li><a href="#">Gift sets</a></li><li><a href="#">Refills</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#story">Our story</a></li><li><a href="#notes">Scents</a></li><li><a href="#">Ingredients</a></li><li><a href="#">Stockists</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Candle care</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2025 Ember &amp; Oak. Hand-poured with care.</span>
+      <a href="../landing2.html" class="made"><span class="m">M</span>Made with <b>MINE</b></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

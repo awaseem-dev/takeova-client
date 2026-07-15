@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fern &amp; Stone — Landscape Design &amp; Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1E3A2F;--moss:#5C7A4A;--moss-l:#8AA372;--stone:#D9D2C5;--sand:#EFEAE0;--bark:#3A2E25;--cream:#F7F4EC}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Hanken Grotesk',sans-serif;color:var(--forest);background:var(--cream);line-height:1.7}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  nav{position:absolute;top:0;left:0;right:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1160px;margin:0 auto;padding:26px 28px;color:var(--cream)}
+  .logo{font-family:'Fraunces';font-weight:500;font-size:1.45rem;display:flex;align-items:center;gap:9px}
+  .leaf{width:16px;height:16px;background:var(--moss-l);border-radius:0 100% 0 100%}
+  .nlinks{display:flex;gap:32px;font-size:.95rem;font-weight:500}
+  .nlinks a:hover{opacity:.7}
+  .quote{border:1px solid rgba(247,244,236,.5);color:var(--cream);padding:10px 22px;border-radius:4px;font-size:.9rem;transition:.3s}
+  .quote:hover{background:var(--cream);color:var(--forest)}
+  /* hero */
+  .hero{background:linear-gradient(rgba(30,58,47,.62),rgba(30,58,47,.72)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect width='60' height='60' fill='%231E3A2F'/%3E%3Cpath d='M30 8c8 10 8 24 0 34-8-10-8-24 0-34z' fill='%235C7A4A' opacity='.4'/%3E%3C/svg%3E");background-size:cover;color:var(--cream);padding:170px 0 110px}
+  .hero .wrap{max-width:780px}
+  .pre{letter-spacing:.22em;text-transform:uppercase;font-size:.82rem;color:var(--moss-l);margin-bottom:24px}
+  .hero h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:400;line-height:1.05;margin-bottom:24px}
+  .hero h1 em{font-style:italic;color:var(--moss-l)}
+  .hero p{font-size:1.25rem;max-width:46ch;opacity:.92;margin-bottom:34px}
+  .cta{background:var(--sand);color:var(--forest);padding:16px 30px;border-radius:5px;font-weight:600;display:inline-block;transition:.3s}
+  .cta:hover{background:#fff;transform:translateY(-2px)}
+  /* intro */
+  .intro{padding:88px 0}
+  .intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .intro h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:500;line-height:1.15}
+  .intro p{color:#4A5A4F;font-size:1.08rem;margin-bottom:16px}
+  .steps{list-style:none}
+  .steps li{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--stone)}
+  .steps .nm{font-family:'Fraunces';font-size:1.3rem;color:var(--moss);min-width:40px}
+  .steps b{font-size:1.05rem;display:block;margin-bottom:2px}
+  .steps span{color:#6A7A6F;font-size:.95rem}
+  /* portfolio */
+  .work{background:var(--forest);color:var(--cream);padding:90px 0}
+  .work .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:42px;flex-wrap:wrap;gap:16px}
+  .work h2{font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--cream)}
+  .work .top p{color:var(--moss-l);max-width:30ch}
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .proj{border-radius:10px;overflow:hidden;aspect-ratio:4/5;position:relative;display:flex;align-items:flex-end;padding:22px;color:#fff}
+  .proj::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(15,28,22,.8))}
+  .proj>*{position:relative;z-index:2}
+  .p1{background:linear-gradient(135deg,#5C7A4A,#3A5238)}.p2{background:linear-gradient(135deg,#8AA372,#5C7A4A)}.p3{background:linear-gradient(135deg,#3A2E25,#5C7A4A)}
+  .p4{background:linear-gradient(135deg,#6A7A6F,#3A5238)}.p5{background:linear-gradient(135deg,#4A5A4F,#8AA372)}.p6{background:linear-gradient(135deg,#5C7A4A,#1E3A2F)}
+  .proj h3{font-family:'Fraunces';font-size:1.3rem;font-weight:500}
+  .proj span{font-size:.85rem;opacity:.85}
+  /* cta band */
+  .band{padding:88px 0;text-align:center}
+  .band h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:500;margin-bottom:14px}
+  .band p{color:#4A5A4F;font-size:1.15rem;max-width:42ch;margin:0 auto 30px}
+  footer{background:var(--bark);color:#B5AC9C;padding:46px 0 28px;font-size:.92rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:22px;align-items:center}
+  footer .logo{color:var(--cream)}footer a:hover{color:var(--moss-l)}
+  @media(max-width:860px){.intro .wrap{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}.nlinks{display:none}}
+  @media(max-width:520px){.gal{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="#" class="logo"><span class="leaf"></span>Fern &amp; Stone</a>
+  <div class="nlinks"><a href="#process">Process</a><a href="#work">Our Work</a><a href="#">Services</a><a href="#contact">Contact</a></div>
+  <a href="#contact" class="quote">Request a quote</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="pre">Landscape Design &amp; Construction</div>
+  <h1>Gardens that grow <em>more beautiful</em> with time.</h1>
+  <p>We design and build outdoor spaces for Brisbane homes — considered, planted, and made to be lived in for decades.</p>
+  <a href="#contact" class="cta">Start your garden →</a>
+</div></header>
+
+<section class="intro" id="process"><div class="wrap">
+  <div>
+    <h2>Design first. Then we put a single plant in the ground.</h2>
+    <p>Great gardens aren't planted in a weekend. We start with how you want to use the space, work with your site's light and soil, then build something that belongs.</p>
+    <p>One team handles design, construction and the first year of care — so the vision you signed off is the garden you get.</p>
+  </div>
+  <ol class="steps">
+    <li><span class="nm">01</span><div><b>Consult &amp; concept</b><span>We walk the site, learn how you live, and sketch the bones of the garden.</span></div></li>
+    <li><span class="nm">02</span><div><b>Detailed design</b><span>Planting plans, materials and a fixed quote — no surprises later.</span></div></li>
+    <li><span class="nm">03</span><div><b>Construction</b><span>Paving, decks, retaining, irrigation and planting, built by our own crew.</span></div></li>
+    <li><span class="nm">04</span><div><b>Establishment care</b><span>We tend it through the first seasons so it takes hold beautifully.</span></div></li>
+  </ol>
+</div></section>
+
+<section class="work" id="work"><div class="wrap">
+  <div class="top"><h2>Recently planted</h2><p>A few of the gardens we've designed and built across South-East Queensland.</p></div>
+  <div class="gal">
+    <div class="proj p1"><div><h3>Paddington Courtyard</h3><span>Small-space subtropical retreat</span></div></div>
+    <div class="proj p2"><div><h3>Samford Acreage</h3><span>Native meadow &amp; orchard</span></div></div>
+    <div class="proj p3"><div><h3>Ashgrove Poolside</h3><span>Travertine &amp; layered greenery</span></div></div>
+    <div class="proj p4"><div><h3>New Farm Terrace</h3><span>Rooftop garden &amp; herb beds</span></div></div>
+    <div class="proj p5"><div><h3>Bardon Hillside</h3><span>Terraced retaining &amp; steps</span></div></div>
+    <div class="proj p6"><div><h3>Wynnum Coastal</h3><span>Wind-hardy salt-tolerant planting</span></div></div>
+  </div>
+</div></section>
+
+<section class="band" id="contact"><div class="wrap">
+  <h2>Let's design your garden</h2>
+  <p>Book a no-obligation site consultation and we'll show you what's possible.</p>
+  <a href="#" class="cta" style="background:var(--moss);color:#fff">Request a consultation</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo" style="display:flex;align-items:center;gap:8px;font-size:1.2rem"><span class="leaf"></span>Fern &amp; Stone</div>
+  <div>Studio in Paddington · 0438 220 119 · grow@fernandstone.com.au</div>
+  <div>© 2026 Fern &amp; Stone Landscapes · Built with MINE</div>
+</div></footer>
+</body>
+</html>

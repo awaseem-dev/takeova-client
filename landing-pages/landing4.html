@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>/*__mineCtaFix*/(function(){var tries=0;
+function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim();}
+function all(){return Array.prototype.slice.call(document.querySelectorAll('button, a'));}
+function find(rx,beforeHero){var hero=document.getElementById('hero-input');var list=all().filter(function(el){return rx.test(txt(el));});
+  if(beforeHero===undefined||!hero)return list[0]||null;
+  for(var k=0;k<list.length;k++){var isBefore=!!(list[k].compareDocumentPosition(hero)&4);if(isBefore===beforeHero)return list[k];}
+  return null;}
+function demote(el){if(!el)return;el.style.background='transparent';el.style.border='1px solid transparent';el.style.boxShadow='none';el.style.color='#635BFF';el.style.fontSize='12px';el.style.padding='6px 10px';}
+function go(){try{
+  var hero=document.getElementById('hero-input');
+  if(!hero){if(++tries<25)return setTimeout(go,400);return;}
+  if(document.documentElement.hasAttribute('data-mine-ctafix'))return;
+  document.documentElement.setAttribute('data-mine-ctafix','1');
+  // 1) Build button = the one and only loud door
+  var build=find(/^Build Free/);
+  if(build){build.style.padding='16px 30px';build.style.fontSize='16px';}
+  // 2) Switcher entries: one quiet line
+  var imp=find(/^Import$/); if(imp){imp.style.padding='9px 14px';imp.style.fontSize='12px';}
+  if(imp&&imp.previousElementSibling&&imp.previousElementSibling.id==='import-url'){var u=imp.previousElementSibling;u.style.padding='9px 13px';u.style.fontSize='12px';
+    var row=imp.parentElement;if(row&&!row.querySelector('[data-mine-already]')){var lab=document.createElement('div');lab.setAttribute('data-mine-already','1');lab.textContent='Already have a site?';lab.style.cssText='width:100%;font-size:11px;font-weight:700;color:#7A7F9A;margin-bottom:2px';row.insertBefore(lab,u);}}
+  var mig=find(/^Migration Wizard/); demote(mig);
+  if(mig&&mig.parentElement){var card=mig.parentElement;card.style.background='transparent';card.style.border='none';card.style.padding='2px 0';card.style.marginTop='4px';}
+  // 3) Prize button: badge-sized
+  var prize=find(/50% Off First Month/); if(prize){prize.style.fontSize='12px';prize.style.padding='8px 12px';}
+  // 4) Undecided path: slim text links
+  demote(find(/Figure Out My Business/)); demote(find(/I already know what I want/));
+  // 5) Header "Start Free" feeds the hero box instead of opening a second door
+  var hdr=find(/^Start Free/, true);
+  if(hdr){hdr.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();try{hero.scrollIntoView({behavior:'smooth',block:'center'});}catch(_s){}setTimeout(function(){try{hero.focus();}catch(_f){}},350);},true);}
+}catch(_e){}}
+if(document.readyState==='complete')setTimeout(go,700);else window.addEventListener('load',function(){setTimeout(go,700);});
+})();</script>
+<script>/*__mineHeroQOL*/(function(){var tries=0;function go(){var i=document.getElementById('hero-input');if(!i){if(++tries<25)return setTimeout(go,250);return;}if(document.querySelector('[data-mine-chips]'))return;try{if(matchMedia('(min-width:900px)').matches&&(!document.activeElement||document.activeElement===document.body))i.focus();}catch(_e){}i.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();try{runBuild();}catch(_e){}}});var row=document.createElement('div');row.setAttribute('data-mine-chips','1');row.style.cssText='display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;width:100%';var t=document.createElement('span');t.textContent='Try:';t.style.cssText='font-size:11px;color:#7A7F9A;font-weight:700';row.appendChild(t);(function(l){var b=document.createElement('button');b.type='button';b.textContent=l;b.style.cssText='border:1px solid #E2E8F0;background:#fff;color:#454A6B;border-radius:999px;padding:7px 12px;font-size:12px;cursor:pointer';b.onclick=function(){var i=document.getElementById('hero-input');i.value=l;i.focus();try{runBuild();}catch(_e){}};row.appendChild(b);})('A plumber in Brisbane');(function(l){var b=document.createElement('button');b.type='button';b.textContent=l;b.style.cssText='border:1px solid #E2E8F0;background:#fff;color:#454A6B;border-radius:999px;padding:7px 12px;font-size:12px;cursor:pointer';b.onclick=function(){var i=document.getElementById('hero-input');i.value=l;i.focus();try{runBuild();}catch(_e){}};row.appendChild(b);})('Yoga studio with bookings');(function(l){var b=document.createElement('button');b.type='button';b.textContent=l;b.style.cssText='border:1px solid #E2E8F0;background:#fff;color:#454A6B;border-radius:999px;padding:7px 12px;font-size:12px;cursor:pointer';b.onclick=function(){var i=document.getElementById('hero-input');i.value=l;i.focus();try{runBuild();}catch(_e){}};row.appendChild(b);})('Online candle shop');var tr=document.createElement('span');tr.textContent='Free \u00b7 no signup \u00b7 live in ~15s';tr.style.cssText='font-size:11px;color:#9aa0b8';row.appendChild(tr);var host=i.parentElement||i;(host.parentElement||host).insertBefore(row,host.nextSibling);}if(document.readyState==='complete')setTimeout(go,500);else window.addEventListener('load',function(){setTimeout(go,500);});})();</script>
+<script>window.__mineLP='4';</script>
+<script>
+(function(){
+  if(window.__mineLiveBuild)return; window.__mineLiveBuild=11;
+  // capture-phase interceptor registered FIRST on the page: no other handler can ever receive this tap
+  var _lastRun=0,_taps=0,_suppressUntil=0;
+  function _isBuildTap(e){var t=e.target;return !!(t&&t.closest&&t.closest('[data-mine-build]'));}
+  ['click','touchend','touchstart','pointerdown','pointerup','mousedown','mouseup'].forEach(function(tp){
+    document.addEventListener(tp,function(e){
+      if(!_isBuildTap(e))return;
+      e.preventDefault();e.stopPropagation();if(e.stopImmediatePropagation)e.stopImmediatePropagation();
+      if(tp==='click'||tp==='touchend'||tp==='pointerup'){var n=Date.now();if(n-_lastRun>600){_lastRun=n;_taps++;_suppressUntil=n+2500;try{var b=document.getElementById('mine-lb-badge');if(b)b.textContent='\u26A1 v9 \u00b7 taps:'+_taps;}catch(_e){}runBuild();}}
+    },true);
+  });
+  try{ new MutationObserver(function(ms){ if(Date.now()>_suppressUntil)return; ms.forEach(function(m){ var nodes=m.type==='attributes'?[m.target]:Array.prototype.slice.call(m.addedNodes||[]); nodes.forEach(function(nd){ try{ if(nd&&nd.nodeType===1&&(nd.textContent||'').indexOf('Create Account')>-1){ nd.style.setProperty('display','none','important'); } }catch(_e){} }); }); }).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['style','class']}); }catch(e){}
+  var btn,inp,hostAfter;
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function demoHTML(v){
+    var name=v; try{ if(/^https?:\/\//i.test(v)) name=new URL(v).hostname.replace(/^www\./,''); }catch(e){}
+    name=esc(name.slice(0,48)); var N=name.charAt(0).toUpperCase()+name.slice(1);
+    return '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{margin:0;box-sizing:border-box;font-family:\'Plus Jakarta Sans\',system-ui}body{background:#fff;color:#101225}.hero{background:linear-gradient(135deg,#0B0B14,#1B1E4B);color:#fff;padding:72px 22px;text-align:center}.hero h1{font-size:34px;margin-bottom:10px}.hero p{opacity:.85;max-width:520px;margin:0 auto 22px}.cta{display:inline-block;background:#635BFF;color:#fff;padding:13px 26px;border-radius:10px;text-decoration:none;font-weight:700}.sec{padding:54px 22px;max-width:960px;margin:0 auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card{border:1px solid #E7E8F2;border-radius:14px;padding:20px}.card h3{margin-bottom:6px}.quote{background:#F4F5FB;border-radius:14px;padding:26px;text-align:center;font-style:italic}.foot{padding:30px;text-align:center;color:#7A7F9A;font-size:13px;border-top:1px solid #EEE}</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet"><style id="brand-fonts">h1,h2,h3,h4,h5{font-family:\'Bricolage Grotesque\',\'Plus Jakarta Sans\',sans-serif}</style></head><body><div class="hero"><h1>'+N+'</h1><p>Premium service, delivered the modern way \u2014 fast quotes, easy booking, and a team that actually answers.</p><a class="cta" href="#contact">Get a Free Quote</a></div><div class="sec"><div class="grid"><div class="card"><h3>\u26A1 Fast turnaround</h3><p>Booked, confirmed and done \u2014 without the back-and-forth.</p></div><div class="card"><h3>\u2B50 5-star service</h3><p>Rated by real local customers who keep coming back.</p></div><div class="card"><h3>\uD83D\uDCAC Always reachable</h3><p>Questions answered any time \u2014 day or night.</p></div></div></div><div class="sec"><div class="quote">\u201CBest decision we made this year \u2014 booked in minutes and the result was perfect.\u201D<br><b>\u2014 A happy customer</b></div></div><div class="sec" id="contact" style="text-align:center"><h2>Ready when you are</h2><p style="margin:10px 0 18px;color:#5A5F7A">Tell us what you need and we\u2019ll get straight back to you.</p><a class="cta" href="#">Contact '+N+'</a></div><div class="foot">Powered by TAKEOVA</div></body></html>';
+  }
+  function skeletonHTML(){
+    return '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{margin:0;box-sizing:border-box;font-family:\'Plus Jakarta Sans\',system-ui}@keyframes sh{0%{background-position:-400px 0}100%{background-position:400px 0}}.g{background:linear-gradient(90deg,#ECEDF4 25%,#F8F9FD 50%,#ECEDF4 75%);background-size:800px 100%;animation:sh 1.4s linear infinite;border-radius:8px}body{background:#fff}.hero{background:linear-gradient(135deg,#0B0B14,#1B1E4B);padding:64px 22px;text-align:center}.hero .g{opacity:.25}.sec{padding:40px 22px;max-width:920px;margin:0 auto}.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.ov{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}.tag{background:rgba(11,11,20,.82);color:#fff;padding:12px 18px;border-radius:12px;font:600 14px system-ui;text-align:center;max-width:280px}</style></head><body><div class="hero"><div class="g" style="height:30px;max-width:340px;margin:0 auto 12px"></div><div class="g" style="height:14px;max-width:420px;margin:0 auto 18px"></div><div class="g" style="height:42px;width:160px;margin:0 auto;border-radius:10px"></div></div><div class="sec"><div class="row"><div class="g" style="height:110px"></div><div class="g" style="height:110px"></div><div class="g" style="height:110px"></div></div></div><div class="sec"><div class="g" style="height:80px"></div></div><div class="ov"><div class="tag">\u2B06\uFE0F Describe your business above \u2014 your website appears right here in seconds</div></div></body></html>';
+  }
+  function frameCSS(m){ return m==='mobile'
+    ? 'width:390px;max-width:94vw;height:680px;border-radius:30px;border:6px solid #1A1D2E;box-shadow:0 24px 64px rgba(0,0,0,.5);overflow:hidden;background:#fff;transition:all .25s'
+    : 'width:100%;height:620px;border-radius:10px;border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 64px rgba(0,0,0,.5);overflow:hidden;background:#fff;transition:all .25s'; }
+  function tabCSS(on){ return 'border:0;cursor:pointer;border-radius:7px;padding:6px 12px;font:700 12px system-ui;color:#fff;background:'+(on?'#635BFF':'transparent'); }
+  function showPreview(html, title, opts){ opts=opts||{};
+    var old=document.getElementById('mine-live-preview'); if(old)old.remove();
+    var host=hostAfter||document.body;
+    var w=document.createElement('div'); w.id='mine-live-preview';
+    w.style.cssText='margin:28px auto 0;max-width:1020px;width:100%;border:1px solid rgba(255,255,255,.15);border-radius:16px;overflow:hidden;background:#0B0B14';
+    var bar=document.createElement('div');
+    bar.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 14px;background:#11131F;border-bottom:1px solid rgba(255,255,255,.08);color:#E7E9F4;font:600 13px system-ui;flex-wrap:wrap';
+    var ttl=document.createElement('span'); ttl.textContent=title; ttl.id='mine-pv-title';
+    var tabs=document.createElement('div'); tabs.style.cssText='display:flex;gap:4px;background:rgba(255,255,255,.06);border-radius:9px;padding:3px';
+    var bm=document.createElement('button'); bm.textContent='\uD83D\uDCF1 Mobile';
+    var bd=document.createElement('button'); bd.textContent='\uD83D\uDCBB Desktop';
+    var cta=document.createElement('a'); cta.href='/signup?plan=growth&from=live-preview&lp='+(window.__mineLP||'x'); cta.textContent='Claim this site \u2192';
+    cta.style.cssText='background:#635BFF;color:#fff;text-decoration:none;border-radius:8px;padding:7px 14px;font:700 13px system-ui';
+    cta.onclick=function(ev){ try{ev.preventDefault();}catch(_e){} try{localStorage.setItem('mine_claimed_preview_html', html);}catch(e){} cta.textContent='Saved \u2713 \u2014 opening signup\u2026'; cta.style.background='#16A34A'; setTimeout(function(){ try{location.href=cta.href;}catch(_e){} },650); };
+    if(opts.placeholder)cta.style.display='none';
+    tabs.appendChild(bm); tabs.appendChild(bd); bar.appendChild(ttl); bar.appendChild(tabs); bar.appendChild(cta);
+    var stage=document.createElement('div'); stage.style.cssText='display:flex;justify-content:center;padding:18px;background:#0B0B14';
+    var frame=document.createElement('div');
+    var f=document.createElement('iframe'); f.setAttribute('sandbox','allow-same-origin allow-popups');
+    f.style.cssText='width:100%;height:100%;border:0;display:block;background:#fff'; f.srcdoc=html;
+    function setMode(m){ frame.style.cssText=frameCSS(m); bm.style.cssText=tabCSS(m==='mobile'); bd.style.cssText=tabCSS(m!=='mobile'); }
+    bm.onclick=function(){setMode('mobile')}; bd.onclick=function(){setMode('desktop')};
+    setMode(window.innerWidth<760?'mobile':'desktop');
+    frame.appendChild(f); stage.appendChild(frame); w.appendChild(bar); w.appendChild(stage); host.appendChild(w);
+    if(!opts.placeholder){ try{w.scrollIntoView({behavior:'smooth',block:'center'});}catch(_e){} if(btn)btn.textContent='Build another'; if(btn)btn.disabled=false; }
+  }
+  function bump(){try{var k=(parseInt(localStorage.getItem('mine_pv_n9')||'0',10)||0)+1;localStorage.setItem('mine_pv_n9',String(k));if(k>=2)if(btn)btn.textContent='Sign up to keep building \u2192';}catch(e){}}
+  var _stI=null;
+  function stageStart(){
+    var st=['Reading your description\u2026','Writing your headline\u2026','Designing your sections\u2026','Adding your contact form\u2026','Polishing the details\u2026'],i=0;
+    function set(t){var el=document.getElementById('mine-pv-title'); if(el)el.textContent=t;}
+    if(!document.getElementById('mine-live-preview')) showPreview(skeletonHTML(), st[0], {placeholder:true}); else set(st[0]);
+    _stI=setInterval(function(){ i=(i+1)%st.length; set(st[i]); },2200);
+  }
+  function stageStop(){ if(_stI){clearInterval(_stI);_stI=null;} }
+  async function runBuild(){
+    btn=document.querySelector('[data-mine-build]')||btn; inp=document.getElementById('hero-input')||document.querySelector('#demo-input,#builder-input,#ai-input')||inp;
+    var v=(inp&&inp.value||'').trim(); if(!v){ if(inp)inp.focus(); return; }
+    var n=0;try{n=parseInt(localStorage.getItem('mine_pv_n9')||'0',10)||0}catch(e){}
+    if(n>=2){ if(btn)btn.textContent='Sign up to keep building \u2192'; alert('Free previews used \u2014 sign up to keep building!'); return; }
+    var isUrl=/^https?:\/\//i.test(v);
+    if(btn)btn.textContent=isUrl?'Importing your site\u2026':'Building your preview\u2026'; if(btn)btn.disabled=true;
+    stageStart();
+    try{
+      var r=await fetch('/api/public/'+(isUrl?'try-import':'try-builder'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(isUrl?{url:v}:{prompt:v})});
+      var d=await r.json();
+      try{ if(d&&d.claimToken){ localStorage.setItem('mine_claim_token', d.claimToken); } if(d&&d.templateKey){ localStorage.setItem('mine_template_key', d.templateKey); } }catch(_e){}
+      if(d&&d.html){ stageStop(); showPreview(d.html, isUrl?('Rebuilt live: '+(d.source_title||v).slice(0,40)):'Built live by TAKEOVA AI'); bump(); return; }
+      if(d&&d.error&&typeof d.error==='string'){ stageStop(); if(btn)btn.textContent='Build my site'; if(btn)btn.disabled=false; alert(d.error); return; }
+    }catch(e){}
+    stageStop();
+    showPreview(demoHTML(v), '\u26A1 Instant demo \u2014 the AI builds your real one in ~15s'); bump();
+  }
+  window.mineRunBuild=runBuild;
+  function init(){
+    btn=document.querySelector('[data-mine-build]');
+    if(!btn){
+      var anchorEl=document.querySelector('h1')||document.body.firstElementChild;
+      var hostBox=document.createElement('div');
+      hostBox.style.cssText='max-width:560px;margin:18px auto 6px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:0 16px';
+      inp=document.createElement('input'); inp.id='hero-input'; inp.type='text';
+      inp.placeholder='Describe your business \u2014 or paste your website URL';
+      inp.style.cssText='flex:1;min-width:220px;padding:14px 16px;border-radius:10px;border:1px solid rgba(120,120,160,.35);font-size:14px;outline:none';
+      btn=document.createElement('button'); btn.setAttribute('data-mine-build','1'); btn.type='button';
+      btn.textContent='Build Free \u2192';
+      btn.style.cssText='padding:14px 22px;border:none;border-radius:10px;background:linear-gradient(135deg,#635BFF,#2563EB);color:#fff;font-weight:700;font-size:14px;cursor:pointer';
+      hostBox.appendChild(inp); hostBox.appendChild(btn);
+      if(anchorEl&&anchorEl.parentNode) anchorEl.parentNode.insertBefore(hostBox, anchorEl.nextSibling); else document.body.insertBefore(hostBox, document.body.firstChild);
+    }
+    try{ var nb=btn.cloneNode(true); nb.removeAttribute('onclick'); nb.onclick=null; nb.type='button'; btn.parentNode.replaceChild(nb,btn); btn=nb; }catch(e){}
+    inp=document.getElementById('hero-input')||document.querySelector('#demo-input,#builder-input,#ai-input')||(btn.closest('section')?btn.closest('section').querySelector('input[type=text],input:not([type]),textarea'):null);
+    if(!inp){
+      inp=document.createElement('input'); inp.id='hero-input'; inp.type='text';
+      inp.placeholder='Describe your business \u2014 or paste your website URL';
+      inp.style.cssText='width:100%;max-width:520px;display:block;margin:0 auto 14px;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;font-size:15px;outline:none;box-sizing:border-box';
+      btn.parentElement.insertBefore(inp, btn);
+    } else { try{ if(inp.placeholder.indexOf('URL')<0) inp.placeholder=inp.placeholder.replace(/\.?\s*$/,'')+' \u2014 or paste your website URL'; }catch(e){} }
+    var sec=btn.closest('section')||btn.parentElement;
+    hostAfter=document.createElement('div'); hostAfter.id='mine-live-host'; hostAfter.style.cssText='padding:0 16px';
+    if(sec&&sec.parentNode) sec.parentNode.insertBefore(hostAfter, sec.nextSibling); else document.body.appendChild(hostAfter);
+    try{ var fm=btn.closest('form'); if(fm) fm.addEventListener('submit',function(se){se.preventDefault();se.stopPropagation();},true); }catch(e){}
+    var _hi=window.handleImport;
+    window.handleImport=function(){ var u=document.getElementById('import-url'); var v=u?(u.value||'').trim():''; if(v){ if(!/^https?:\/\//i.test(v)) v='https://'+v; inp.value=v; runBuild(); return; } return _hi&&_hi.apply(this,arguments); };
+    showPreview(skeletonHTML(), 'Your website appears here', {placeholder:true});
+    var _tries=0; var _iv=setInterval(function(){ _tries++; if(!document.getElementById('mine-live-preview')){ try{ if(!hostAfter||!hostAfter.parentNode){ var sec2=btn&&btn.closest?(btn.closest('section')||btn.parentElement):null; hostAfter=document.createElement('div'); hostAfter.id='mine-live-host'; hostAfter.style.cssText='padding:0 16px'; if(sec2&&sec2.parentNode) sec2.parentNode.insertBefore(hostAfter, sec2.nextSibling); else document.body.appendChild(hostAfter); } showPreview(skeletonHTML(), 'Your website appears here', {placeholder:true}); }catch(e){} } if(_tries>=3) clearInterval(_iv); }, 1500);
+    try{ var oc=document.getElementById('online-count'); if(oc){ setInterval(function(){ var n=parseInt((oc.textContent||'').replace(/[^0-9]/g,''),10)||9214; n+=(Math.random()<0.62)?(1+Math.floor(Math.random()*3)):-(1+Math.floor(Math.random()*2)); if(n<8900)n=8900+Math.floor(Math.random()*60); oc.textContent=n.toLocaleString(); }, 3500+Math.floor(Math.random()*4000)); } }catch(e){}
+  }
+  if(document.readyState==='complete'){ setTimeout(init,500); } else { window.addEventListener('load', function(){ setTimeout(init,500); }); }
+})();
+</script>
+
+<!-- TAKEOVA Affiliate Referral Tracker — reads ?ref=, tracks click, stores cookie -->
+<script>
+(function(){
+  try {
+    var params = new URLSearchParams(location.search);
+    var ref = params.get('ref');
+    var src = params.get('src') || params.get('utm_source') || '';
+    var API = window.MINE_API || (location.hostname === 'localhost' ? 'http://localhost:4000' : '');
+    if (ref) {
+      // Store in cookie (30 days) — read at signup/checkout
+      var exp = new Date(); exp.setDate(exp.getDate() + 30);
+      document.cookie = 'mine_ref=' + encodeURIComponent(ref) + '; expires=' + exp.toUTCString() + '; path=/; SameSite=Lax';
+      if (src) document.cookie = 'mine_ref_src=' + encodeURIComponent(src) + '; expires=' + exp.toUTCString() + '; path=/; SameSite=Lax';
+      // Fire tracking pixel (non-blocking, silent)
+      if (API) { var img = new Image(); img.src = API + '/api/affiliates/track/' + encodeURIComponent(ref) + '?page=' + encodeURIComponent(location.pathname) + (src ? '&src=' + encodeURIComponent(src) : '') + '&t=' + Date.now(); }
+    }
+  } catch(e) {}
+})();
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAKEOVA — Replace $5,000+/mo of tools and staff. From $79/mo.</title>
+  <meta name="description" content="The AI platform that builds your website and runs your business. Payments, bookings, courses, email marketing, and more. Start free.">
+  <link rel="canonical" href="https://takeova.ai/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://takeova.ai/">
+  <meta property="og:title" content="TAKEOVA — Replace $5,000+/mo of tools and staff. From $79/mo.">
+  <meta property="og:description" content="The AI platform that builds your website and runs your business. Payments, bookings, courses, email marketing, and more. Start free.">
+  <meta property="og:image" content="https://takeova.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TAKEOVA — Replace $5,000+/mo of tools and staff. From $79/mo.">
+  <meta name="twitter:description" content="The AI platform that builds your website and runs your business. Payments, bookings, courses, email marketing, and more. Start free.">
+  <meta name="twitter:image" content="https://takeova.ai/og-image.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TAKEOVA",
+    "applicationCategory": "BusinessApplication",
+    "description": "The AI platform that builds your website and runs your business. Payments, bookings, courses, email marketing, and more. Start free.",
+    "url": "https://takeova.ai",
+    "offers": {
+      "@type": "Offer",
+      "price": "29",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "847"
+    }
+  }
+  </script>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --p:#2563EB;--p2:#3B82F6;--gn:#16A34A;--rd:#DC2626;--or:#EA580C;
+  --pu:#7C3AED;--gold:#D97706;
+  --tx:#111827;--mt:#6B7280;--dm:#9CA3AF;
+  --bd:#E5E7EB;--bg:#F9FAFB;--bg2:#FFFFFF;
+  --sh:0 1px 3px rgba(0,0,0,.06),0 4px 20px rgba(0,0,0,.05);
+  --sh2:0 2px 8px rgba(0,0,0,.08),0 8px 32px rgba(0,0,0,.08);
+}
+html,body{height:100%;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:var(--tx);overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.wrap-sm{max-width:680px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+
+/* NAV */
+nav{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:200;height:56px;display:flex;align-items:center;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,40px);}
+.logo{font-weight:900;font-size:20px;letter-spacing:-.5px;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-links{display:flex;align-items:center;gap:6px;}
+.nav-link{font-size:13px;font-weight:500;color:var(--mt);padding:6px 10px;border-radius:7px;text-decoration:none;transition:color .15s,background .15s;}
+.nav-link:hover{color:var(--tx);background:var(--bg);}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:8px;font-size:13.5px;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:all .15s;text-decoration:none;letter-spacing:-.1px;}
+.btn-p{background:var(--p);color:#fff;}
+.btn-p:hover{background:#1D4ED8;}
+.btn-ghost{background:transparent;border:1.5px solid var(--bd);color:var(--tx);}
+.btn-ghost:hover{border-color:var(--dm);}
+.btn-wh{background:#fff;color:var(--p);font-weight:700;}
+.badge-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.15);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--p);letter-spacing:.2px;}
+
+/* SECTIONS */
+.sec{padding:88px 0;}
+.sec-sm{padding:56px 0;}
+.label{font-size:11px;font-weight:600;color:var(--p);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;}
+h2{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.15;}
+.sub{font-size:16px;color:var(--mt);margin-top:12px;line-height:1.7;}
+
+/* CARDS */
+.card{background:var(--bg2);border-radius:16px;padding:24px;box-shadow:var(--sh);transition:box-shadow .15s,transform .1s;}
+.card:hover{box-shadow:var(--sh2);transform:translateY(-1px);}
+
+/* PRICING CARD OVERRIDES */
+.pricing-card{transition:box-shadow .2s,transform .15s;}
+.pricing-card:hover{transform:translateY(-2px);}
+
+/* TAGS */
+.tag{display:inline-flex;align-items:center;padding:3px 8px;border-radius:5px;font-size:10.5px;font-weight:600;}
+.tg{background:rgba(22,163,74,.08);color:#15803D;}
+.tr{background:rgba(220,38,38,.08);color:#B91C1C;}
+
+/* FEATURE TABS */
+.ftab{padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:inherit;background:transparent;color:var(--mt);transition:all .15s;}
+.ftab.active{background:var(--p);color:#fff;}
+
+/* ANIMATIONS */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:none;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* STICKY BAR */
+#sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(17,24,39,.96);backdrop-filter:blur(16px);z-index:99;padding:10px clamp(16px,4vw,40px);border-top:1px solid rgba(255,255,255,.08);}
+
+@media(max-width:768px){
+  .nav-links .nav-link{display:none}
+  .sec{padding:64px 0;}
+  h2{font-size:clamp(22px,6vw,32px);}
+  #demo-grid{grid-template-columns:1fr !important;}
+  #demo-ai-col{display:none !important;}
+  .pricing-grid-inner{grid-template-columns:1fr !important;}
+}
+
+/* mobile pass (audit 2026-06-10) */
+@media(max-width:768px){.wrap{padding-left:18px;padding-right:18px}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}.pricing-card{width:100%;min-width:0}h1{font-size:clamp(30px,9vw,44px)!important;line-height:1.12}h2{font-size:clamp(22px,6.5vw,32px)!important}.sub{font-size:15px!important}}
+@media(max-width:480px){.sec{padding-top:48px;padding-bottom:48px}.nav-link{font-size:12px;padding:6px 8px}}
+</style>
+<style id="try-chips-fix">
+/* "Try:" example chips: label on its own centred line as a small eyebrow,
+   pills centred as one balanced group at EVERY width (matches landing2). */
+[data-mine-chips]{justify-content:center;row-gap:10px}
+[data-mine-chips] > span{flex:0 0 100%;text-align:center;margin:0}
+[data-mine-chips] > span:first-child{text-transform:uppercase;
+  letter-spacing:.09em;font-size:11px;margin-bottom:2px}
+[data-mine-chips] > button{flex:0 0 auto;
+  transition:border-color .15s, color .15s, transform .12s, box-shadow .15s}
+[data-mine-chips] > button:hover{border-color:#2563EB !important;
+  color:#2563EB !important;transform:translateY(-1px);
+  box-shadow:0 2px 8px rgba(37,99,235,.12)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">TAKEOVA</div>
+    <div class="nav-links" style="display:flex;align-items:center;gap:4px;">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#compare" class="nav-link">Compare</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <div style="width:1px;height:20px;background:var(--bd);margin:0 6px;"></div>
+      <a href="/login" class="nav-link">Log in</a>
+      <a href="/signup" class="btn btn-p" style="padding:8px 16px;font-size:13px;">Start Free →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="padding:80px 0 56px;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(37,99,235,.07),transparent);pointer-events:none;"></div>
+  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,.3),transparent);"></div>
+  <div class="wrap-sm" style="position:relative;">
+    <div style="margin-bottom:24px;">
+      <span class="badge-pill">
+        <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;animation:pulse 1.5s infinite;flex-shrink:0;"></span>
+        8,509 businesses live right now
+      </span>
+    </div>
+    <h1 style="font-size:clamp(36px,8vw,70px);font-weight:900;line-height:1.1;letter-spacing:-.04em;margin-bottom:20px;">
+      <span style="color:var(--tx);">Replace <span style="text-decoration:line-through;text-decoration-color:#DC2626;text-decoration-thickness:3px;color:#DC2626;">$5,000+/mo</span> of tools and staff.</span><br>
+      <span style="display:block;background:linear-gradient(90deg,#60A5FA,#A78BFA,#C084FC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">From $79/mo.</span>
+      <span style="color:#475569;font-size:.55em;font-weight:700;display:block;margin-top:8px;">Plus 14 AI Employees on Pro ($199+).</span>
+    </h1>
+    <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:20px;max-width:560px;margin-left:auto;margin-right:auto;">
+      <span style="font-size:11px;font-weight:700;background:#EEF2FF;color:#2563EB;padding:5px 11px;border-radius:14px;border:1px solid #C7D2FE;">🤖 AI Sales Rep</span>
+      <span style="font-size:11px;font-weight:700;background:#F0FDF4;color:#16A34A;padding:5px 11px;border-radius:14px;border:1px solid #BBF7D0;">📊 AI Bookkeeper</span>
+      <span style="font-size:11px;font-weight:700;background:#FEF3C7;color:#D97706;padding:5px 11px;border-radius:14px;border:1px solid #FDE68A;">📣 AI Marketing</span>
+      <span style="font-size:11px;font-weight:700;background:#FCE7F3;color:#DB2777;padding:5px 11px;border-radius:14px;border:1px solid #FBCFE8;">💬 AI Support</span>
+      <span style="font-size:11px;font-weight:700;background:#E0F2FE;color:#0284C7;padding:5px 11px;border-radius:14px;border:1px solid #BAE6FD;">📞 AI Receptionist</span>
+      <span style="font-size:11px;font-weight:700;background:#F1F5F9;color:#475569;padding:5px 11px;border-radius:14px;border:1px solid #CBD5E1;">+9 more</span>
+    </div>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+      <a href="/signup" class="btn btn-p" style="padding:13px 28px;font-size:15px;font-weight:700;box-shadow:0 4px 14px rgba(37,99,235,.3);">Start Free Trial →</a>
+      <button onclick="document.getElementById('mine-demo').scrollIntoView({behavior:'smooth'})" style="padding:12px 22px;font-size:14px;font-weight:600;background:rgba(255,255,255,.85);border:1.5px solid #E5E7EB;border-radius:9px;cursor:pointer;font-family:inherit;color:#374151;">Watch demo ↓</button>
+    </div>
+    <div style="display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:nowrap;font-size:12px;color:#9CA3AF;white-space:nowrap;">
+      <span>✓ 3-day free trial</span>
+      <span>·</span>
+      <span>✓ Card required, not charged for 3 days</span>
+      <span>·</span>
+      <span>✓ Cancel anytime</span>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO / REPLACES BAR -->
+<section class="sec-sm" style="border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05);background:var(--bg);">
+  <div class="wrap">
+    <div style="text-align:center;font-size:11px;font-weight:600;color:var(--dm);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">Replaces all of these — for less</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:420px;margin:0 auto;">
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">🛍️ Shopify</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$39/mo</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">🎓 Kajabi</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$179/mo</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">📧 Mailchimp</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$85/mo</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">📅 Calendly</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$20/mo</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">💼 HubSpot</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$50/mo</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">🌐 Wix</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$17/mo</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">📱 Twilio</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$35/mo</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--bd);border-radius:8px;padding:9px 12px;box-shadow:0 1px 3px rgba(0,0,0,.04);"><span style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#374151;">⚡ Zapier</span><span style="font-size:10px;color:var(--dm);text-decoration:line-through;">$50/mo</span></div>
+    </div>
+    <div style="text-align:center;margin-top:16px;">
+      <span style="font-size:13px;color:var(--mt);">Total separately: </span>
+      <span style="font-size:13px;font-weight:700;color:var(--rd);text-decoration:line-through;">$445/mo</span>
+      <span style="font-size:13px;color:var(--mt);"> → TAKEOVA: </span>
+      <span style="font-size:15px;font-weight:800;color:var(--gn);">$79/mo</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DASHBOARD DEMO -->
+<section class="sec" id="mine-demo">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <div class="label">SEE IT HAPPEN</div>
+      <h2>From Idea to Revenue in 60 Seconds</h2>
+      <p class="sub" style="max-width:480px;margin:12px auto 0;">Type your business. Watch TAKEOVA build it. See the sales roll in.</p>
+    </div>
+
+    <!-- Step indicator -->
+    <div style="display:flex;justify-content:center;align-items:center;gap:0;margin-bottom:28px;" class="reveal">
+      <div id="step-1-ind" style="display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:rgba(37,99,235,.08);border:1.5px solid var(--p);">
+        <div style="width:20px;height:20px;border-radius:50%;background:var(--p);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">1</div>
+        <span style="font-size:12px;font-weight:600;color:var(--p);">Describe</span>
+      </div>
+      <div style="width:32px;height:1.5px;background:var(--bd);"></div>
+      <div id="step-2-ind" style="display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:transparent;border:1.5px solid var(--bd);">
+        <div id="step-2-num" style="width:20px;height:20px;border-radius:50%;background:var(--bd);color:var(--mt);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">2</div>
+        <span style="font-size:12px;font-weight:600;color:var(--mt);">AI Builds</span>
+      </div>
+      <div style="width:32px;height:1.5px;background:var(--bd);"></div>
+      <div id="step-3-ind" style="display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:transparent;border:1.5px solid var(--bd);">
+        <div id="step-3-num" style="width:20px;height:20px;border-radius:50%;background:var(--bd);color:var(--mt);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">3</div>
+        <span style="font-size:12px;font-weight:600;color:var(--mt);">Revenue Live</span>
+      </div>
+    </div>
+
+    <!-- Demo window -->
+    <div class="reveal" style="border-radius:18px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,.04),0 24px 64px rgba(0,0,0,.14);border:1px solid rgba(0,0,0,.07);max-width:900px;margin:0 auto;">
+
+      <!-- Browser chrome -->
+      <div style="background:#F1F3F5;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #E5E7EB;flex-shrink:0;">
+        <div style="display:flex;gap:5px;"><div style="width:11px;height:11px;border-radius:50%;background:#FF5F57;"></div><div style="width:11px;height:11px;border-radius:50%;background:#FEBC2E;"></div><div style="width:11px;height:11px;border-radius:50%;background:#28C840;"></div></div>
+        <div style="flex:1;background:#fff;border-radius:6px;padding:5px 14px;font-size:11px;color:#9CA3AF;font-family:monospace;display:flex;align-items:center;gap:6px;">
+          <span style="color:#2563EB;">●</span> zarayoga.takeova.ai/dashboard
+        </div>
+        <div style="display:flex;align-items:center;gap:5px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:20px;padding:4px 10px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#22C55E;animation:pulse 1.5s infinite;flex-shrink:0;"></div>
+          <span style="font-size:10px;font-weight:700;color:#16A34A;">LIVE</span>
+        </div>
+      </div>
+
+      <!-- Dashboard -->
+      <div id="demo-screen"><div style="display:flex;background:#fff;">
+        <!-- Sidebar -->
+        <div style="width:44px;background:#F9FAFB;border-right:1px solid #F3F4F6;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:14px;flex-shrink:0;">
+          <div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:10px;">M</div>
+          <div style="width:26px;height:26px;border-radius:7px;background:rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;font-size:12px;">🏠</div>
+          <div style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.4;">🛒</div>
+          <div style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.4;">📊</div>
+          <div style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.4;">🤖</div>
+          <div style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.4;">⚙️</div>
+        </div>
+
+        <!-- Main -->
+        <div style="flex:1;padding:16px;overflow:hidden;min-width:0;">
+          <!-- Top bar -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <div>
+              <div style="font-weight:800;font-size:13px;letter-spacing:-.02em;">Good morning, Zara 👋</div>
+              <div style="font-size:10px;color:#9CA3AF;margin-top:1px;">Saturday · Your AI team is running</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <div style="font-size:10px;font-weight:600;color:var(--p);background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.15);border-radius:6px;padding:3px 8px;">Pro</div>
+              <div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:10px;">ZY</div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;" id="demo-stats-grid">
+            <div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.04);">
+              <div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Today</div>
+              <div id="demo-rev" style="font-size:17px;font-weight:900;color:#111827;letter-spacing:-.04em;transition:color .3s;">$1,840</div>
+              <div style="font-size:9px;color:#16A34A;font-weight:600;margin-top:1px;">↑ 23% vs yesterday</div>
+            </div>
+            <div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.04);">
+              <div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Orders</div>
+              <div id="demo-orders" style="font-size:17px;font-weight:900;color:#111827;letter-spacing:-.04em;">12</div>
+              <div style="font-size:9px;color:#16A34A;font-weight:600;margin-top:1px;">4 since midnight</div>
+            </div>
+            <div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.04);">
+              <div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Members</div>
+              <div style="font-size:17px;font-weight:900;color:#111827;letter-spacing:-.04em;">138</div>
+              <div style="font-size:9px;color:#16A34A;font-weight:600;margin-top:1px;">+3 this week</div>
+            </div>
+            <div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.04);">
+              <div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">AI Active</div>
+              <div style="font-size:17px;font-weight:900;color:#2563EB;letter-spacing:-.04em;">12</div>
+              <div style="font-size:9px;color:#2563EB;font-weight:600;margin-top:1px;">agents working</div>
+            </div>
+          </div>
+
+          <!-- Two cols -->
+          <div id="demo-grid" style="display:grid;grid-template-columns:1fr 190px;gap:10px;">
+            <!-- Sales feed -->
+            <div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow:hidden;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="font-size:10px;font-weight:700;color:#374151;">Live Sales</div>
+                <div style="font-size:9px;color:#22C55E;font-weight:700;display:flex;align-items:center;gap:3px;"><span style="width:5px;height:5px;border-radius:50%;background:#22C55E;display:inline-block;animation:pulse 1.5s infinite;"></span>Live</div>
+              </div>
+              <div id="demo-sales-feed" style="display:flex;flex-direction:column;gap:6px;"></div>
+            </div>
+            <!-- AI panel -->
+            <div id="demo-ai-col" style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow:hidden;">
+              <div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:10px;">AI Working Now</div>
+              <div id="demo-ai-feed" style="display:flex;flex-direction:column;gap:8px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+      <!-- Revenue footer bar -->
+      <div style="background:linear-gradient(135deg,#2563EB,#7C3AED);padding:11px 16px;">
+        <div style="display:flex;justify-content:center;align-items:stretch;gap:0;max-width:480px;margin:0 auto;">
+          <div style="flex:1;text-align:center;padding:2px 8px;">
+            <div id="demo-month-rev" style="color:#fff;font-size:15px;font-weight:900;letter-spacing:-.03em;line-height:1.2;">$28,420</div>
+            <div style="color:rgba(255,255,255,.55);font-size:9px;text-transform:uppercase;letter-spacing:.4px;margin-top:2px;">Revenue</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.2);margin:2px 0;flex-shrink:0;"></div>
+          <div style="flex:1;text-align:center;padding:2px 8px;">
+            <div style="color:#fff;font-size:15px;font-weight:900;letter-spacing:-.03em;line-height:1.2;">$247/mo</div>
+            <div style="color:rgba(255,255,255,.55);font-size:9px;text-transform:uppercase;letter-spacing:.4px;margin-top:2px;">Tools Saved</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.2);margin:2px 0;flex-shrink:0;"></div>
+          <div style="flex:1;text-align:center;padding:2px 8px;">
+            <div style="color:#86EFAC;font-size:15px;font-weight:900;letter-spacing:-.03em;line-height:1.2;">↑ 23%</div>
+            <div style="color:rgba(255,255,255,.55);font-size:9px;text-transform:uppercase;letter-spacing:.4px;margin-top:2px;">vs Last Month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats row below demo -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--bd);border-radius:14px;overflow:hidden;max-width:560px;margin:24px auto 0;">
+      <div style="text-align:center;padding:16px 6px;border-right:1px solid var(--bd);">
+        <div style="font-size:19px;font-weight:900;letter-spacing:-.04em;color:var(--tx);">$48.2k</div>
+        <div style="font-size:10px;color:var(--dm);margin-top:3px;line-height:1.4;">avg monthly<br>revenue</div>
+      </div>
+      <div style="text-align:center;padding:16px 6px;border-right:1px solid var(--bd);">
+        <div style="font-size:19px;font-weight:900;letter-spacing:-.04em;color:var(--tx);">8,509</div>
+        <div style="font-size:10px;color:var(--dm);margin-top:3px;line-height:1.4;">businesses<br>live now</div>
+      </div>
+      <div style="text-align:center;padding:16px 6px;border-right:1px solid var(--bd);">
+        <div style="font-size:19px;font-weight:900;letter-spacing:-.04em;color:var(--tx);">47s</div>
+        <div style="font-size:10px;color:var(--dm);margin-top:3px;line-height:1.4;">first site<br>built</div>
+      </div>
+      <div style="text-align:center;padding:16px 6px;">
+        <div style="font-size:19px;font-weight:900;letter-spacing:-.04em;color:var(--gn);">30+</div>
+        <div style="font-size:10px;color:var(--dm);margin-top:3px;line-height:1.4;">tools<br>replaced</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE TABS -->
+<section class="sec" id="features" style="background:var(--bg);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <div class="label">EVERYTHING YOU NEED</div>
+      <h2>One Platform, 30+ Tools</h2>
+      <p class="sub" style="max-width:480px;margin:12px auto 0;">Click any category to explore what TAKEOVA includes.</p>
+    </div>
+    <!-- Tab pills -->
+    <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;" id="feature-tabs">
+      <button class="ftab active" data-cat="all" onclick="filterFeatures(this,'all')">All Features</button>
+      <button class="ftab" data-cat="store" onclick="filterFeatures(this,'store')">Store & Sales</button>
+      <button class="ftab" data-cat="ai" onclick="filterFeatures(this,'ai')">AI Employees</button>
+      <button class="ftab" data-cat="marketing" onclick="filterFeatures(this,'marketing')">Marketing</button>
+      <button class="ftab" data-cat="clients" onclick="filterFeatures(this,'clients')">Clients</button>
+      <button class="ftab" data-cat="content" onclick="filterFeatures(this,'content')">Content</button>
+    </div>
+    <!-- Feature grid -->
+    <div id="feat-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:12px;"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <div style="display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:8px;">
+        <span style="color:#F59E0B;font-size:18px;">★★★★★</span>
+        <span style="font-weight:700;font-size:15px;">4.9</span>
+        <span style="color:var(--mt);font-size:13px;">from 23,847 businesses</span>
+      </div>
+      <h2>Real People. Real Revenue.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;">
+      <div class="card reveal">
+        <div style="display:flex;gap:3px;margin-bottom:10px;color:#F59E0B;">★★★★★</div>
+        <p style="font-size:14px;line-height:1.7;color:#374151;margin-bottom:14px;font-style:italic;">"I replaced Wix, Kajabi, AND 3 other subscriptions with TAKEOVA. Saving $247/month. My site converts 3× better and I haven't touched a single line of code."</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;">SJ</div>
+          <div><div style="font-weight:700;font-size:13px;">Sarah Johnson</div><div style="font-size:11px;color:var(--dm);">Yoga Studio Owner, Brisbane</div></div>
+          <div style="margin-left:auto;"><span class="tag tg">+$14k/mo</span></div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="display:flex;gap:3px;margin-bottom:10px;color:#F59E0B;">★★★★★</div>
+        <p style="font-size:14px;line-height:1.7;color:#374151;margin-bottom:14px;font-style:italic;">"The AI Social Manager alone is worth it. It posts 3× daily and I get a full strategic briefing every morning. My following grew 40% in 2 months."</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#EC4899,#F97316);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;">MT</div>
+          <div><div style="font-weight:700;font-size:13px;">Marcus Thompson</div><div style="font-size:11px;color:var(--dm);">Online Coach, Sydney</div></div>
+          <div style="margin-left:auto;"><span class="tag tg">+$8k/mo</span></div>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="display:flex;gap:3px;margin-bottom:10px;color:#F59E0B;">★★★★★</div>
+        <p style="font-size:14px;line-height:1.7;color:#374151;margin-bottom:14px;font-style:italic;">"Built my whole agency on TAKEOVA. I manage 12 clients from one dashboard and set my own prices. $11k/month from my laptop."</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#16A34A,#0284C7);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px;">EP</div>
+          <div><div style="font-weight:700;font-size:13px;">Emma Park</div><div style="font-size:11px;color:var(--dm);">Digital Agency Owner, Melbourne</div></div>
+          <div style="margin-left:auto;"><span class="tag tg">$11k/mo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ━━━ LEAD MAGNET AUTO-REPLY ENGINE ━━━ -->
+<section class="sec" style="position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-20%;right:-10%;width:60%;height:140%;background:radial-gradient(ellipse,rgba(99,91,255,.04) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:20px;background:linear-gradient(135deg,rgba(99,91,255,.08),rgba(236,72,153,.08));margin-bottom:14px;">
+        <span>🧲</span>
+        <span style="font-size:12px;font-weight:700;background:linear-gradient(90deg,#635BFF,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">AI LEAD MAGNET ENGINE</span>
+        <span style="font-size:11px;color:var(--dm);">Pro plan and above</span>
+      </div>
+      <h2>Turn Every Comment Into a <span style="background:linear-gradient(90deg,#635BFF,#EC4899,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Captured Lead</span></h2>
+      <p class="sub" style="max-width:560px;margin:0 auto 12px;">Someone comments on your post? Your magnet auto-replies, sends a DM with your guide/PDF/link, and captures them as a lead in your CRM. Across all platforms. 24/7.</p>
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15);">
+        <span style="font-size:14px;">⚡</span>
+        <span style="font-size:12px;color:#92400E;">Works <strong>standalone</strong> — Sales Rep optional for 7-day follow-up sequences</span>
+      </div>
+    </div>
+
+    <!-- 3-step flow -->
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:0;margin-bottom:40px;border:1px solid var(--bd);border-radius:14px;overflow:hidden;background:#fff;">
+      <div style="padding:28px 24px;border-right:1px dashed rgba(99,91,255,.15);">
+        <div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#635BFF,#7C6FFF);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px;box-shadow:0 4px 12px rgba(99,91,255,.25);">📱</div>
+        <div style="font-size:11px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Step 1</div>
+        <div style="font-weight:700;font-size:16px;margin-bottom:8px;">You post on socials</div>
+        <div style="font-size:13px;color:var(--mt);line-height:1.6;">Add a CTA like <em>"Comment <strong style="color:#2563EB;">FREE</strong> to get our guide"</em>. Works on Instagram, Facebook, TikTok, X, LinkedIn.</div>
+      </div>
+      <div style="padding:28px 24px;border-right:1px dashed rgba(236,72,153,.15);">
+        <div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#EC4899,#F472B6);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px;box-shadow:0 4px 12px rgba(236,72,153,.25);">🤖</div>
+        <div style="font-size:11px;font-weight:700;color:#EC4899;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Step 2</div>
+        <div style="font-weight:700;font-size:16px;margin-bottom:8px;">AI detects the trigger</div>
+        <div style="font-size:13px;color:var(--mt);line-height:1.6;">Hourly poll scans every comment for your trigger words. Scoped to specific posts if you want.</div>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px;">
+          <span style="padding:3px 8px;border-radius:8px;background:rgba(236,72,153,.06);color:#EC4899;font-size:10px;font-weight:600;">FREE</span>
+          <span style="padding:3px 8px;border-radius:8px;background:rgba(236,72,153,.06);color:#EC4899;font-size:10px;font-weight:600;">LINK</span>
+          <span style="padding:3px 8px;border-radius:8px;background:rgba(236,72,153,.06);color:#EC4899;font-size:10px;font-weight:600;">SEND</span>
+          <span style="padding:3px 8px;border-radius:8px;background:rgba(236,72,153,.06);color:#EC4899;font-size:10px;font-weight:600;">GUIDE</span>
+          <span style="padding:3px 8px;border-radius:8px;background:rgba(236,72,153,.06);color:#EC4899;font-size:10px;font-weight:600;">PDF</span>
+        </div>
+      </div>
+      <div style="padding:28px 24px;">
+        <div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#F59E0B,#FBBF24);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px;box-shadow:0 4px 12px rgba(245,158,11,.25);">✨</div>
+        <div style="font-size:11px;font-weight:700;color:#F59E0B;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Step 3</div>
+        <div style="font-weight:700;font-size:16px;margin-bottom:8px;">Auto-reply + lead captured</div>
+        <div style="font-size:13px;color:var(--mt);line-height:1.6;">Public reply posted, DM with your link/PDF sent, lead added to CRM with platform + magnet tags. All in seconds.</div>
+        <div style="margin-top:10px;font-size:11px;font-weight:600;color:var(--gn);">✅ AI-generated PDFs included</div>
+      </div>
+    </div>
+
+    <!-- Platform badges -->
+    <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-bottom:32px;">
+      <div style="text-align:center;min-width:78px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(228,64,95,.1);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 6px;">📸</div><div style="font-size:11px;font-weight:700;">Instagram</div></div>
+      <div style="text-align:center;min-width:78px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(24,119,242,.1);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 6px;">📘</div><div style="font-size:11px;font-weight:700;">Facebook</div></div>
+      <div style="text-align:center;min-width:78px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(1,1,1,.05);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 6px;">🎵</div><div style="font-size:11px;font-weight:700;">TikTok</div></div>
+      <div style="text-align:center;min-width:78px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(0,0,0,.05);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;margin:0 auto 6px;color:#000;">𝕏</div><div style="font-size:11px;font-weight:700;">X / Twitter</div></div>
+      <div style="text-align:center;min-width:78px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(10,102,194,.1);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 6px;">💼</div><div style="font-size:11px;font-weight:700;">LinkedIn</div></div>
+    </div>
+
+    <!-- Bottom dark CTA banner -->
+    <div class="reveal" style="background:linear-gradient(135deg,#1a1a2e,#16162e);border-radius:16px;padding:clamp(22px,4vw,36px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">
+      <div style="flex:1 1 300px;">
+        <h3 style="font-weight:800;font-size:clamp(18px,3vw,24px);color:#fff;line-height:1.2;margin-bottom:8px;">Every Comment. Every DM.<br><span style="color:#F59E0B;">Every Lead. Captured.</span></h3>
+        <p style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;max-width:420px;">Built-in on Pro and above. AI can generate the magnet content + styled PDF for you, or upload your own. $3 per AI-generated magnet beyond your plan quota.</p>
+      </div>
+      <a href="#pricing" style="display:inline-block;padding:12px 28px;background:linear-gradient(135deg,#635BFF,#7C6FFF);color:#fff;font-weight:700;font-size:13px;border-radius:10px;text-decoration:none;">Start Capturing Leads →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing" style="background:var(--bg);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <div class="label">PRICING</div>
+      <h2>Simple, Transparent Pricing</h2>
+      <p class="sub">Start free. Scale as you grow. Cancel anytime.</p>
+    </div>
+    <!-- Billing toggle -->
+    <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:32px;" class="reveal">
+      <span style="font-size:13px;font-weight:700;color:var(--tx);" id="monthly-label">Monthly</span>
+      <div onclick="toggleBilling()" id="billing-toggle" style="width:52px;height:28px;border-radius:14px;background:#CBD5E1;cursor:pointer;position:relative;transition:all .3s;">
+        <div id="toggle-knob" style="width:22px;height:22px;border-radius:50%;background:#fff;position:absolute;top:3px;left:3px;transition:left .3s;box-shadow:0 2px 4px rgba(0,0,0,.15);"></div>
+      </div>
+      <span style="font-size:13px;font-weight:500;color:var(--mt);" id="annual-label">Annual</span>
+      <span id="save-badge" style="display:none;background:rgba(22,163,74,.1);color:#16A34A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;">Save 20%</span>
+    </div>
+    <div class="reveal pricing-grid-inner" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;">
+
+
+<!-- STARTER -->
+<div class="pricing-card" data-plan="starter" style="background:#fff;border-radius:18px;border:1.5px solid #E8EAED;padding:28px 24px;position:relative;transition:all .25s;box-shadow:0 2px 12px rgba(0,0,0,.04);">
+  <div style="font-size:13px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;">Starter</div>
+  <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;">
+    <span class="price-val" style="font-size:40px;font-weight:900;letter-spacing:-.04em;color:#111827;">$79</span>
+    <span style="font-size:14px;color:#9CA3AF;font-weight:500;">/mo</span>
+  </div>
+  <div class="price-annual" style="display:none;font-size:11px;color:#16A34A;font-weight:600;margin-bottom:4px;">$63/mo billed annually — save $168/yr</div>
+  <div style="font-size:13px;color:#6B7280;margin-bottom:20px;line-height:1.5;">Perfect to launch and validate your business</div>
+  <a href="/signup?plan=starter" style="display:block;text-align:center;padding:11px;border-radius:9px;font-size:13.5px;font-weight:600;background:#F3F4F6;color:#374151;text-decoration:none;margin-bottom:20px;transition:all .15s;">Start Free →</a>
+  <div style="font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px;">What's included</div>
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>2 websites</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>30 AI actions</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>500 emails</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Online store + products</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Bookings + calendar</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Invoices + 3 contracts</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>CRM + contacts</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>AI chatbot</strong> (400 msgs/mo)</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>5 designs</strong>/mo · Design Studio</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#9CA3AF;"><span style="flex-shrink:0;margin-top:1px;">–</span><span>No SMS</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#9CA3AF;"><span style="flex-shrink:0;margin-top:1px;">–</span><span>No AI Employees</span></li>
+  </ul>
+</div>
+
+<!-- GROWTH -->
+<div class="pricing-card" data-plan="growth" style="background:#fff;border-radius:18px;border:1.5px solid #E8EAED;padding:28px 24px;position:relative;transition:all .25s;box-shadow:0 2px 12px rgba(0,0,0,.04);">
+  <div style="font-size:13px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;">Growth</div>
+  <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;">
+    <span class="price-val" style="font-size:40px;font-weight:900;letter-spacing:-.04em;color:#111827;">$129</span>
+    <span style="font-size:14px;color:#9CA3AF;font-weight:500;">/mo</span>
+  </div>
+  <div class="price-annual" style="display:none;font-size:11px;color:#16A34A;font-weight:600;margin-bottom:4px;">$103/mo billed annually — save $192/yr</div>
+  <div style="font-size:13px;color:#6B7280;margin-bottom:20px;line-height:1.5;">Scaling businesses ready to automate</div>
+  <a href="/signup?plan=growth" style="display:block;text-align:center;padding:11px;border-radius:9px;font-size:13.5px;font-weight:600;background:#F3F4F6;color:#374151;text-decoration:none;margin-bottom:20px;transition:all .15s;">Start Free →</a>
+  <div style="font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px;">Everything in Starter, plus</div>
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>3 websites</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>75 AI actions</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>1,000 emails</strong> + 500 outreach/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>100 SMS</strong> broadcasts + sequences</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Take Control</strong> (WhatsApp agent)</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Courses + memberships</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Affiliate program</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>25 designs</strong>/mo · Design Studio</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>8 AI research runs</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#9CA3AF;"><span style="flex-shrink:0;margin-top:1px;">–</span><span>No AI Employees</span></li>
+  </ul>
+</div>
+
+<!-- PRO (featured) -->
+<div class="pricing-card" data-plan="pro" style="background:linear-gradient(160deg,#2563EB 0%,#1D4ED8 100%);border-radius:18px;border:none;padding:28px 24px;position:relative;transition:all .25s;box-shadow:0 4px 24px rgba(37,99,235,.35),0 1px 3px rgba(0,0,0,.1);">
+  <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#F59E0B;color:#fff;font-size:10px;font-weight:700;padding:4px 14px;border-radius:0 0 8px 8px;letter-spacing:.5px;text-transform:uppercase;">Most Popular</div>
+  <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;">Pro</div>
+  <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;">
+    <span class="price-val" style="font-size:40px;font-weight:900;letter-spacing:-.04em;color:#fff;">$199</span>
+    <span style="font-size:14px;color:rgba(255,255,255,.6);font-weight:500;">/mo</span>
+  </div>
+  <div class="price-annual" style="display:none;font-size:11px;color:#86EFAC;font-weight:600;margin-bottom:4px;">$159/mo billed annually — save $312/yr</div>
+  <div style="font-size:13px;color:rgba(255,255,255,.7);margin-bottom:20px;line-height:1.5;">The full AI-powered business stack</div>
+  <a href="/signup?plan=pro" style="display:block;text-align:center;padding:11px;border-radius:9px;font-size:13.5px;font-weight:700;background:#fff;color:#2563EB;text-decoration:none;margin-bottom:20px;transition:all .15s;">Start Free →</a>
+  <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px;">Everything in Growth, plus</div>
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">5 websites</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">200 AI actions</strong> + 150 site edits/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">3,000 emails</strong> + 1,500 outreach/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">50 voice mins</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">Multi-currency</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">AI Employees</strong> add-ons unlocked</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">75 designs + 45 edits</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">18 AI research runs</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#fff;"><span style="color:#86EFAC;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">A/B testing</strong> + priority support</span></li>
+  </ul>
+</div>
+
+<!-- ENTERPRISE -->
+<div class="pricing-card" data-plan="enterprise" style="background:#fff;border-radius:18px;border:1.5px solid #E8EAED;padding:28px 24px;position:relative;transition:all .25s;box-shadow:0 2px 12px rgba(0,0,0,.04);">
+  <div style="font-size:13px;font-weight:700;color:#D97706;text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;">Enterprise</div>
+  <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;">
+    <span class="price-val" style="font-size:40px;font-weight:900;letter-spacing:-.04em;color:#111827;">$399</span>
+    <span style="font-size:14px;color:#9CA3AF;font-weight:500;">/mo</span>
+  </div>
+  <div class="price-annual" style="display:none;font-size:11px;color:#16A34A;font-weight:600;margin-bottom:4px;">$319/mo billed annually — save $960/yr</div>
+  <div style="font-size:13px;color:#6B7280;margin-bottom:20px;line-height:1.5;">Agencies and high-volume businesses</div>
+  <a href="/signup?plan=enterprise" style="display:block;text-align:center;padding:11px;border-radius:9px;font-size:13.5px;font-weight:600;background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff;text-decoration:none;margin-bottom:20px;transition:all .15s;">Start Free →</a>
+  <div style="font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px;">Everything in Pro, plus</div>
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>12 websites</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>400 AI actions</strong> + 300 edits/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>8,000 emails</strong> + 4,000 outreach/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>100 voice mins</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Prospector Agent</strong> — find + contact leads</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>150 designs + 90 edits</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>35 AI research</strong> + 12 competitor reports/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Client dashboards</strong> per business</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;"><span style="color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong>Dedicated support + SLA</strong></span></li>
+  </ul>
+
+
+<div class="pricing-card" data-plan="agency" style="background:linear-gradient(160deg,#0F172A 0%,#1E293B 100%);border-radius:18px;border:none;padding:28px 24px;position:relative;transition:all .25s;box-shadow:0 4px 24px rgba(0,0,0,.3),0 1px 3px rgba(0,0,0,.2);">
+  <div style="font-size:13px;font-weight:700;color:#60A5FA;text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;">Agency</div>
+  <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:4px;">
+    <span class="price-val" style="font-size:40px;font-weight:900;letter-spacing:-.04em;color:#fff;">$999</span>
+    <span style="font-size:14px;color:rgba(255,255,255,.5);font-weight:500;">/mo</span>
+  </div>
+  <div class="price-annual" style="display:none;font-size:11px;color:#86EFAC;font-weight:600;margin-bottom:4px;">$799/mo billed annually — save $2,400/yr</div>
+  <div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px;line-height:1.5;">Run a full agency. Manage unlimited clients</div>
+  <a href="/signup?plan=agency" style="display:block;text-align:center;padding:11px;border-radius:9px;font-size:13.5px;font-weight:600;background:linear-gradient(135deg,#60A5FA,#3B82F6);color:#fff;text-decoration:none;margin-bottom:20px;transition:all .15s;">Start Free →</a>
+  <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px;">Everything in Enterprise, plus</div>
+  <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;">
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">30 client sub-accounts</strong></span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">Pooled caps</strong> across all clients</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">50% discount</strong> on all overages</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">1,000 AI actions</strong> + 700 edits/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">25,000 emails</strong> + 12,000 outreach/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">250 voice mins</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">280 designs + 170 edits</strong>/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">75 AI research</strong> + 25 competitor reports/mo</span></li>
+    <li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span style="color:#60A5FA;font-weight:700;flex-shrink:0;margin-top:1px;">✓</span><span><strong style="color:#fff;">Clients on Pro-tier caps</strong></span></li>
+  </ul>
+</div>
+
+</div>
+
+    </div>
+    <div style="text-align:center;margin-top:20px;font-size:11px;color:var(--dm);line-height:1.8;" class="reveal">
+      Overage: AI edits $0.50 · Images $0.40 · AI Video $0.50/sec · Emails $0.005 · SMS $0.03 · Voice from $0.15/min
+    </div>
+    <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--mt);background:rgba(37,99,235,.03);border:1px solid rgba(37,99,235,.08);border-radius:10px;padding:12px 16px;max-width:580px;margin:10px auto 0;line-height:1.6;" class="reveal">
+      💳 <strong>2.5% TAKEOVA platform fee</strong> + Stripe's standard processing fee (2.9% + 30¢). You keep ~94.6% of every sale.
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="sec" id="compare">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <div class="label">HOW WE COMPARE</div>
+      <h2>Why Pay for 6 Tools?</h2>
+      <p class="sub">TAKEOVA replaces your entire tech stack — 45+ features, zero subscriptions.</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid var(--bd);box-shadow:var(--sh);">
+      <table id="comp-table" style="border-collapse:collapse;width:100%;min-width:480px;">
+        <thead>
+          <tr id="comp-head-row" style="background:#1a1a2e;color:#fff;">
+            <th style="position:sticky;left:0;z-index:3;background:#1a1a2e;width:140px;min-width:140px;padding:12px 10px 12px 16px;font-size:11px;font-weight:700;text-align:left;">Feature</th>
+            <th style="position:sticky;left:140px;z-index:3;background:#1a1a2e;width:68px;min-width:68px;padding:12px 6px;font-size:13px;font-weight:800;color:#F59E0B;text-align:center;">TAKEOVA</th>
+          </tr>
+        </thead>
+        <tbody id="comp-tbody"></tbody>
+      </table>
+    </div>
+    <p style="text-align:center;font-size:11px;color:var(--dm);margin-top:10px;">⚠️ = partial &nbsp;·&nbsp; Paid = paid add-on &nbsp;·&nbsp; Scroll right to see all</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="background:var(--bg);">
+  <div class="wrap-sm">
+    <div style="text-align:center;margin-bottom:40px;" class="reveal">
+      <div class="label">FAQ</div>
+      <h2>Common Questions</h2>
+    </div>
+    <div id="faq-list" style="display:flex;flex-direction:column;gap:0;border:1px solid var(--bd);border-radius:14px;overflow:hidden;" class="reveal"></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="sec" style="background:linear-gradient(135deg,#2563EB,#7C3AED);text-align:center;">
+  <div class="wrap-sm">
+    <div class="reveal">
+      <h2 style="color:#fff;font-size:clamp(28px,5vw,48px);margin-bottom:16px;">Build your business today.</h2>
+      <p style="color:rgba(255,255,255,.75);font-size:16px;margin-bottom:28px;line-height:1.6;">Join 8,509 businesses running on TAKEOVA. First site live in 5 minutes.</p>
+      <a href="/signup" class="btn btn-wh" style="padding:15px 32px;font-size:16px;font-weight:800;box-shadow:0 4px 20px rgba(0,0,0,.2);">Start Free — 3 Day Trial →</a>
+      <p style="color:rgba(255,255,255,.55);font-size:12px;margin-top:12px;">Card required, not charged for 3 days · Cancel anytime</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:48px clamp(16px,4vw,40px);border-top:1px solid var(--bd);background:#FAFAFA;">
+  <div style="max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;">
+    <div>
+      <div style="font-weight:900;font-size:18px;letter-spacing:-.5px;background:linear-gradient(135deg,#2563EB,#7C3AED);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;">TAKEOVA</div>
+      <div style="font-size:12px;color:var(--dm);max-width:200px;line-height:1.6;">One platform for your entire business.</div>
+    </div>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;">
+      <div><div style="font-weight:700;font-size:12px;margin-bottom:8px;color:var(--tx);">Product</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <a href="#features" style="font-size:12px;color:var(--mt);text-decoration:none;">Features</a>
+          <a href="#pricing" style="font-size:12px;color:var(--mt);text-decoration:none;">Pricing</a>
+          <a href="#compare" style="font-size:12px;color:var(--mt);text-decoration:none;">Compare</a>
+        </div>
+      </div>
+      <div><div style="font-weight:700;font-size:12px;margin-bottom:8px;color:var(--tx);">Resources</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <a href="learn.html" style="font-size:12px;color:var(--mt);text-decoration:none;">Learn</a>
+          <a href="showcase.html" style="font-size:12px;color:var(--mt);text-decoration:none;">Showcase</a>
+          <a href="about.html" style="font-size:12px;color:var(--mt);text-decoration:none;">About</a>
+          <a href="help.html" style="font-size:12px;color:var(--mt);text-decoration:none;">Help</a>
+          <a href="contact.html" style="font-size:12px;color:var(--mt);text-decoration:none;">Contact</a>
+        </div>
+      </div>
+      <div><div style="font-weight:700;font-size:12px;margin-bottom:8px;color:var(--tx);">Company</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <a href="/legal" style="font-size:12px;color:var(--mt);text-decoration:none;">Privacy</a>
+          <a href="/legal" style="font-size:12px;color:var(--mt);text-decoration:none;">Terms</a>
+          <a href="mailto:hello@takeova.ai" style="font-size:12px;color:var(--mt);text-decoration:none;">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--bd);font-size:11px;color:var(--dm);">© 2025 TAKEOVA App. All rights reserved. Powered by MINE technology.</div>
+</footer>
+
+<!-- STICKY BAR -->
+<div id="sticky-bar">
+  <div style="max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-weight:900;font-size:16px;color:#fff;letter-spacing:-.5px;">TAKEOVA</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.8);">Build your business in 5 min — <strong style="color:#22C55E;">50% off first month</strong></div>
+    </div>
+    <a href="/signup" class="btn btn-p" style="padding:8px 18px;font-size:13px;flex-shrink:0;">Start Free →</a>
+  </div>
+</div>
+
+<script>
+// ── Typewriter ──
+(function(){
+  var words = ['Your Store','Your Courses','Your Bookings','Your Membership','Your Agency','Your Brand','Your Coaching','Your Studio','Your Empire'];
+  var el = document.getElementById('tw-word');
+  if(!el) return;
+  var wi=0, ci=0, deleting=false, wait=0;
+  function tick(){
+    if(wait>0){wait--;setTimeout(tick,50);return;}
+    var word=words[wi%words.length];
+    if(!deleting){
+      el.textContent=word.slice(0,ci+1);
+      ci++;
+      if(ci>=word.length){deleting=true;wait=40;setTimeout(tick,50);return;}
+      setTimeout(tick,80);
+    }else{
+      el.textContent=word.slice(0,ci-1);
+      ci--;
+      if(ci<=0){deleting=false;wi++;wait=5;setTimeout(tick,50);return;}
+      setTimeout(tick,40);
+    }
+  }
+  setTimeout(tick,600);
+})();
+
+// ── 3-Step Demo Flow (ES5) ──
+(function(){
+  var PROMPT_TEXT = "I run a yoga studio in Brisbane. Need online bookings, a shop for mats and accessories, and a blog.";
+  var revenue = 1840, monthRev = 28420, orders = 12;
+  var saleInterval = null, agentInterval = null;
+
+  var demoSales = [
+    {n:'Sarah Mitchell',item:'Yoga Mat Premium',amt:89,emoji:'\uD83E\uDDD8'},
+    {n:'James Thompson',item:'Course Bundle',amt:297,emoji:'\uD83C\uDF93'},
+    {n:'Emma Clarke',item:'Monthly Membership',amt:49,emoji:'\uD83D\uDC51'},
+    {n:'Priya Sharma',item:'Private Session',amt:120,emoji:'\uD83D\uDCC5'},
+    {n:'Tom Hayes',item:'Beginners PDF',amt:19,emoji:'\uD83D\uDCD6'},
+    {n:'Lisa Park',item:'Mat + Block Set',amt:127,emoji:'\uD83D\uDED2'},
+    {n:'Mike Chen',item:'Advanced Course',amt:397,emoji:'\uD83C\uDF93'},
+    {n:'Rachel Kim',item:'VIP Membership',amt:99,emoji:'\uD83D\uDC51'},
+    {n:'David Wu',item:'Brand Consultation',amt:350,emoji:'\uD83D\uDCBC'},
+  ];
+  var demoAgents = [
+    {icon:'\uD83D\uDCF1',a:'Social AI',t:'Posted 3 reels - 2.4k reach',c:'#EC4899'},
+    {icon:'\uD83D\uDCE7',a:'Email AI',t:'Sent 42 follow-ups',c:'#3B82F6'},
+    {icon:'\uD83D\uDCAC',a:'Chat AI',t:'Closed 3 enquiries',c:'#10B981'},
+    {icon:'\uD83D\uDCCA',a:'Bookkeeper',t:'Reconciled 18 txns',c:'#7C3AED'},
+    {icon:'\uD83D\uDD0D',a:'Prospector',t:'Found 12 new leads',c:'#F59E0B'},
+  ];
+  var sections = [
+    {icon:'\uD83C\uDFA8', label:'Choosing brand colours & fonts'},
+    {icon:'\uD83C\uDFE0', label:'Building homepage with hero + testimonials'},
+    {icon:'\uD83D\uDCC5', label:'Setting up booking system'},
+    {icon:'\uD83D\uDED2', label:'Creating online shop (mats, accessories)'},
+    {icon:'\u270D\uFE0F', label:'Generating blog with 5 SEO posts'},
+    {icon:'\uD83D\uDCE7', label:'Building welcome email sequence (6 emails)'},
+    {icon:'\uD83E\uDD16', label:'Activating AI employees'},
+  ];
+
+  var PRIMARY = '#2563EB';
+
+  function fmt(n) {
+    if(n >= 1000) return '$' + (n/1000).toFixed(1) + 'k';
+    return '$' + n;
+  }
+
+  function setStep(n) {
+    for(var i = 1; i <= 3; i++) {
+      var ind = document.getElementById('step-'+i+'-ind');
+      var num = document.getElementById('step-'+i+'-num');
+      if(!ind) continue;
+      if(i === n) {
+        ind.style.background = 'rgba(37,99,235,.08)';
+        ind.style.borderColor = PRIMARY;
+        ind.querySelector('span').style.color = PRIMARY;
+      } else if(i < n) {
+        ind.style.background = 'transparent';
+        ind.style.borderColor = PRIMARY;
+        ind.querySelector('span').style.color = PRIMARY;
+      } else {
+        ind.style.background = 'transparent';
+        ind.style.borderColor = '#E2E8F0';
+        ind.querySelector('span').style.color = '#94A3B8';
+      }
+      if(num) {
+        if(i <= n) { num.style.background = PRIMARY; num.style.color = '#fff'; }
+        else { num.style.background = '#E2E8F0'; num.style.color = '#94A3B8'; }
+      }
+    }
+  }
+
+  function runStep1() {
+    if(saleInterval) clearInterval(saleInterval);
+    if(agentInterval) clearInterval(agentInterval);
+    revenue = 1840; monthRev = 28420; orders = 12;
+    setStep(1);
+    var screen = document.getElementById('demo-screen');
+    if(!screen) return;
+    var revBar = document.getElementById('demo-rev-bar');
+    if(revBar) revBar.style.display = 'none';
+
+    screen.innerHTML =
+      '<div style="padding:28px 24px;">' +
+        '<div style="font-size:11px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;">Tell TAKEOVA about your business</div>' +
+        '<div style="background:#F9FAFB;border:1.5px solid #E5E7EB;border-radius:12px;padding:16px;min-height:90px;font-size:14px;color:#374151;line-height:1.6;margin-bottom:16px;">' +
+          '<span id="demo-typed-text"></span>' +
+          '<span id="demo-type-cursor" style="display:inline-block;width:2px;height:1em;background:' + PRIMARY + ';vertical-align:middle;margin-left:1px;animation:blink .65s step-end infinite;"></span>' +
+        '</div>' +
+        '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">' +
+          '<span style="background:#F3F4F6;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500;color:#6B7280;">Yoga studio with bookings</span>' +
+          '<span style="background:#F3F4F6;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500;color:#6B7280;">E-commerce clothing brand</span>' +
+          '<span style="background:#F3F4F6;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:500;color:#6B7280;">Online coaching business</span>' +
+        '</div>' +
+        '<button id="demo-build-btn" style="width:100%;padding:13px;border-radius:10px;border:none;background:linear-gradient(135deg,#2563EB,#2563EB);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 14px rgba(37,99,235,.3);opacity:.5;transition:all .2s;">Build My Business with AI</button>' +
+      '</div>';
+
+    var typed = document.getElementById('demo-typed-text');
+    var btn = document.getElementById('demo-build-btn');
+    var ci = 0;
+
+    function typeChar() {
+      if(ci < PROMPT_TEXT.length) {
+        typed.textContent = PROMPT_TEXT.slice(0, ci+1);
+        ci++;
+        if(ci > 10) btn.style.opacity = '1';
+        setTimeout(typeChar, ci < 5 ? 120 : 45 + Math.random()*30);
+      } else {
+        btn.style.boxShadow = '0 4px 20px rgba(37,99,235,.5)';
+        setTimeout(function(){
+          btn.style.transform = 'scale(.97)';
+          setTimeout(function(){ btn.style.transform = ''; runStep2(); }, 120);
+        }, 900);
+      }
+    }
+    setTimeout(typeChar, 600);
+  }
+
+  function runStep2() {
+    setStep(2);
+    var screen = document.getElementById('demo-screen');
+    if(!screen) return;
+
+    screen.innerHTML =
+      '<div style="padding:24px;">' +
+        '<div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">' +
+          '<div style="width:32px;height:32px;border-radius:50%;background:rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;font-size:16px;animation:pulse 1s infinite;">\u2728</div>' +
+          '<div>' +
+            '<div style="font-weight:700;font-size:13px;">AI is building your business...</div>' +
+            '<div style="font-size:11px;color:#9CA3AF;" id="build-subtitle">Analysing your description</div>' +
+          '</div>' +
+          '<div style="margin-left:auto;font-size:11px;font-weight:700;color:' + PRIMARY + ';" id="build-pct">0%</div>' +
+        '</div>' +
+        '<div style="background:#F3F4F6;border-radius:8px;height:6px;margin-bottom:20px;overflow:hidden;">' +
+          '<div id="build-bar" style="height:100%;background:linear-gradient(90deg,' + PRIMARY + ',#7C3AED);border-radius:8px;width:0;transition:width .6s ease;"></div>' +
+        '</div>' +
+        '<div id="build-list" style="display:flex;flex-direction:column;gap:8px;"></div>' +
+      '</div>';
+
+    var list = document.getElementById('build-list');
+    var bar = document.getElementById('build-bar');
+    var pct = document.getElementById('build-pct');
+    var sub = document.getElementById('build-subtitle');
+    var rows = [];
+
+    for(var j = 0; j < sections.length; j++) {
+      var d = document.createElement('div');
+      d.style.cssText = 'display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:#fff;border:1px solid #F3F4F6;opacity:.4;transition:all .3s;';
+      d.innerHTML = '<span style="font-size:14px;flex-shrink:0;">'+sections[j].icon+'</span><span style="font-size:12px;font-weight:500;color:#374151;flex:1;">'+sections[j].label+'</span><span style="font-size:14px;color:#D1D5DB;">\u25CB</span>';
+      list.appendChild(d);
+      rows.push(d);
+    }
+
+    var si = 0;
+    function doNext() {
+      if(si >= sections.length) { setTimeout(runStep3, 500); return; }
+      var row = rows[si];
+      row.style.opacity = '1';
+      row.style.background = 'rgba(37,99,235,.04)';
+      row.style.borderColor = 'rgba(37,99,235,.2)';
+      var spinner = row.querySelector('span:last-child');
+      spinner.textContent = '\u23F3';
+      if(sub) sub.textContent = sections[si].label;
+      var progress = Math.round(((si+1)/sections.length)*100);
+      if(bar) bar.style.width = progress+'%';
+      if(pct) pct.textContent = progress+'%';
+      setTimeout(function(){
+        spinner.textContent = '\u2705';
+        row.style.background = 'rgba(22,163,74,.04)';
+        row.style.borderColor = 'rgba(22,163,74,.2)';
+        si++;
+        setTimeout(doNext, 350);
+      }, 700);
+    }
+    setTimeout(doNext, 400);
+  }
+
+  function addSale(sale, prepend) {
+    var f = document.getElementById('demo-sales-feed');
+    if(!f) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'display:flex;align-items:center;gap:7px;padding:6px 8px;background:#F9FAFB;border-radius:8px;opacity:0;transform:translateY(-8px);transition:all .35s;';
+    d.innerHTML =
+      '<span style="font-size:13px;flex-shrink:0;">'+sale.emoji+'</span>' +
+      '<div style="flex:1;min-width:0;">' +
+        '<div style="font-size:10.5px;font-weight:700;color:#111827;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+sale.n+'</div>' +
+        '<div style="font-size:10px;color:#9CA3AF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+sale.item+'</div>' +
+      '</div>' +
+      '<div style="text-align:right;flex-shrink:0;">' +
+        '<div style="font-size:10.5px;font-weight:800;color:#16A34A;">+$'+sale.amt+'</div>' +
+        '<div style="font-size:9px;color:#D1D5DB;">just now</div>' +
+      '</div>';
+    if(prepend && f.firstChild) f.insertBefore(d, f.firstChild); else f.appendChild(d);
+    setTimeout(function(){ d.style.opacity='1'; d.style.transform='translateY(0)'; }, 20);
+    while(f.children.length > 5) f.removeChild(f.lastChild);
+  }
+
+  function addAgent(a) {
+    var f = document.getElementById('demo-ai-feed');
+    if(!f) return;
+    var d = document.createElement('div');
+    d.style.cssText = 'display:flex;align-items:flex-start;gap:6px;opacity:0;transition:opacity .4s;';
+    d.innerHTML =
+      '<div style="width:20px;height:20px;border-radius:5px;background:'+a.c+'18;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">'+a.icon+'</div>' +
+      '<div><div style="font-size:10px;font-weight:700;color:#374151;">'+a.a+'</div><div style="font-size:10px;color:#9CA3AF;line-height:1.3;">'+a.t+'</div></div>';
+    f.insertBefore(d, f.firstChild);
+    setTimeout(function(){ d.style.opacity='1'; }, 20);
+    while(f.children.length > 5) f.removeChild(f.lastChild);
+  }
+
+  function updateStats() {
+    var r = document.getElementById('demo-rev');
+    var o = document.getElementById('demo-orders');
+    var m = document.getElementById('demo-month-rev');
+    if(r){ r.textContent=fmt(revenue); r.style.color='#16A34A'; r.style.transition='color .3s'; setTimeout(function(){ r.style.color='#111827'; },600); }
+    if(o) o.textContent = orders;
+    if(m) m.textContent = fmt(monthRev);
+  }
+
+  function runStep3() {
+    setStep(3);
+    var screen = document.getElementById('demo-screen');
+    if(!screen) return;
+    var revBar = document.getElementById('demo-rev-bar');
+    if(revBar) revBar.style.display = 'flex';
+
+    screen.innerHTML =
+      '<div style="display:flex;background:#fff;min-height:300px;">' +
+        '<div style="width:44px;background:#F9FAFB;border-right:1px solid #F3F4F6;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:14px;flex-shrink:0;">' +
+          '<div style="width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:10px;">M</div>' +
+          '<div style="width:26px;height:26px;border-radius:7px;background:rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;font-size:12px;">\uD83C\uDFE0</div>' +
+          '<div style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.4;">\uD83D\uDED2</div>' +
+          '<div style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.4;">\uD83D\uDCCA</div>' +
+          '<div style="width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:.4;">\uD83E\uDD16</div>' +
+        '</div>' +
+        '<div style="flex:1;padding:16px;overflow:hidden;min-width:0;">' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">' +
+            '<div><div style="font-weight:800;font-size:13px;letter-spacing:-.02em;">Your business is live! \uD83C\uDF89</div><div style="font-size:10px;color:#9CA3AF;margin-top:1px;">zarayoga.takeova.ai - First sale in 3 mins</div></div>' +
+            '<div style="display:flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:#16A34A;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:6px;padding:3px 8px;"><span style="width:5px;height:5px;border-radius:50%;background:#22C55E;display:inline-block;animation:pulse 1.5s infinite;"></span>Live</div>' +
+          '</div>' +
+          '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;">' +
+            '<div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;"><div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Today</div><div id="demo-rev" style="font-size:17px;font-weight:900;color:#111827;letter-spacing:-.04em;">$1,840</div><div style="font-size:9px;color:#16A34A;font-weight:600;">up 23%</div></div>' +
+            '<div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;"><div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Orders</div><div id="demo-orders" style="font-size:17px;font-weight:900;color:#111827;letter-spacing:-.04em;">12</div><div style="font-size:9px;color:#16A34A;font-weight:600;">+4 today</div></div>' +
+            '<div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;"><div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">Members</div><div style="font-size:17px;font-weight:900;color:#111827;letter-spacing:-.04em;">138</div><div style="font-size:9px;color:#16A34A;font-weight:600;">+3 week</div></div>' +
+            '<div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:10px;"><div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">AI Active</div><div style="font-size:17px;font-weight:900;color:' + PRIMARY + ';letter-spacing:-.04em;">12</div><div style="font-size:9px;color:' + PRIMARY + ';font-weight:600;">agents</div></div>' +
+          '</div>' +
+          '<div style="display:grid;grid-template-columns:1fr 180px;gap:10px;">' +
+            '<div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:12px;overflow:hidden;">' +
+              '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;"><div style="font-size:10px;font-weight:700;color:#374151;">Live Sales</div><div style="font-size:9px;color:#22C55E;font-weight:700;display:flex;align-items:center;gap:3px;"><span style="width:5px;height:5px;border-radius:50%;background:#22C55E;display:inline-block;animation:pulse 1.5s infinite;"></span>Live</div></div>' +
+              '<div id="demo-sales-feed" style="display:flex;flex-direction:column;gap:6px;"></div>' +
+            '</div>' +
+            '<div style="background:#fff;border:1px solid #F3F4F6;border-radius:10px;padding:12px;overflow:hidden;">' +
+              '<div style="font-size:10px;font-weight:700;color:#374151;margin-bottom:10px;">AI Working</div>' +
+              '<div id="demo-ai-feed" style="display:flex;flex-direction:column;gap:8px;"></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    // Seed data
+    var seedSales = [demoSales[4], demoSales[3], demoSales[2], demoSales[1]];
+    for(var k = 0; k < seedSales.length; k++) addSale(seedSales[k], false);
+    for(var m2 = 0; m2 < demoAgents.length; m2++) addAgent(demoAgents[m2]);
+
+    var si2 = 0, ai2 = 0;
+    saleInterval = setInterval(function(){
+      var s = demoSales[si2 % demoSales.length];
+      addSale(s, true);
+      revenue += s.amt; monthRev += s.amt; orders++;
+      updateStats(); si2++;
+    }, 3200);
+    agentInterval = setInterval(function(){
+      addAgent(demoAgents[ai2 % demoAgents.length]); ai2++;
+    }, 4500);
+
+    // Replay button after 8s
+    setTimeout(function(){
+      var demoWin = document.getElementById('mine-demo');
+      if(!demoWin) return;
+      var existing = document.getElementById('replay-btn');
+      if(existing) return;
+      var replay = document.createElement('div');
+      replay.id = 'replay-btn';
+      replay.style.cssText = 'text-align:center;padding:8px 16px;background:rgba(37,99,235,.04);border-top:1px solid #E5E7EB;cursor:pointer;font-size:12px;font-weight:600;color:' + PRIMARY + ';';
+      replay.textContent = '\u21BA Watch again';
+      replay.onclick = function(){
+        var rb = document.getElementById('replay-btn');
+        if(rb && rb.parentNode) rb.parentNode.removeChild(rb);
+        runStep1();
+      };
+      demoWin.appendChild(replay);
+    }, 8000);
+  }
+
+  // Start when demo comes into view
+  var started = false;
+  var demoEl = document.getElementById('mine-demo');
+  if(demoEl && window.IntersectionObserver) {
+    var obs = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting && !started){
+        started = true;
+        obs.disconnect();
+        runStep1();
+      }
+    }, {threshold:0.3});
+    obs.observe(demoEl);
+  } else if(demoEl) {
+    // Fallback: start after 1s
+    setTimeout(runStep1, 1000);
+  }
+})();
+
+
+// Scroll reveal
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  function showEl(el){el.style.opacity='1';el.style.transform='none';}
+  if(window.IntersectionObserver){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){showEl(e.target);obs.unobserve(e.target);}});
+    },{threshold:0,rootMargin:'0px 0px -20px 0px'});
+    els.forEach(function(el){obs.observe(el);});
+  }else{els.forEach(showEl);}
+  setTimeout(function(){els.forEach(showEl);},700);
+})();
+
+// Sticky bar
+(function(){
+  var bar=document.getElementById('sticky-bar');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){bar.style.display=window.scrollY>400?'block':'none';},{passive:true});
+})();
+
+// FAQ
+function toggleFaq(btn){
+  var ans=btn.nextElementSibling;var icon=btn.querySelector('span:last-child');
+  var open=ans.style.display!=='none';
+  ans.style.display=open?'none':'block';icon.textContent=open?'+':'\u2212';
+}
+(function(){
+  var faqs=[
+    {q:'Is there really a free trial?',a:'Yes \u2014 3-day free trial on all plans. Your card is required but not charged until day 4. Cancel anytime before then.'},
+    {q:'Is there a money-back guarantee?',a:'Yes \u2014 a 30-day money-back guarantee. If TAKEOVA is not for you, you get a full refund within your first 30 days, no questions asked. Every plan also starts with a 3-day free trial \u2014 card required, not charged until day 4.'},
+    {q:'Do I need coding skills?',a:'Zero coding required. Describe what you want and the AI does it \u2014 site, copy, products, emails, all of it.'},
+    {q:'What happens to my data if I cancel?',a:'You own your data. Export everything as CSV/JSON at any time. We keep it for 30 days after cancellation.'},
+    {q:'Can I use my own domain?',a:'Yes. Connect any custom domain in Settings. Cloudflare handles SSL automatically.'},
+    {q:'What payment methods do you accept?',a:'Your customers can pay via card, Apple Pay, Google Pay, and crypto. TAKEOVA processes via Stripe Connect.'},
+    {q:'Is there an agency plan?',a:'Yes \u2014 the Agency plan ($999/mo) lets you manage multiple clients from one dashboard. Set your own prices and keep 100% of the revenue.'},
+    {q:'Can I migrate from Shopify or Kajabi?',a:'Yes. TAKEOVA imports products, contacts and orders from Shopify, and courses/members from Kajabi.'},
+  ];
+  var list=document.getElementById('faq-list');if(!list)return;
+  faqs.forEach(function(faq,i){
+    var d=document.createElement('div');
+    d.style.borderBottom=i<faqs.length-1?'1px solid #E5E7EB':'none';
+    d.innerHTML='<button onclick="toggleFaq(this)" style="width:100%;text-align:left;padding:18px 20px;background:none;border:none;font-family:inherit;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;"><span style="font-size:14px;font-weight:600;color:#111827;">'+faq.q+'</span><span style="font-size:18px;color:#9CA3AF;flex-shrink:0;">+</span></button><div style="display:none;padding:0 20px 18px;font-size:13.5px;color:#6B7280;line-height:1.7;">'+faq.a+'</div>';
+    list.appendChild(d);
+  });
+})();
+
+// Billing toggle
+var _isAnnual=false;
+var _prices={starter:{m:'$79',a:'$63'},growth:{m:'$129',a:'$103'},pro:{m:'$199',a:'$159'},enterprise:{m:'$399',a:'$319'},agency:{m:'$999',a:'$799'}};
+function toggleBilling(){
+  _isAnnual=!_isAnnual;
+  var t=document.getElementById('billing-toggle'),k=document.getElementById('toggle-knob'),b=document.getElementById('save-badge'),ml=document.getElementById('monthly-label'),al=document.getElementById('annual-label');
+  if(t)t.style.background=_isAnnual?'#2563EB':'#CBD5E1';
+  if(k)k.style.left=_isAnnual?'27px':'3px';
+  if(b)b.style.display=_isAnnual?'inline-flex':'none';
+  if(ml)ml.style.color=_isAnnual?'#9CA3AF':'#111827';
+  if(al)al.style.color=_isAnnual?'#111827':'#9CA3AF';
+  document.querySelectorAll('.pricing-card').forEach(function(c){
+    var plan=c.getAttribute('data-plan');if(!plan||!_prices[plan])return;
+    var val=c.querySelector('.price-val'),ann=c.querySelector('.price-annual');
+    if(val)val.textContent=_isAnnual?_prices[plan].a:_prices[plan].m;
+    if(ann)ann.style.display=_isAnnual?'block':'none';
+  });
+}
+
+// Feature tabs
+var allFeatures=[
+  {cat:'store',icon:'&#x1F310;',title:'AI Site Builder',desc:'Describe your business &mdash; AI builds a complete website in 60 seconds.'},
+  {cat:'store',icon:'&#x1F6D2;',title:'E-Commerce Store',desc:'Sell products, handle variants, inventory, shipping and returns.'},
+  {cat:'store',icon:'&#x1F393;',title:'Online Courses',desc:'Create and sell courses with video lessons, quizzes and certificates.'},
+  {cat:'store',icon:'&#x1F451;',title:'Memberships',desc:'Recurring memberships with gated content and automatic billing.'},
+  {cat:'store',icon:'&#x1F4C5;',title:'Bookings & Calendar',desc:'Online booking system with reminders, waitlists and payments.'},
+  {cat:'store',icon:'&#x1F6D2;',title:'Cart Recovery',desc:'Automated sequences that recover abandoned carts via email and SMS.'},
+  {cat:'ai',icon:'&#x1F4F1;',title:'AI Social Manager',desc:'Posts to 6 platforms 3x daily in your brand voice. Fully automatic.'},
+  {cat:'ai',icon:'&#x1F4DE;',title:'AI Receptionist',desc:'Answers calls 24/7, books appointments, takes messages.'},
+  {cat:'ai',icon:'&#x1F916;',title:'AI Support Agent',desc:'Resolves 94% of support tickets instantly, escalates the rest.'},
+  {cat:'ai',icon:'&#x1F9E0;',title:'Take Control (COO)',desc:'Daily business briefings via WhatsApp. Ask anything, get answers.'},
+  {cat:'ai',icon:'&#x1F50D;',title:'Prospector Agent',desc:'Finds leads, builds demo sites, sends personalised outreach.'},
+  {cat:'ai',icon:'&#x2744;',title:'Cold Email Agent',desc:'AI researches each prospect and writes a personalised email.'},
+  {cat:'marketing',icon:'&#x1F4E7;',title:'Email Marketing',desc:'Sequences, broadcasts and funnels with AI-written copy.'},
+  {cat:'marketing',icon:'&#x1F4AC;',title:'SMS Marketing',desc:'High-open-rate campaigns. 94% read within 3 minutes.'},
+  {cat:'marketing',icon:'&#x1F4E2;',title:'Ad Manager',desc:'Create, run and optimise Meta + Google ads from one place.'},
+  {cat:'marketing',icon:'&#x1F3AF;',title:'Lead Funnels',desc:'Multi-step funnels with upsells, downsells and A/B testing.'},
+  {cat:'clients',icon:'&#x1F9FE;',title:'Invoicing',desc:'Professional invoices with automatic payment reminders.'},
+  {cat:'clients',icon:'&#x1F4DD;',title:'Contracts',desc:'AI-drafted contracts with e-signature built in.'},
+  {cat:'clients',icon:'&#x1F465;',title:'CRM',desc:'Full customer database with lead scoring and pipeline tracking.'},
+  {cat:'clients',icon:'&#x1F511;',title:'Client Portal',desc:'Branded portal for each client with invoices, files and messaging.'},
+  {cat:'content',icon:'&#x270D;',title:'Blog & SEO',desc:'AI-written blog posts, meta tags and sitemap generation.'},
+  {cat:'content',icon:'&#x1F3AC;',title:'AI Video Ads',desc:'Kling-powered cinematic video generation.'},
+  {cat:'content',icon:'&#x1F399;',title:'Podcast Hosting',desc:'Host and distribute to Spotify, Apple and more.'},
+  {cat:'content',icon:'&#x1F3A8;',title:'Brand Kit',desc:'Colours, fonts and logos applied consistently across everything.'},
+];
+function filterFeatures(btn,cat){
+  document.querySelectorAll('.ftab').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var grid=document.getElementById('feat-grid');if(!grid)return;
+  grid.innerHTML='';
+  var list=cat==='all'?allFeatures:allFeatures.filter(function(f){return f.cat===cat;});
+  list.forEach(function(f){
+    var d=document.createElement('div');
+    d.style.cssText='background:#fff;border-radius:14px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.05);transition:all .15s;';
+    d.innerHTML='<div style="font-size:24px;margin-bottom:10px;">'+f.icon+'</div><div style="font-weight:700;font-size:14px;margin-bottom:5px;letter-spacing:-.02em;">'+f.title+'</div><div style="font-size:12.5px;color:#6B7280;line-height:1.6;">'+f.desc+'</div>';
+    grid.appendChild(d);
+  });
+}
+
+// Comparison table
+(function(){
+  var rows=[
+    ["AI Website Builder","V","X","X","W","X"],
+    ["E-Commerce","V","V","W","V","X"],
+    ["Online Courses","V","X","V","X","X"],
+    ["Email Funnels","V","W","V","W","V"],
+    ["Invoicing","V","W","X","X","X"],
+    ["Bookings","V","X","X","V","V"],
+    ["Social Media Mgmt","V","X","X","X","W"],
+    ["AI Employees","V","X","X","X","X"],
+    ["AI Chatbot","V","X","X","X","W"],
+    ["Cart Recovery","V","V","X","W","X"],
+    ["Client Portal","V","X","X","X","Paid"],
+    ["Affiliate Program","V","App","V","X","X"],
+    ["A/B Testing","V","X","X","V","V"],
+    ["Podcast Hosting","V","X","X","X","X"],
+    ["Starting Price","$79/mo","$39/mo","$179/mo","$17/mo","$20/mo*"],
+  ];
+  var headers=["Shopify","Kajabi","Wix","HubSpot"];
+  function icon(v,mine){
+    var sz=mine?'20px':'18px';
+    if(v==="V")return'<span style="font-size:'+sz+';color:#16A34A;">\u2705</span>';
+    if(v==="X")return'<span style="font-size:'+sz+';color:#DC2626;">\u274c</span>';
+    if(v==="W")return'<span style="font-size:'+sz+';color:#D97706;">\u26a0\ufe0f</span>';
+    return'<span style="font-size:11px;font-weight:600;color:#64748B;">'+v+'</span>';
+  }
+  var hr=document.getElementById('comp-head-row'),tb=document.getElementById('comp-tbody');
+  if(!hr||!tb)return;
+  headers.forEach(function(h){var th=document.createElement('th');th.style.cssText='width:72px;min-width:72px;padding:11px 4px;font-size:10px;font-weight:700;text-align:center;color:rgba(255,255,255,.75);background:#1a1a2e;white-space:nowrap;';th.textContent=h;hr.appendChild(th);});
+  rows.forEach(function(row,i){
+    var last=i===rows.length-1,bg=i%2===0?'#fff':'#F9FAFB',mbg=i%2===0?'#EEF2FF':'#E8EDFF',bd=last?'':'border-bottom:1px solid #F1F5F9;';
+    var tr=document.createElement('tr');
+    var t0=document.createElement('td');t0.style.cssText='position:sticky;left:0;z-index:2;background:'+bg+';padding:10px 10px 10px 14px;font-size:11.5px;font-weight:'+(last?'700':'600')+';color:#0F172A;line-height:1.35;'+bd;t0.textContent=row[0];tr.appendChild(t0);
+    var t1=document.createElement('td');t1.style.cssText='position:sticky;left:140px;z-index:2;background:'+mbg+';padding:10px 6px;text-align:center;'+bd;t1.innerHTML=icon(row[1],true);tr.appendChild(t1);
+    row.slice(2).forEach(function(cell){var td=document.createElement('td');td.style.cssText='width:72px;padding:10px 4px;text-align:center;background:'+bg+';'+bd;td.innerHTML=icon(cell,false);tr.appendChild(td);});
+    tb.appendChild(tr);
+  });
+})();
+
+// Init tabs
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.querySelector('.ftab[data-cat="all"]');
+  if(btn)filterFeatures(btn,'all');
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+
+<!-- ─── AUTH MODAL (signup + login) ─── -->
+<div id="auth-overlay" onclick="if(event.target===this)closeAuthModal()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:16px;">
+  <div style="background:#fff;border-radius:18px;padding:28px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2);font-family:'DM Sans',system-ui,sans-serif;max-height:90vh;overflow-y:auto;box-sizing:border-box;">
+    <button onclick="closeAuthModal()" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:#94A3B8;line-height:1;padding:0;">×</button>
+
+    <div id="modal-signup">
+      <h3 style="font-family:'Plus Jakarta Sans','DM Sans',sans-serif;font-weight:800;font-size:22px;margin:0 0 4px;padding-right:30px;">Create your account</h3>
+      <p style="color:#64748B;font-size:13px;margin:0 0 18px;">Free 3-day trial · card required, not charged for 3 days</p>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px;font-weight:600;color:#475569;display:block;margin-bottom:6px;">Name</label>
+        <input type="text" placeholder="Your name" style="width:100%;padding:10px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E2E8F0'"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px;font-weight:600;color:#475569;display:block;margin-bottom:6px;">Email</label>
+        <input type="email" placeholder="you@email.com" autocomplete="email" style="width:100%;padding:10px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E2E8F0'"/>
+      </div>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px;font-weight:600;color:#475569;display:block;margin-bottom:6px;">Password</label>
+        <input type="password" placeholder="8+ characters" autocomplete="new-password" style="width:100%;padding:10px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E2E8F0'"/>
+      </div>
+      <div style="margin-bottom:18px;">
+        <label style="font-size:12px;font-weight:600;color:#475569;display:block;margin-bottom:6px;">Referral code <span style="font-weight:400;color:#94A3B8;">(optional)</span></label>
+        <input type="text" placeholder="e.g. DEMO2025" style="width:100%;padding:10px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E2E8F0'"/>
+      </div>
+      <button style="width:100%;padding:13px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;" onclick="handleSignup(event)">Create Account</button>
+      <div style="display:flex;align-items:center;gap:10px;margin:14px 0;color:#94A3B8;font-size:11px;font-weight:600"><div style="flex:1;height:1px;background:#E2E8F0"></div>OR<div style="flex:1;height:1px;background:#E2E8F0"></div></div>
+      <button type="button" onclick="continueWithGoogle()" style="width:100%;padding:12px;background:#fff;color:#0F172A;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px">
+        <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.5 29.3 4.5 24 4.5 13.2 4.5 4.5 13.2 4.5 24S13.2 43.5 24 43.5 43.5 34.8 43.5 24c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.5 29.3 4.5 24 4.5c-7.4 0-13.8 4.2-17 10.2z"/><path fill="#4CAF50" d="M24 43.5c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.6 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.3 16.2 43.5 24 43.5z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2c4-3.7 6.6-9.2 6.6-15.8 0-1.2-.1-2.3-.4-3.5z"/></svg>
+        Continue with Google
+      </button>
+      <button type="button" onclick="continueWithApple()" style="width:100%;padding:12px;background:#000;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px">
+        <svg width="15" height="15" viewBox="0 0 814 1000" fill="#fff"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-47.4-155.5-127.4C46 376.6 0 270.3 0 166.5 0 44.8 81.9-5.6 160.4-5.6c51.8 0 95.5 35.8 128.4 35.8 31.2 0 80-37.9 139.5-37.9 29.5 0 130.8 2.5 200.9 110.4zm-234.7-101.9c-27.7 35.8-71.9 63.8-118.2 63.8-1.9 0-3.9-.1-5.8-.3-.9-3.3-1.4-6.7-1.4-10.2C428 191 491.6 137 548.8 119.6c26.5-7.8 53.5-12.1 80.7-12.1 2 0 4.1.1 6.1.2.7 4.1 1 8.2 1 12.4 0 47.7-36.9 109.9-83.2 119.1z"/></svg>
+        Continue with Apple
+      </button>
+      <div style="text-align:center;margin-top:14px;font-size:13px;color:#475569;">Already have an account? <span onclick="showAuthModal('login')" style="color:#2563EB;cursor:pointer;font-weight:600;">Log in</span></div>
+      <div style="margin-top:14px;text-align:center;font-size:11px;color:#94A3B8;">By signing up you agree to our <a href="legal.html#terms" style="color:#2563EB;text-decoration:none;">Terms</a> &amp; <a href="legal.html#privacy" style="color:#2563EB;text-decoration:none;">Privacy</a></div>
+    </div>
+
+    <div id="modal-login" style="display:none;">
+      <h3 style="font-family:'Plus Jakarta Sans','DM Sans',sans-serif;font-weight:800;font-size:22px;margin:0 0 18px;padding-right:30px;">Welcome back</h3>
+      <div style="margin-bottom:14px;">
+        <label style="font-size:12px;font-weight:600;color:#475569;display:block;margin-bottom:6px;">Email</label>
+        <input type="email" placeholder="you@email.com" autocomplete="email" style="width:100%;padding:10px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E2E8F0'"/>
+      </div>
+      <div style="margin-bottom:18px;">
+        <label style="font-size:12px;font-weight:600;color:#475569;display:block;margin-bottom:6px;">Password</label>
+        <input type="password" placeholder="Your password" autocomplete="current-password" style="width:100%;padding:10px 14px;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;" onfocus="this.style.borderColor='#2563EB'" onblur="this.style.borderColor='#E2E8F0'"/>
+      </div>
+      <button style="width:100%;padding:13px;background:linear-gradient(135deg,#2563EB,#7C3AED);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;" onclick="handleLogin(event)">Log In</button>
+      <div style="display:flex;align-items:center;gap:10px;margin:14px 0;color:#94A3B8;font-size:11px;font-weight:600"><div style="flex:1;height:1px;background:#E2E8F0"></div>OR<div style="flex:1;height:1px;background:#E2E8F0"></div></div>
+      <button type="button" onclick="continueWithGoogle()" style="width:100%;padding:12px;background:#fff;color:#0F172A;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px">
+        <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.5 29.3 4.5 24 4.5 13.2 4.5 4.5 13.2 4.5 24S13.2 43.5 24 43.5 43.5 34.8 43.5 24c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.5 29.3 4.5 24 4.5c-7.4 0-13.8 4.2-17 10.2z"/><path fill="#4CAF50" d="M24 43.5c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.6 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.3 16.2 43.5 24 43.5z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2c4-3.7 6.6-9.2 6.6-15.8 0-1.2-.1-2.3-.4-3.5z"/></svg>
+        Continue with Google
+      </button>
+      <button type="button" onclick="continueWithApple()" style="width:100%;padding:12px;background:#000;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px">
+        <svg width="15" height="15" viewBox="0 0 814 1000" fill="#fff"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-47.4-155.5-127.4C46 376.6 0 270.3 0 166.5 0 44.8 81.9-5.6 160.4-5.6c51.8 0 95.5 35.8 128.4 35.8 31.2 0 80-37.9 139.5-37.9 29.5 0 130.8 2.5 200.9 110.4zm-234.7-101.9c-27.7 35.8-71.9 63.8-118.2 63.8-1.9 0-3.9-.1-5.8-.3-.9-3.3-1.4-6.7-1.4-10.2C428 191 491.6 137 548.8 119.6c26.5-7.8 53.5-12.1 80.7-12.1 2 0 4.1.1 6.1.2.7 4.1 1 8.2 1 12.4 0 47.7-36.9 109.9-83.2 119.1z"/></svg>
+        Continue with Apple
+      </button>
+      <div style="text-align:center;margin-top:14px;font-size:13px;color:#475569;">No account yet? <span onclick="showAuthModal('signup')" style="color:#2563EB;cursor:pointer;font-weight:600;">Sign up</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showAuthModal(type) {
+  document.getElementById('modal-signup').style.display = type === 'signup' ? 'block' : 'none';
+  document.getElementById('modal-login').style.display = type === 'login' ? 'block' : 'none';
+  document.getElementById('auth-overlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function continueWithGoogle(){
+  var api = (typeof _MINE_API_URL !== 'undefined' && _MINE_API_URL) || window.MINE_API || localStorage.getItem('mine_api') || 'https://api.takeova.ai';
+  window.location.href = api + '/api/auth/google?redirect=' + encodeURIComponent(location.href);
+}
+function continueWithApple(){
+  var api = (typeof _MINE_API_URL !== 'undefined' && _MINE_API_URL) || window.MINE_API || localStorage.getItem('mine_api') || 'https://api.takeova.ai';
+  window.location.href = api + '/api/auth/apple?redirect=' + encodeURIComponent(location.href);
+}
+
+function closeAuthModal() {
+  document.getElementById('auth-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeAuthModal(); });
+
+function _showAuthError(modalId, msg) {
+  var btn = document.querySelector('#'+modalId+' button[onclick^="handle"]');
+  if (!btn) return;
+  var errId = modalId + '-err';
+  var errEl = document.getElementById(errId);
+  if (!errEl) {
+    errEl = document.createElement('div');
+    errEl.id = errId;
+    errEl.style.cssText = 'background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;font-size:12px;padding:8px 12px;border-radius:8px;margin-bottom:12px;font-weight:600';
+    btn.parentNode.insertBefore(errEl, btn);
+  }
+  errEl.textContent = msg;
+  errEl.style.display = 'block';
+}
+function _clearAuthError(modalId) {
+  var errEl = document.getElementById(modalId + '-err');
+  if (errEl) errEl.style.display = 'none';
+}
+function _getApiBase() { return window.MINE_API || 'https://api.takeova.ai'; }
+function _getDashboardUrl() { return window.MINE_DASHBOARD_URL || '/mine-live-dashboard.html'; }
+
+async function handleLogin(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  var btn = (e && e.target) || document.querySelector('#modal-login button[onclick^="handleLogin"]');
+  var orig = btn.textContent;
+  _clearAuthError('modal-login');
+  var email = (document.querySelector('#modal-login input[type="email"]') || {}).value || '';
+  var password = (document.querySelector('#modal-login input[type="password"]') || {}).value || '';
+  email = email.trim();
+  if (!email || !password) {
+    _showAuthError('modal-login', 'Please enter your email and password'); return;
+  }
+  btn.textContent = 'Signing in…'; btn.disabled = true;
+  try {
+    var api = _getApiBase();
+    var r = await fetch(api + '/api/auth/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, password: password })
+    });
+    var d = await r.json();
+    if (!r.ok || !d.token) {
+      _showAuthError('modal-login', d.error || d.message || 'Invalid email or password');
+      btn.textContent = orig; btn.disabled = false; return;
+    }
+    localStorage.setItem('mine_token', d.token);
+    localStorage.setItem('mine_api', api);
+    if (d.refresh_token) localStorage.setItem('mine_refresh_token', d.refresh_token);
+    window.location.href = _getDashboardUrl();
+  } catch (err) {
+    _showAuthError('modal-login', 'Cannot reach the server — please try again');
+    btn.textContent = orig; btn.disabled = false;
+  }
+}
+
+async function handleSignup(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  var btn = (e && e.target) || document.querySelector('#modal-signup button[onclick^="handleSignup"]');
+  var orig = btn.textContent;
+  _clearAuthError('modal-signup');
+  var inputs = document.querySelectorAll('#modal-signup input');
+  var name = ((inputs[0] || {}).value || '').trim();
+  var email = ((document.querySelector('#modal-signup input[type="email"]') || {}).value || '').trim();
+  var password = (document.querySelector('#modal-signup input[type="password"]') || {}).value || '';
+  var ref = ((inputs[3] || {}).value || '').trim();
+
+  if (!name || !email || !password) {
+    _showAuthError('modal-signup', 'Please fill in name, email, and password'); return;
+  }
+  if (password.length < 8) {
+    _showAuthError('modal-signup', 'Password must be at least 8 characters'); return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    _showAuthError('modal-signup', 'Please enter a valid email address'); return;
+  }
+  btn.textContent = 'Creating account…'; btn.disabled = true;
+  try {
+    var api = _getApiBase();
+    var body = { name: name, email: email, password: password };
+    if (ref) body.referralCode = ref;
+    if (!ref) {
+      var m = document.cookie.match(/mine_ref=([^;]+)/);
+      if (m) body.referralCode = decodeURIComponent(m[1]);
+    }
+    try{ var _ct = localStorage.getItem('mine_claim_token'); if(_ct){ body.claimToken = _ct; } }catch(_e){}
+    var r = await fetch(api + '/api/auth/signup', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    var d = await r.json();
+    if (!r.ok || !d.token) {
+      _showAuthError('modal-signup', d.error || d.message || 'Could not create account');
+      btn.textContent = orig; btn.disabled = false; return;
+    }
+    localStorage.setItem('mine_token', d.token);
+    localStorage.setItem('mine_api', api);
+    if (d.refresh_token) localStorage.setItem('mine_refresh_token', d.refresh_token);
+    var plan = sessionStorage.getItem('mine_signup_plan') || 'starter';
+    if (plan) localStorage.setItem('mine_intended_plan', plan);
+
+    // Redirect to Stripe Checkout to collect card for the 3-day free trial
+    if (btn) btn.textContent = 'Setting up trial…';
+    try {
+      var ck = await fetch(api + '/api/payments/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + d.token },
+        body: JSON.stringify({ planId: plan, billing: 'monthly' })
+      });
+      var ckData = await ck.json();
+      if (ck.ok && ckData.url) {
+        window.location.href = ckData.url;
+        return;
+      }
+      localStorage.setItem('mine_needs_payment', '1');
+    } catch (_) {
+      localStorage.setItem('mine_needs_payment', '1');
+    }
+    window.location.href = _getDashboardUrl();
+  } catch (err) {
+    _showAuthError('modal-signup', 'Cannot reach the server — please try again');
+    btn.textContent = orig; btn.disabled = false;
+  }
+}
+
+// Intercept all <a href="/signup..."> clicks → open modal
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('a[href^="/signup"]');
+  if (!a) return;
+  e.preventDefault();
+  try {
+    var url = new URL(a.getAttribute('href'), location.origin);
+    var plan = url.searchParams.get('plan');
+    if (plan) sessionStorage.setItem('mine_signup_plan', plan);
+  } catch(_){}
+  showAuthModal('signup');
+});
+</script>
+
+<!-- WhatsApp button (bottom-right, above chat) -->
+<a id="wa-btn" href="https://wa.me/447700900123?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20MINE" target="_blank" rel="noopener"
+  style="position:fixed;bottom:156px;right:20px;width:50px;height:50px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);z-index:801;text-decoration:none;transition:transform .2s;"
+  onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'"
+  title="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.552 4.116 1.52 5.845L.057 23.887a.5.5 0 0 0 .617.611l6.154-1.612A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.681-.528-5.2-1.446l-.373-.221-3.865 1.013 1.03-3.763-.245-.389A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<!-- Chat bubble toggle -->
+<button id="chat-btn" onclick="window.__mineToggleChat()"
+  style="position:fixed;bottom:92px;right:20px;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#635BFF,#9F7AEA);border:none;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(99,91,255,.4);z-index:801;display:flex;align-items:center;justify-content:center;transition:transform .2s;"
+  onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'"
+  title="Chat with TAKEOVA AI">💬</button>
+
+<!-- Chat window -->
+<div id="mine-chat-win" style="display:none;position:fixed;bottom:156px;right:20px;width:340px;max-height:480px;background:#fff;border-radius:20px;box-shadow:0 8px 40px rgba(0,0,0,.15);z-index:800;overflow:hidden;font-family:-apple-system,system-ui,sans-serif;flex-direction:column;">
+  <!-- Header -->
+  <div style="background:linear-gradient(135deg,#635BFF,#9F7AEA);padding:16px;display:flex;align-items:center;gap:10px;">
+    <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:18px;">🤖</div>
+    <div>
+      <div style="font-weight:700;font-size:14px;color:#fff;">TAKEOVA AI</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.8);">Ask me anything about TAKEOVA</div>
+    </div>
+    <button onclick="window.__mineToggleChat()" style="margin-left:auto;background:none;border:none;color:rgba(255,255,255,.8);font-size:20px;cursor:pointer;line-height:1;">✕</button>
+  </div>
+  <!-- Messages -->
+  <div id="mine-chat-msgs" style="flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:300px;">
+    <div style="background:#F3F4FF;border-radius:12px 12px 12px 0;padding:10px 13px;font-size:13px;color:#374151;line-height:1.5;max-width:88%;">
+      Hi! I'm TAKEOVA's AI. Ask me anything — pricing, features, how to get started, or how we compare to other tools. 👋
+    </div>
+  </div>
+  <!-- Input -->
+  <div style="padding:10px;border-top:1px solid #F0F0F0;display:flex;gap:8px;">
+    <input id="mine-chat-inp" type="text" placeholder="Ask anything about TAKEOVA..."
+      style="flex:1;padding:9px 12px;border:1px solid #E2E8F0;border-radius:10px;font-size:13px;outline:none;font-family:inherit;"
+      onkeydown="if(event.key==='Enter')window.__mineChatSend()"/>
+    <button onclick="window.__mineChatSend()"
+      style="background:#635BFF;color:#fff;border:none;border-radius:10px;padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;">Send</button>
+  </div>
+</div>
+
+<script>
+/* TAKEOVA Sales Chat — streaming, session-persistent, lead-aware
+   Talks to /api/public/ai-chat-stream which uses the TAKEOVA Sales Expert prompt. */
+(function(){
+  var win=document.getElementById('mine-chat-win');
+  var msgs=document.getElementById('mine-chat-msgs');
+  var inp=document.getElementById('mine-chat-inp');
+  if(!win||!msgs||!inp||window.__mineChatInit)return;
+  window.__mineChatInit=true;
+
+  var STORAGE='mine_sales_chat';
+  var state={session_id:null,history:[]};
+  try{var s=sessionStorage.getItem(STORAGE);if(s){state=JSON.parse(s);if(!Array.isArray(state.history))state.history=[];}}catch(e){}
+
+  function save(){try{sessionStorage.setItem(STORAGE,JSON.stringify({session_id:state.session_id,history:state.history.slice(-20)}));}catch(e){}}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function fmt(t){
+    /* bold **text** */
+    t=t.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+    /* line breaks */
+    t=t.replace(/\n/g,'<br>');
+    return t;
+  }
+  function maybeAppendCTA(node,text){
+    if(/start.{0,15}(free.{0,10})?trial|start.{0,15}signup|sign.{0,5}up.{0,10}now/i.test(text)){
+      if(!node.querySelector('.mine-chat-cta')){
+        var a=document.createElement('a');
+        a.className='mine-chat-cta';
+        a.href='#signup';
+        a.textContent='Start Free Trial →';
+        a.style.cssText='display:inline-block;margin-top:8px;padding:7px 13px;background:linear-gradient(135deg,#635BFF,#9F7AEA);color:#fff;border-radius:9px;font-size:12px;font-weight:700;text-decoration:none;';
+        a.onclick=function(){
+          window.__mineToggleChat&&window.__mineToggleChat();
+          if(typeof showAuthModal==='function')showAuthModal('signup');else if(typeof showModal==='function')showModal('signup');else{window.location.href='#signup';}
+          return false;
+        };
+        node.appendChild(document.createElement('br'));
+        node.appendChild(a);
+      }
+    }
+  }
+  function bubble(role,text){
+    var b=document.createElement('div');
+    if(role==='user'){
+      b.style.cssText='background:#635BFF;color:#fff;border-radius:12px 12px 0 12px;padding:10px 13px;font-size:13px;line-height:1.5;max-width:88%;align-self:flex-end;';
+      b.textContent=text;
+    }else{
+      b.style.cssText='background:#F3F4FF;border-radius:12px 12px 12px 0;padding:10px 13px;font-size:13px;color:#374151;line-height:1.5;max-width:88%;';
+      b.innerHTML=fmt(esc(text));
+      maybeAppendCTA(b,text);
+    }
+    msgs.appendChild(b);
+    msgs.scrollTop=msgs.scrollHeight;
+    return b;
+  }
+
+  /* Restore prior conversation on first open */
+  function restoreHistory(){
+    if(!state.history.length)return;
+    /* clear default greeting if any */
+    msgs.innerHTML='';
+    state.history.forEach(function(m){bubble(m.role,m.content);});
+  }
+
+  window.__mineToggleChat=function(){
+    var open=win.style.display==='flex';
+    win.style.display=open?'none':'flex';
+    win.style.flexDirection='column';
+    if(!open){
+      restoreHistory();
+      setTimeout(function(){inp.focus();},100);
+    }
+  };
+
+  var streaming=false;
+  window.__mineChatSend=function(){
+    if(streaming)return;
+    var msg=(inp.value||'').trim();
+    if(!msg)return;
+    inp.value='';
+    bubble('user',msg);
+    state.history.push({role:'user',content:msg});
+
+    var typing=document.createElement('div');
+    typing.style.cssText='background:#F3F4FF;border-radius:12px 12px 12px 0;padding:10px 13px;font-size:13px;color:#9CA3AF;max-width:88%;';
+    typing.innerHTML='<span style="display:inline-block;width:6px;height:6px;background:#9CA3AF;border-radius:50%;margin:0 2px;animation:mineTypeBounce 1.2s infinite;"></span><span style="display:inline-block;width:6px;height:6px;background:#9CA3AF;border-radius:50%;margin:0 2px;animation:mineTypeBounce 1.2s infinite .15s;"></span><span style="display:inline-block;width:6px;height:6px;background:#9CA3AF;border-radius:50%;margin:0 2px;animation:mineTypeBounce 1.2s infinite .3s;"></span>';
+    msgs.appendChild(typing);
+    msgs.scrollTop=msgs.scrollHeight;
+
+    streaming=true;
+    var assistantNode=null;
+    var assistantText='';
+
+    fetch('/api/public/ai-chat-stream',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        message:msg,
+        history:state.history.slice(-20,-1),
+        session_id:state.session_id,
+        landing_page:window.location.pathname
+      })
+    }).then(function(res){
+      if(!res.ok){
+        typing.remove();
+        if(res.status===429){
+          res.json().then(function(d){bubble('assistant',d.error||'Whoa — easy on the messages! Take a break, or just hit Start Free Trial.');streaming=false;});
+        }else{
+          bubble('assistant','Sorry, I\u2019m having trouble connecting. Try again, or hit Start Free Trial — fastest way to actually see TAKEOVA.');
+          streaming=false;
+        }
+        return;
+      }
+      var reader=res.body.getReader();
+      var dec=new TextDecoder();
+      var buf='';
+      function pump(){
+        return reader.read().then(function(r){
+          if(r.done){
+            if(assistantText){
+              state.history.push({role:'assistant',content:assistantText});
+              save();
+            }
+            streaming=false;
+            return;
+          }
+          buf+=dec.decode(r.value,{stream:true});
+          var frames=buf.split('\n\n');
+          buf=frames.pop()||'';
+          frames.forEach(function(frame){
+            var line=frame.split('\n').find(function(l){return l.indexOf('data: ')===0;});
+            if(!line)return;
+            var payload=line.slice(6).trim();
+            if(payload==='[DONE]')return;
+            try{
+              var data=JSON.parse(payload);
+              if(data.session_id){state.session_id=data.session_id;save();}
+              if(data.text){
+                if(!assistantNode){
+                  typing.remove();
+                  assistantNode=bubble('assistant','');
+                }
+                assistantText+=data.text;
+                assistantNode.innerHTML=fmt(esc(assistantText));
+                maybeAppendCTA(assistantNode,assistantText);
+                msgs.scrollTop=msgs.scrollHeight;
+              }
+            }catch(e){}
+          });
+          return pump();
+        });
+      }
+      return pump();
+    }).catch(function(){
+      typing.remove();
+      bubble('assistant','Hmm, lost connection. Try again, or just hit Start Free Trial — fastest way to actually see TAKEOVA.');
+      streaming=false;
+    });
+  };
+
+  /* Inject keyframes for typing dots once */
+  if(!document.getElementById('mine-chat-keyframes')){
+    var st=document.createElement('style');
+    st.id='mine-chat-keyframes';
+    st.textContent='@keyframes mineTypeBounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}';
+    document.head.appendChild(st);
+  }
+})();
+</script>
+
+</body>
+</html>

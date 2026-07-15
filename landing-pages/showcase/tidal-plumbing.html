@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tidal Plumbing — Brisbane's 24/7 Emergency Plumbers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0B2545;--navy2:#13315C;--orange:#FF6B35;--steel:#5C7799;--ice:#EAF2FB;--white:#fff}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--white);line-height:1.6}
+  h1,h2,h3,.cond{font-family:'Archivo',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  /* top bar */
+  .bar{background:var(--orange);color:var(--navy);font-weight:700;font-size:.9rem;text-align:center;padding:9px}
+  /* nav */
+  nav{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1140px;margin:0 auto}
+  .logo{font-family:'Archivo';font-weight:900;font-size:1.4rem;display:flex;align-items:center;gap:9px}
+  .logo span{color:var(--orange)}
+  .drop{width:13px;height:13px;background:var(--orange);border-radius:0 50% 50% 50%;display:inline-block;transform:rotate(-45deg)}
+  .nlinks{display:flex;gap:28px;font-weight:600;font-size:.95rem}
+  .nlinks a:hover{color:var(--orange)}
+  .call{background:var(--orange);color:var(--navy);padding:11px 20px;border-radius:6px;font-family:'Archivo';font-weight:700;font-size:.95rem}
+  /* hero */
+  .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:70px 0 90px}
+  .hero::after{content:"";position:absolute;right:-120px;bottom:-120px;width:420px;height:420px;border:60px solid var(--navy2);border-radius:50%;opacity:.6}
+  .hero .wrap{position:relative;z-index:2}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,53,.15);color:var(--orange);border:1px solid var(--orange);padding:7px 15px;border-radius:30px;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+  .pulse{width:9px;height:9px;background:var(--orange);border-radius:50%;animation:p 1.6s infinite}
+  @keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:900;line-height:1;margin:24px 0 18px;max-width:14ch}
+  .hero h1 em{color:var(--orange);font-style:normal}
+  .hero p{font-size:1.2rem;color:#B8C9DE;max-width:46ch;margin-bottom:32px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn-o{background:var(--orange);color:var(--navy);padding:16px 28px;border-radius:7px;font-family:'Archivo';font-weight:700;font-size:1.05rem}
+  .btn-l{border:2px solid var(--steel);color:#fff;padding:14px 26px;border-radius:7px;font-family:'Archivo';font-weight:700}
+  .btn-o:hover{background:#ff8255}.btn-l:hover{border-color:#fff}
+  /* trust strip */
+  .trust{background:var(--ice);padding:26px 0}
+  .trust .wrap{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
+  .ti{display:flex;align-items:center;gap:11px;font-weight:600;color:var(--navy2)}
+  .ti b{font-family:'Archivo';font-size:1.5rem;color:var(--orange);font-weight:900}
+  /* services */
+  .sec{padding:80px 0}
+  .eyebrow{color:var(--orange);font-family:'Archivo';font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.85rem;margin-bottom:12px}
+  .sec h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:900;margin-bottom:14px}
+  .lead{color:var(--steel);font-size:1.1rem;max-width:50ch;margin-bottom:44px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .card{border:1px solid #DCE6F2;border-radius:12px;padding:30px;transition:.2s;border-top:4px solid var(--orange)}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,37,69,.12)}
+  .card .ic{width:52px;height:52px;background:var(--navy);border-radius:11px;display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px}
+  .card h3{font-size:1.25rem;font-weight:700;margin-bottom:8px}
+  .card p{color:var(--steel);font-size:.97rem}
+  /* cta band */
+  .band{background:var(--orange);color:var(--navy);padding:60px 0;text-align:center}
+  .band h2{font-size:clamp(2rem,5vw,3rem);font-weight:900;margin-bottom:12px}
+  .band p{font-size:1.2rem;font-weight:600;margin-bottom:26px}
+  .band .num{font-family:'Archivo';font-weight:900;font-size:2rem;display:inline-block;background:var(--navy);color:#fff;padding:14px 34px;border-radius:8px}
+  /* footer */
+  footer{background:var(--navy);color:#9FB3CC;padding:50px 0 30px;font-size:.92rem}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px}
+  footer .logo{font-size:1.2rem;margin-bottom:12px;color:#fff}
+  footer a:hover{color:var(--orange)}
+  .foot-cols{display:flex;gap:60px;flex-wrap:wrap}
+  .foot-cols h4{color:#fff;font-family:'Archivo';font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+  .foot-cols a{display:block;margin-bottom:7px}
+  .copy{border-top:1px solid var(--navy2);margin-top:34px;padding-top:20px;text-align:center;font-size:.85rem}
+  @media(max-width:760px){.nlinks{display:none}}
+  @media(prefers-reduced-motion){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar">Burst pipe or blocked drain? We answer 24/7 — (07) 3040 1122</div>
+<nav><div class="nav">
+  <a href="#" class="logo"><span class="drop"></span>TIDAL<span>.</span></a>
+  <div class="nlinks"><a href="#services">Services</a><a href="#why">Why Tidal</a><a href="#areas">Areas</a><a href="#contact">Contact</a></div>
+  <a href="tel:0730401122" class="call">(07) 3040 1122</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="badge"><span class="pulse"></span>Available right now</span>
+  <h1>When water won't wait, <em>Tidal turns up.</em></h1>
+  <p>Licensed Brisbane plumbers for emergencies, hot water, blocked drains and full bathroom renovations. Upfront pricing, no call-out surprises.</p>
+  <div class="cta-row"><a href="tel:0730401122" class="btn-o">Call an emergency plumber</a><a href="#services" class="btn-l">See what we fix</a></div>
+</div></header>
+
+<section class="trust"><div class="wrap">
+  <div class="ti"><b>15</b><span>years serving<br>South-East QLD</span></div>
+  <div class="ti"><b><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg>4.9</b><span>from 600+<br>local reviews</span></div>
+  <div class="ti"><b>60min</b><span>average emergency<br>response time</span></div>
+  <div class="ti"><b>$0</b><span>call-out fee<br>on booked jobs</span></div>
+</div></section>
+
+<section class="sec" id="services"><div class="wrap">
+  <div class="eyebrow">What we do</div>
+  <h2>Every plumbing job, done once and done right</h2>
+  <p class="lead">From a 2am burst pipe to a planned renovation, our fully-licensed team handles it with the same care.</p>
+  <div class="grid">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M12 2.7s6 5.7 6 10.3a6 6 0 0 1-12 0c0-4.6 6-10.3 6-10.3z"/></svg></div><h3>Blocked Drains</h3><p>CCTV drain cameras and high-pressure jetting to clear the blockage and find the cause — not just the symptom.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.2 0-4 2-5-.5 2.5 1 3.5 2 4.5 1.3 1.3 2 2.6 2 4a5 5 0 0 1-10 .5z"/></svg></div><h3>Hot Water Systems</h3><p>Repairs and same-day replacements for gas, electric, heat-pump and solar. We'll size the right unit for your home.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M12 2.7s6 5.7 6 10.3a6 6 0 0 1-12 0c0-4.6 6-10.3 6-10.3z"/></svg></div><h3>Leak Detection</h3><p>Thermal and acoustic leak detection that finds hidden leaks without tearing your walls apart.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M14.5 6.5a3.8 3.8 0 0 0-5 5l-6 6 2 2 6-6a3.8 3.8 0 0 0 5-5l-2.3 2.3-1.7-1.7z"/></svg></div><h3>Gas Fitting</h3><p>Licensed gas installation, cooktop connections, and certified safety inspections for total peace of mind.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M12 2.7s6 5.7 6 10.3a6 6 0 0 1-12 0c0-4.6 6-10.3 6-10.3z"/></svg></div><h3>Bathroom Renovations</h3><p>Full bathroom and laundry renovations managed end-to-end, on schedule and on budget.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:inline-block;vertical-align:middle"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>General Plumbing</h3><p>Taps, toilets, dishwashers, roof leaks — the everyday repairs that keep your home running.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="contact">
+  <h2>Got a plumbing emergency?</h2>
+  <p>Talk to a real Brisbane plumber now — not a call centre.</p>
+  <a href="tel:0730401122" class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:.9em;height:.9em;display:inline-block;vertical-align:middle"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> (07) 3040 1122</a>
+</section>
+
+<footer><div class="wrap">
+  <div><div class="logo"><span class="drop"></span> TIDAL PLUMBING</div><p>Licensed &amp; insured · QBCC 154 992<br>Servicing Brisbane &amp; the Bayside</p></div>
+  <div class="foot-cols">
+    <div><h4>Services</h4><a href="#">Emergency</a><a href="#">Hot Water</a><a href="#">Drains</a><a href="#">Gas</a></div>
+    <div id="areas"><h4>Areas</h4><a href="#">Brisbane CBD</a><a href="#">Redlands</a><a href="#">Logan</a><a href="#">Bayside</a></div>
+    <div><h4>Contact</h4><a href="tel:0730401122">(07) 3040 1122</a><a href="#">hello@tidalplumbing.com.au</a></div>
+  </div>
+</div><div class="copy wrap">© 2026 Tidal Plumbing Pty Ltd · Built with MINE</div></footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "mine-customer-app",
+  "version": "1.0.0",
+  "description": "MINE — customer-facing native app. A person downloads it, enters the join code a business gave them, and the WebView opens that business's branded MINE app (/app). Native bridges: push notifications, QR scanning, share sheet, deep linking.",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "init": "npm install && npx cap add ios && npx cap add android",
+    "sync": "npx cap sync",
+    "ios": "npx cap open ios",
+    "android": "npx cap open android",
+    "build": "echo 'Web is loaded from the deployed backend (/m); no build step needed' && npx cap sync"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.1.0",
+    "@capacitor/cli": "^6.1.0",
+    "@capacitor/ios": "^6.1.0",
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/browser": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
+    "@capacitor/keyboard": "^6.0.0",
+    "@capacitor/network": "^6.0.0",
+    "@capacitor/preferences": "^6.0.0",
+    "@capacitor/push-notifications": "^6.0.0",
+    "@capacitor/share": "^6.0.0",
+    "@capacitor/splash-screen": "^6.0.0",
+    "@capacitor/status-bar": "^6.0.0",
+    "@capacitor-mlkit/barcode-scanning": "^6.0.0"
+  }
+}

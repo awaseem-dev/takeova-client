@@ -1,0 +1,23 @@
+{
+  "name": "mine-stripe-terminal",
+  "version": "1.0.0",
+  "description": "Capacitor plugin wrapping Stripe Terminal SDK for Tap to Pay on iPhone",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  },
+  "files": [
+    "ios/",
+    "src/",
+    "MineStripeTerminal.podspec"
+  ],
+  "peerDependencies": {
+    "@capacitor/core": "^6.0.0"
+  }
+}

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TAKEOVA Affiliate Dashboard — DEMO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--p:#4F46E5;--pg:linear-gradient(135deg,#4F46E5,#6366F1);--gn:#16A34A;--rd:#DC2626;--or:#D97706;--tx:#0F172A;--mt:#64748B;--bg:#F8FAFC;--bg2:#F1F5F9;--bd:#E2E8F0;--wh:#fff;--rx:12px}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh}
+.topbar{height:56px;background:var(--wh);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 20px;gap:12px;position:sticky;top:0;z-index:50;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:20px;color:var(--p);letter-spacing:-.5px}
+.logo span{color:var(--tx)}
+.badge-aff{background:var(--pg);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.04em}
+.badge-demo{background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.04em;border:1px solid #FCD34D}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.av{width:34px;height:34px;border-radius:50%;background:var(--pg);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+.wrap{max-width:800px;margin:0 auto;padding:24px 16px 80px}
+.demo-banner{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border:1px solid #FCD34D;color:#92400E;padding:10px 16px;border-radius:10px;font-size:12px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+
+.lbl{font-size:11px;font-weight:700;color:var(--mt);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px;display:block}
+.inp{width:100%;padding:11px 14px;border:1.5px solid var(--bd);border-radius:var(--rx);font-size:14px;font-family:inherit;color:var(--tx);background:var(--wh);outline:none;transition:border .15s}
+.inp:focus{border-color:var(--p)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;border-radius:var(--rx);font-size:13.5px;font-weight:700;cursor:pointer;border:none;font-family:inherit;transition:all .15s;text-decoration:none}
+.btn-p{background:var(--pg);color:#fff;box-shadow:0 4px 14px rgba(79,70,229,.3)}
+.btn-p:hover{opacity:.9}
+.btn-ghost{background:transparent;color:var(--mt);border:1.5px solid var(--bd)}
+.btn-w{width:100%;justify-content:center}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.msg{font-size:12px;padding:10px 14px;border-radius:10px;margin-top:10px}
+.msg-ok{background:#f0fdf4;color:var(--gn);border:1px solid #bbf7d0}
+
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+@media(min-width:480px){.stat-grid{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--wh);border:1px solid var(--bd);border-radius:var(--rx);padding:16px;text-align:center}
+.stat-val{font-size:22px;font-weight:900;margin-bottom:2px}
+.stat-lbl{font-size:10px;font-weight:700;color:var(--mt);text-transform:uppercase;letter-spacing:.5px}
+.card{background:var(--wh);border:1px solid var(--bd);border-radius:var(--rx);padding:20px;margin-bottom:14px}
+.card-title{font-weight:800;font-size:14px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ref-box{background:var(--bg);border:1.5px solid var(--bd);border-radius:10px;padding:12px 14px;font-size:13px;font-family:monospace;word-break:break-all;margin-bottom:10px;color:var(--tx)}
+.tier-row{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:8px;font-size:13px;margin-bottom:4px}
+.tier-row.active{background:rgba(79,70,229,.08);border:1px solid rgba(79,70,229,.2)}
+.tier-row:not(.active){background:var(--bg);border:1px solid transparent}
+.prog-bar{height:6px;background:var(--bg2);border-radius:3px;overflow:hidden;margin-top:6px}
+.prog-fill{height:100%;background:var(--pg);border-radius:3px;transition:width .4s}
+.row-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bg2);font-size:13px}
+.row-item:last-child{border-bottom:none}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px}
+.tg{background:#dcfce7;color:#16a34a}
+.tp{background:#fef9c3;color:#a16207}
+.tr{background:#fee2e2;color:#dc2626}
+.stripe-banner{background:linear-gradient(135deg,#635BFF,#818CF8);color:#fff;border-radius:var(--rx);padding:16px 18px;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.stripe-banner .btn{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:12px;padding:7px 14px}
+.stripe-banner.connected{background:linear-gradient(135deg,#16A34A,#22C55E)}
+
+/* ══════════════════════════════════════════════════════════════ */
+/* MOBILE RESPONSIVENESS                                          */
+/* ══════════════════════════════════════════════════════════════ */
+
+/* Prevent horizontal scroll on small devices */
+html,body{overflow-x:hidden;max-width:100%}
+.wrap{padding:16px 12px 80px}
+
+/* Ensure touch targets are at least 44px (Apple HIG + Google Material) */
+.btn{min-height:44px}
+.inp{min-height:44px;font-size:16px} /* 16px prevents iOS zoom on focus */
+
+/* Top bar — compact on narrow screens */
+@media (max-width:480px){
+  .topbar{padding:0 12px;height:52px;gap:8px}
+  .logo{font-size:17px}
+  .badge-aff,.badge-demo{font-size:9px;padding:2px 8px}
+  .topbar-right span{display:none} /* hide name, keep avatar */
+  .av{width:30px;height:30px;font-size:12px}
+}
+
+/* Card padding tightens on small phones */
+@media (max-width:380px){
+  .card{padding:14px;margin-bottom:12px}
+  .card-title{font-size:13px}
+}
+
+/* Earnings 3-col grid — stack to 1-col on very narrow phones */
+.earnings-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media (max-width:360px){
+  .earnings-grid{grid-template-columns:1fr;gap:8px}
+  .earnings-grid >div{text-align:left!important;display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg);border-radius:8px}
+  .earnings-grid >div >div:first-child{order:2;font-size:15px!important}
+  .earnings-grid >div >div:last-child{order:1}
+}
+
+/* Banner previews — keep 3 across but shrink on mobile */
+@media (max-width:420px){
+  .banner-grid{gap:6px!important}
+  .banner-grid >div{padding:6px!important}
+  .banner-grid >div >div:first-child{font-size:11px!important}
+  .banner-grid >div >div:nth-child(2){font-size:7px!important}
+  .banner-grid >div >div:last-child{display:none}
+}
+
+/* Social share 2-col — stays 2-col but buttons shrink */
+@media (max-width:380px){
+  .social-grid .btn{padding:10px 8px;font-size:12px}
+}
+
+/* UTM tagged links grid — 2-col on phones is fine, just ensure tap size */
+.utm-grid .btn{min-height:44px;font-size:12px}
+@media (max-width:340px){
+  .utm-grid{grid-template-columns:1fr!important}
+}
+
+/* Swipe copy cards — better line height + tap-to-copy visual cue on mobile */
+.swipe{position:relative;transition:all .2s}
+.swipe:active{transform:scale(.98)}
+.swipe::after{content:"tap to copy";position:absolute;top:6px;right:10px;font-size:9px;color:var(--mt);font-weight:700;opacity:.6;text-transform:uppercase;letter-spacing:.5px}
+@media (min-width:600px){.swipe::after{content:"click to copy"}}
+
+/* Stat grid — already responsive, refine spacing */
+@media (max-width:420px){
+  .stat{padding:12px 8px}
+  .stat-val{font-size:19px}
+  .stat-lbl{font-size:9px}
+}
+
+/* Referral link box — wrap long links readably */
+.ref-box{font-size:12px;padding:10px 12px}
+@media (max-width:420px){.ref-box{font-size:11px}}
+
+/* Tagged link result — stack copy button below on narrow */
+#taggedResult .btn{width:100%;margin-top:10px!important}
+
+/* Auth card — full width on phones, no centering gap */
+@media (max-width:480px){
+  .auth-card{margin:20px 8px;padding:24px 20px}
+  .auth-title{font-size:20px}
+}
+
+/* Tier rows — stays horizontal, smaller text */
+@media (max-width:380px){
+  .tier-row{padding:7px 10px;font-size:12px}
+  .tier-row span:nth-child(2){font-size:10px}
+}
+
+/* Stripe banner — stack content on tiny phones */
+@media (max-width:340px){
+  .stripe-banner{flex-direction:column;align-items:flex-start;text-align:left}
+  .stripe-banner .btn{width:100%;margin-top:4px}
+}
+
+/* Form inputs — prevent horizontal overflow */
+.inp{max-width:100%}
+textarea.inp{min-height:80px}
+
+</style>
+
+<!-- TAKEOVA unified UI design system -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style id="mine-ui-system">
+/* ============================================================================
+   TAKEOVA — Unified UI Design System  (v1)
+   ----------------------------------------------------------------------------
+   One source of truth for brand colour, type, and surface treatment across the
+   product (the three dashboards) and the learn page — so they finally match the
+   marketing site instead of looking like a generic admin template.
+
+   HOW IT WORKS
+   The dashboards are already variable-driven (var(--p), var(--tx), var(--bd)…).
+   This file REDEFINES those variables to one unified, on-brand palette. Because
+   a variable's value is substituted into every rule that uses it — even rules
+   marked !important — these tokens win cascade-wide without rewriting any markup.
+   It also loads the brand typefaces (the product was falling back to system
+   fonts) and adds a few quality-floor touches (focus rings, smoothing).
+
+   USE
+   Either link this file (<link rel="stylesheet" href="/mine-ui.css">) AFTER the
+   page's own styles, or paste it into a <style id="mine-ui-system">just before
+   </head>. It must load last so its tokens override the page's local ones.
+   ========================================================================== */
+
+/* Brand typefaces — Bricolage Grotesque (display) + Plus Jakarta Sans (body),
+   the same pairing as the marketing site. */
+
+:root {
+  /* ── Brand primary (from the marketing site: blue-600) ── */
+  --p:        #2563EB;
+  --p-700:    #1D4ED8;   /* hover / pressed */
+  --p-50:     #EFF6FF;   /* faint tint / selected bg */
+
+  /* ── Slate neutrals (match the landing page's family) ── */
+  --tx:       #0F172A;   /* primary text  (slate-900) */
+  --mt:       #64748B;   /* muted text    (slate-500) */
+  --dm:       #94A3B8;   /* dim / hint    (slate-400) */
+  --bd:       #E2E8F0;   /* hairline border (slate-200) */
+  --bd2:      #CBD5E1;   /* stronger border (slate-300) */
+  --bg:       #F8FAFC;   /* app background (slate-50) */
+  --bg2:      #FFFFFF;   /* card / panel surface */
+
+  /* ── Accent set (kept; used for status + category colour) ── */
+  --gn:       #16A34A;   /* success / revenue up */
+  --or:       #EA580C;   /* attention / in-progress */
+  --pu:       #7C3AED;   /* secondary accent */
+  --pk:       #EC4899;   /* tertiary accent */
+  --rd:       #DC2626;   /* error / destructive */
+  --gold:     #D97706;   /* rewards / premium */
+
+  /* ── Surface treatment ── */
+  --sh:       0 1px 2px rgba(15,23,42,.04), 0 2px 8px rgba(15,23,42,.06);
+  --sh-lg:    0 4px 12px rgba(15,23,42,.08), 0 10px 28px rgba(15,23,42,.07);
+  --r-sm:     8px;
+  --r:        12px;
+  --r-lg:     16px;
+}
+
+/* ── Base typography: product UI in Plus Jakarta Sans ── */
+body, button, input, textarea, select, .btn {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Display face on the things that carry the brand: headings, panel titles,
+   and the big stat numbers (mirrors the marketing headlines). ── */
+h1, h2, h3, h4,
+.stitle, .section-title, .guide-title, .sn, .hero-title, .panel-title, .page-title {
+  font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -.018em;
+}
+.sn { letter-spacing: -.04em; }   /* tighten the big numerals */
+
+/* ── Quality floor: visible keyboard focus + honoured reduced-motion ── */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--p);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">TAKEOVA<span>.</span></div>
+  <span class="badge-aff">Affiliate</span>
+  <span class="badge-demo">DEMO MODE</span>
+  <div class="topbar-right">
+    <span style="font-size:13px;font-weight:600;color:var(--mt)">Sarah Mitchell</span>
+    <div class="av">S</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="demo-banner">
+    <span style="font-size:16px"></span>
+    <div><strong>Demo mode</strong> — all data below is fake. No sign-in needed. Click any button to see what happens.</div>
+  </div>
+
+  <!-- Stripe Connect banner -->
+  <div id="stripeBanner" class="stripe-banner">
+    <div style="font-size:24px"></div>
+    <div style="flex:1">
+      <div style="font-weight:800;font-size:14px;margin-bottom:2px" id="stripeTitle">Connect Stripe to get paid</div>
+      <div style="font-size:12px;opacity:.85" id="stripeSub">Set up your Stripe account to receive automatic monthly payouts</div>
+    </div>
+    <button class="btn" onclick="demoConnectStripe()" id="stripeBtn">Connect →</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="stat-grid">
+    <div class="stat"><div class="stat-val" style="color:var(--p)">1,247</div><div class="stat-lbl">Clicks</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--or)">187</div><div class="stat-lbl">Signups</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--gn)">34</div><div class="stat-lbl">Conversions</div></div>
+    <div class="stat"><div class="stat-val" style="color:var(--p)">$2,147.82</div><div class="stat-lbl">Earned</div></div>
+  </div>
+
+  <!-- Referral link -->
+  <div class="card">
+    <div class="card-title">Your referral link</div>
+    <div class="ref-box" id="refLink">https://takeova.ai/?ref=sarahm4a2f</div>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <button class="btn btn-p" onclick="demoCopyLink()" style="flex:1">Copy link</button>
+      <button class="btn btn-ghost" onclick="demoShareLink()" style="flex:1">↗ Share</button>
+    </div>
+
+    <!-- Custom code -->
+    <div style="border-top:1px solid var(--bd);padding-top:12px;margin-top:4px">
+      <label class="lbl">Custom referral code (optional)</label>
+      <div style="display:flex;gap:6px">
+        <input class="inp" id="customCode" placeholder="yourbrand" value="sarahm4a2f" style="flex:1">
+        <button class="btn btn-ghost" onclick="demoSaveCode()" style="white-space:nowrap">Save code</button>
+      </div>
+      <div id="codeMsg" style="margin-top:6px"></div>
+      <div style="font-size:11px;color:var(--mt);margin-top:6px">3-20 characters · letters, numbers, dashes, underscores</div>
+    </div>
+
+    <!-- UTM tagged links -->
+    <div style="border-top:1px solid var(--bd);padding-top:12px;margin-top:14px">
+      <div style="font-weight:700;font-size:13px;margin-bottom:8px">Tagged links (track by channel)</div>
+      <div class="utm-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+        <button class="btn btn-ghost" onclick="demoTaggedLink('youtube')" style="font-size:12px">▶ YouTube</button>
+        <button class="btn btn-ghost" onclick="demoTaggedLink('twitter')" style="font-size:12px">Twitter/X</button>
+        <button class="btn btn-ghost" onclick="demoTaggedLink('instagram')" style="font-size:12px">Instagram</button>
+        <button class="btn btn-ghost" onclick="demoTaggedLink('tiktok')" style="font-size:12px">TikTok</button>
+        <button class="btn btn-ghost" onclick="demoTaggedLink('linkedin')" style="font-size:12px">LinkedIn</button>
+        <button class="btn btn-ghost" onclick="demoTaggedLink('email')" style="font-size:12px">Email</button>
+      </div>
+      <div id="taggedResult" style="display:none;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px;font-family:monospace;font-size:12px;word-break:break-all">
+        <div id="taggedLink"></div>
+        <button class="btn btn-p" onclick="demoCopyTagged()" style="margin-top:8px;font-size:11px;padding:6px 12px">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social share -->
+  <div class="card">
+    <div class="card-title">Share to social — one click</div>
+    <div style="font-size:12px;color:var(--mt);margin-bottom:12px;line-height:1.5">Opens each platform with pre-written copy. Edit before posting.</div>
+    <div class="social-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button class="btn btn-ghost" onclick="demoSocialShare('twitter')" style="background:#000;color:#fff;border-color:#000">Tweet this</button>
+      <button class="btn btn-ghost" onclick="demoSocialShare('linkedin')" style="background:#0A66C2;color:#fff;border-color:#0A66C2">LinkedIn</button>
+      <button class="btn btn-ghost" onclick="demoSocialShare('facebook')" style="background:#1877F2;color:#fff;border-color:#1877F2">Facebook</button>
+      <button class="btn btn-ghost" onclick="demoSocialShare('whatsapp')" style="background:#25D366;color:#fff;border-color:#25D366">WhatsApp</button>
+      <button class="btn btn-ghost" onclick="demoSocialShare('telegram')" style="background:#0088cc;color:#fff;border-color:#0088cc">Telegram</button>
+      <button class="btn btn-ghost" onclick="demoSocialShare('reddit')" style="background:#FF4500;color:#fff;border-color:#FF4500">Reddit</button>
+    </div>
+  </div>
+
+  <!-- Promo / swipe copy -->
+  <div class="card">
+    <div class="card-title">Swipe copy & promo materials</div>
+    <div style="font-size:12px;color:var(--mt);margin-bottom:14px;line-height:1.5">Pre-written templates. Click any to copy with your link auto-inserted.</div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--p)">Email template</div>
+      <div class="swipe" onclick="demoCopySwipe(this)" style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px;font-size:12px;line-height:1.6;cursor:pointer">
+        <strong>Subject:</strong>The tool I use to run my business on autopilot<br><br>
+        Hey [name],<br><br>
+        I've been using TAKEOVA for a few months and it's replaced like 5 tools for me — website builder, payments, email marketing, bookings, AI employees that handle support and socials while I sleep.<br><br>
+        If you've been stitching together Squarespace + Mailchimp + Calendly + whatever, take a look: <span class="ref-marker" style="color:var(--p);font-weight:700">https://takeova.ai/?ref=sarahm4a2f</span><br><br>
+        3-day trial, no credit card upfront.<br><br>
+        — Sarah
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--p)">Twitter / X thread opener</div>
+      <div class="swipe" onclick="demoCopySwipe(this)" style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px;font-size:12px;line-height:1.6;cursor:pointer">
+        I replaced Squarespace, Mailchimp, Calendly, Kajabi and ConvertKit with one tool: TAKEOVA.<br><br>
+        AI builds your site, handles bookings, runs email, answers DMs, posts to socials. All $79/mo.<br><br>
+        Here's what happened after 30 days<br><br>
+        <span class="ref-marker" style="color:var(--p);font-weight:700">https://takeova.ai/?ref=sarahm4a2f</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--p)">Instagram caption</div>
+      <div class="swipe" onclick="demoCopySwipe(this)" style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px;font-size:12px;line-height:1.6;cursor:pointer">
+        Small business tech stack be like<br><br>
+        Squarespace ($23) + Mailchimp ($20) + Calendly ($10) + Acuity ($16) + ConvertKit ($29) = $98/mo<br><br>
+        Or: TAKEOVA = $79/mo. One login. AI builds everything.<br><br>
+        Link in bio <span class="ref-marker" style="color:var(--p);font-weight:700">https://takeova.ai/?ref=sarahm4a2f</span><br><br>
+        #smallbusiness #entrepreneur #aitools #saas
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--p)">LinkedIn post</div>
+      <div class="swipe" onclick="demoCopySwipe(this)" style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px;font-size:12px;line-height:1.6;cursor:pointer">
+        The tool stack for a modern small business used to cost $300+/mo and take 2 weeks to set up.<br><br>
+        TAKEOVA replaces it all:<br>
+        → Website builder<br>
+        → Email marketing<br>
+        → Booking system<br>
+        → CRM<br>
+        → AI employees for support, social, and marketing<br><br>
+        All for $79/mo. 5-min setup.<br><br>
+        Worth a look: <span class="ref-marker" style="color:var(--p);font-weight:700">https://takeova.ai/?ref=sarahm4a2f</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:12px;font-weight:700;margin-bottom:6px;color:var(--p)">TikTok / Reels hook</div>
+      <div class="swipe" onclick="demoCopySwipe(this)" style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px;font-size:12px;line-height:1.6;cursor:pointer">
+        POV: you're paying $300/mo for 5 different business tools...<br>
+        ...and TAKEOVA just does it all for $79.<br>
+        Link in bio. <span class="ref-marker" style="color:var(--p);font-weight:700">https://takeova.ai/?ref=sarahm4a2f</span>
+      </div>
+    </div>
+
+    <!-- Banner downloads -->
+    <div style="border-top:1px solid var(--bd);padding-top:14px;margin-top:4px">
+      <div style="font-size:12px;font-weight:700;margin-bottom:8px">Banner graphics</div>
+      <div class="banner-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+        <div style="aspect-ratio:1200/628;background:linear-gradient(135deg,#4F46E5,#6366F1);border-radius:8px;padding:10px;color:#fff;font-weight:800;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer" onclick="demoDownloadBanner('1200x628')">
+          <div style="font-size:14px;margin-bottom:2px">TAKEOVA</div>
+          <div style="font-size:8px;opacity:.9">1200×628</div>
+          <div style="font-size:8px;opacity:.7;margin-top:4px">Click to download</div>
+        </div>
+        <div style="aspect-ratio:1080/1080;background:linear-gradient(135deg,#16A34A,#22C55E);border-radius:8px;padding:10px;color:#fff;font-weight:800;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer" onclick="demoDownloadBanner('1080x1080')">
+          <div style="font-size:14px;margin-bottom:2px">TAKEOVA</div>
+          <div style="font-size:8px;opacity:.9">1080×1080</div>
+          <div style="font-size:8px;opacity:.7;margin-top:4px">Instagram</div>
+        </div>
+        <div style="aspect-ratio:1080/1920;background:linear-gradient(135deg,#DC2626,#EC4899);border-radius:8px;padding:10px;color:#fff;font-weight:800;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer" onclick="demoDownloadBanner('1080x1920')">
+          <div style="font-size:14px;margin-bottom:2px">TAKEOVA</div>
+          <div style="font-size:8px;opacity:.9">1080×1920</div>
+          <div style="font-size:8px;opacity:.7;margin-top:4px">Story</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Commission tier -->
+  <div class="card">
+    <div class="card-title"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.9em;height:.9em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg>Commission tier — <span style="color:var(--p)">Silver</span> · <span style="color:var(--gn)">23% recurring</span></div>
+    <div id="tierRows">
+      <div class="tier-row"><span style="font-weight:600">Starter</span><span style="color:var(--mt);font-size:12px">0–4 refs</span><span style="font-weight:800;color:var(--p)">18%</span></div>
+      <div class="tier-row"><span style="font-weight:600">Bronze</span><span style="color:var(--mt);font-size:12px">5–24 refs</span><span style="font-weight:800;color:var(--p)">20%</span></div>
+      <div class="tier-row active"><span style="font-weight:800"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.9em;height:.9em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg>Silver</span><span style="color:var(--mt);font-size:12px">25–49 refs</span><span style="font-weight:800;color:var(--p)">23%</span></div>
+      <div class="tier-row"><span style="font-weight:600">Gold</span><span style="color:var(--mt);font-size:12px">50–99 refs</span><span style="font-weight:800;color:var(--p)">25%</span></div>
+      <div class="tier-row"><span style="font-weight:600">Diamond</span><span style="color:var(--mt);font-size:12px">100+ refs</span><span style="font-weight:800;color:var(--p)">28%</span></div>
+    </div>
+    <div style="margin-top:14px">
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mt);margin-bottom:4px">
+        <span>Progress to <span style="font-weight:700;color:var(--tx)">Gold</span></span>
+        <span>16 more to Gold</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" style="width:36%"></div></div>
+    </div>
+  </div>
+
+  <!-- Earnings -->
+  <div class="card">
+    <div class="card-title">Earnings</div>
+    <div class="earnings-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px">
+      <div style="text-align:center"><div style="font-size:18px;font-weight:900;color:var(--gn)">$2,147.82</div><div style="font-size:10px;font-weight:700;color:var(--mt);text-transform:uppercase">Total earned</div></div>
+      <div style="text-align:center"><div style="font-size:18px;font-weight:900;color:var(--p)">$284.16</div><div style="font-size:10px;font-weight:700;color:var(--mt);text-transform:uppercase">Pending</div></div>
+      <div style="text-align:center"><div style="font-size:18px;font-weight:900;color:var(--mt)">$1,863.66</div><div style="font-size:10px;font-weight:700;color:var(--mt);text-transform:uppercase">Paid out</div></div>
+    </div>
+    <button class="btn btn-p btn-w" onclick="demoRequestPayout()">Request Payout</button>
+    <div style="font-size:11px;color:var(--mt);text-align:center;margin-top:6px">Minimum $50 · Auto-paid 1st of each month via Stripe</div>
+  </div>
+
+  <!-- Conversions -->
+  <div class="card">
+    <div class="card-title">Recent conversions</div>
+    <div id="convList">
+      <div class="row-item"><div><div style="font-weight:600">Pro plan</div><div style="font-size:11px;color:var(--mt)">2026-04-15</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800;color:var(--gn)">$41.17</span><span class="tag tp">pending</span></div></div>
+      <div class="row-item"><div><div style="font-weight:600">Growth plan</div><div style="font-size:11px;color:var(--mt)">2026-04-12</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800;color:var(--gn)">$29.67</span><span class="tag tp">pending</span></div></div>
+      <div class="row-item"><div><div style="font-weight:600">Enterprise plan</div><div style="font-size:11px;color:var(--mt)">2026-04-08</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800;color:var(--gn)">$68.77</span><span class="tag tg">paid</span></div></div>
+      <div class="row-item"><div><div style="font-weight:600">Pro plan</div><div style="font-size:11px;color:var(--mt)">2026-04-03</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800;color:var(--gn)">$41.17</span><span class="tag tg">paid</span></div></div>
+      <div class="row-item"><div><div style="font-weight:600">Starter plan</div><div style="font-size:11px;color:var(--mt)">2026-03-28</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800;color:var(--gn)">$18.17</span><span class="tag tg">paid</span></div></div>
+    </div>
+  </div>
+
+  <!-- Payouts -->
+  <div class="card">
+    <div class="card-title">Payout history</div>
+    <div id="payoutList">
+      <div class="row-item"><div><div style="font-weight:600">Payout</div><div style="font-size:11px;color:var(--mt)">2026-04-01</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800">$486.22</span><span class="tag tg">paid</span></div></div>
+      <div class="row-item"><div><div style="font-weight:600">Payout</div><div style="font-size:11px;color:var(--mt)">2026-03-01</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800">$392.18</span><span class="tag tg">paid</span></div></div>
+      <div class="row-item"><div><div style="font-weight:600">Payout</div><div style="font-size:11px;color:var(--mt)">2026-02-01</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800">$507.44</span><span class="tag tg">paid</span></div></div>
+      <div class="row-item"><div><div style="font-weight:600">Payout</div><div style="font-size:11px;color:var(--mt)">2026-01-01</div></div><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:800">$477.82</span><span class="tag tg">paid</span></div></div>
+    </div>
+  </div>
+
+  <!-- Profile -->
+  <div class="card">
+    <div class="card-title">Profile & settings</div>
+    <label class="lbl">Display name</label>
+    <input class="inp" id="pName" value="Sarah Mitchell" style="margin-bottom:10px">
+    <label class="lbl">Bio (shown to TAKEOVA team)</label>
+    <input class="inp" id="pBio" value="Business coach helping 500+ SMBs scale with AI tools" style="margin-bottom:10px">
+    <label class="lbl">Website</label>
+    <input class="inp" id="pWebsite" type="url" value="https://sarahmitchell.coach" style="margin-bottom:14px">
+    <button class="btn btn-p" onclick="demoSaveProfile()">Save profile</button>
+    <div id="profileMsg" style="margin-top:8px"></div>
+  </div>
+
+  <!-- Reset demo -->
+  <div style="text-align:center;margin-top:24px">
+    <button class="btn btn-ghost" onclick="location.reload()" style="font-size:12px;padding:8px 16px">Reset demo</button>
+  </div>
+
+</div>
+
+<script>
+// ── Demo interaction handlers ─────────────────────────────────────────────────
+
+function demoConnectStripe() {
+  var banner = document.getElementById('stripeBanner');
+  var title = document.getElementById('stripeTitle');
+  var sub = document.getElementById('stripeSub');
+  var btn = document.getElementById('stripeBtn');
+  btn.textContent = 'Connecting...';
+  btn.disabled = true;
+  setTimeout(function() {
+    banner.classList.add('connected');
+    title.textContent = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>Stripe connected';
+    sub.textContent = 'Auto-payouts enabled — next payout May 1';
+    btn.textContent = 'Manage →';
+    btn.disabled = false;
+  }, 900);
+}
+
+function demoCopyLink() {
+  var link = document.getElementById('refLink').textContent;
+  try {
+    navigator.clipboard.writeText(link);
+    alert('Copied!\n\n' + link);
+  } catch(e) {
+    prompt('Copy this link:', link);
+  }
+}
+
+function demoShareLink() {
+  var link = document.getElementById('refLink').textContent;
+  if (navigator.share) {
+    navigator.share({ title: 'Earn with TAKEOVA', url: link }).catch(function(){});
+  } else {
+    demoCopyLink();
+  }
+}
+
+function demoRequestPayout() {
+  alert('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>Payout of $284.16 requested!\n\nYou would normally receive this within 2 business days via Stripe.\n\n(Demo mode — no actual payout)');
+}
+
+function demoSaveProfile() {
+  var msg = document.getElementById('profileMsg');
+  msg.className = 'msg msg-ok';
+  msg.textContent = 'Profile saved <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>';
+  setTimeout(function() { msg.textContent = ''; msg.className = ''; }, 2500);
+}
+
+function demoSaveCode() {
+  var newCode = document.getElementById('customCode').value.trim();
+  if (!newCode || newCode.length < 3) {
+    var msg = document.getElementById('codeMsg');
+    msg.className = 'msg';
+    msg.style.cssText = 'font-size:12px;padding:8px 12px;border-radius:8px;margin-top:6px;background:#fef2f2;color:#dc2626;border:1px solid #fecaca';
+    msg.textContent = 'Code must be at least 3 characters';
+    return;
+  }
+  var clean = newCode.toLowerCase().replace(/[^a-z0-9_-]/g, '');
+  var newLink = 'https://takeova.ai/?ref=' + clean;
+  document.getElementById('refLink').textContent = newLink;
+  // Update all swipe-copy link markers
+  document.querySelectorAll('.ref-marker').forEach(function(el) { el.textContent = newLink; });
+  var msg = document.getElementById('codeMsg');
+  msg.style.cssText = 'font-size:12px;padding:8px 12px;border-radius:8px;margin-top:6px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0';
+  msg.textContent = 'Code updated — new link active <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>';
+  setTimeout(function() { msg.textContent = ''; msg.style.cssText = ''; }, 2500);
+}
+
+function demoTaggedLink(source) {
+  var base = document.getElementById('refLink').textContent;
+  var tagged = base + (base.includes('?') ? '&' : '?') + 'src=' + source + '&utm_source=' + source + '&utm_medium=affiliate';
+  document.getElementById('taggedLink').textContent = tagged;
+  document.getElementById('taggedResult').style.display = 'block';
+  window._taggedLink = tagged;
+}
+
+function demoCopyTagged() {
+  if (!window._taggedLink) return;
+  navigator.clipboard.writeText(window._taggedLink).then(function(){ alert('Tagged link copied!\n\n' + window._taggedLink); }).catch(function(){ prompt('Copy:', window._taggedLink); });
+}
+
+function demoSocialShare(platform) {
+  var base = document.getElementById('refLink').textContent;
+  var tagged = base + (base.includes('?') ? '&' : '?') + 'src=' + platform;
+  var msg = {
+    twitter:  'I replaced 5 business tools with TAKEOVA — AI builds your site, handles bookings, runs email, posts to socials. $79/mo.',
+    linkedin: 'The modern SMB tech stack used to cost $300+/mo. TAKEOVA replaces it for $79/mo. Worth a look:',
+    facebook: 'Found the tool that replaces Squarespace + Mailchimp + Calendly + more, all for $79/mo.',
+    whatsapp: 'Check this out — AI business platform that replaced like 5 of my tools:',
+    telegram: 'AI business platform worth checking out:',
+    reddit:   'TAKEOVA — AI website builder that also does payments, bookings, courses, CRM. $79/mo replaces a lot.'
+  };
+  var text = encodeURIComponent(msg[platform] || 'Check out TAKEOVA:');
+  var url = encodeURIComponent(tagged);
+  var urls = {
+    twitter:  'https://twitter.com/intent/tweet?text=' + text + '&url=' + url,
+    linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + url,
+    facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + url + '&quote=' + text,
+    whatsapp: 'https://wa.me/?text=' + text + '%20' + url,
+    telegram: 'https://t.me/share/url?url=' + url + '&text=' + text,
+    reddit:   'https://reddit.com/submit?url=' + url + '&title=' + text
+  };
+  window.open(urls[platform], '_blank', 'width=600,height=600');
+}
+
+function demoCopySwipe(el) {
+  var text = el.innerText;
+  navigator.clipboard.writeText(text).then(function() {
+    el.style.background = '#dcfce7';
+    el.style.borderColor = '#16a34a';
+    setTimeout(function() {
+      el.style.background = 'var(--bg)';
+      el.style.borderColor = 'var(--bd)';
+    }, 1200);
+  }).catch(function() { prompt('Copy this:', text); });
+}
+
+function demoDownloadBanner(size) {
+  var parts = size.split('x');
+  var w = parseInt(parts[0]), h = parseInt(parts[1]);
+  var canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  var ctx = canvas.getContext('2d');
+  var grad = ctx.createLinearGradient(0, 0, w, h);
+  if (size === '1200x628')      { grad.addColorStop(0, '#4F46E5'); grad.addColorStop(1, '#6366F1'); }
+  else if (size === '1080x1080'){ grad.addColorStop(0, '#16A34A'); grad.addColorStop(1, '#22C55E'); }
+  else                          { grad.addColorStop(0, '#DC2626'); grad.addColorStop(1, '#EC4899'); }
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold ' + Math.floor(w/8) + 'px -apple-system, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('TAKEOVA.', w/2, h/2 - h/10);
+  ctx.font = Math.floor(w/30) + 'px -apple-system, sans-serif';
+  ctx.globalAlpha = 0.9;
+  ctx.fillText('Your entire business.', w/2, h/2 + h/14);
+  ctx.fillText('One platform. $79/mo.', w/2, h/2 + h/14 + h/25);
+  ctx.globalAlpha = 0.7;
+  ctx.font = Math.floor(w/50) + 'px monospace';
+  var link = document.getElementById('refLink').textContent;
+  ctx.fillText(link, w/2, h - h/10);
+  canvas.toBlob(function(blob) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'mine-affiliate-banner-' + size + '.png';
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+  }, 'image/png');
+}
+</script>
+
+</body>
+</html>

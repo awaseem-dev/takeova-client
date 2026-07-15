@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Legal — TAKEOVA</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;color:#0F172A;background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{
+  --p:#2563EB;--p2:#3B82F6;--gn:#16A34A;--rd:#DC2626;
+  --mt:#475569;--dm:#94A3B8;--bd:#E2E8F0;--bg:#F8FAFC;--tx:#0F172A;
+  --gr:linear-gradient(135deg,#2563EB,#3B82F6);
+  --r:12px;--rs:8px;--h:"Plus Jakarta Sans",sans-serif
+}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:rgba(37,99,235,.2);border-radius:2px}
+h1,h2,h3,h4{font-family:var(--h);line-height:1.2}
+p{line-height:1.75;color:var(--mt);font-size:14px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fade{animation:fadeUp .3s ease both}
+.grad{background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.container{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--rs);border:none;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:600;transition:all .18s;text-decoration:none;white-space:nowrap}
+.btn-primary{background:var(--gr);color:#fff;box-shadow:0 2px 12px rgba(37,99,235,.3)}.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-ghost{background:#fff;color:var(--mt);border:1.5px solid var(--bd)}.btn-ghost:hover{border-color:var(--p);color:var(--p)}
+.btn-sm{padding:7px 14px;font-size:12px}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd);padding:0 clamp(16px,4vw,48px)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-family:var(--h);font-weight:800;font-size:26px;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:13px;font-weight:600;color:var(--mt);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--p)}
+@media(max-width:640px){.nav-links{display:none}}
+.hero{padding:100px clamp(16px,4vw,48px) 48px;background:linear-gradient(180deg,#F0F4FF 0%,#fff 100%);border-bottom:1px solid var(--bd);text-align:center}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;margin-bottom:12px}
+.hero p{font-size:15px;color:var(--mt);max-width:500px;margin:0 auto 28px}
+.last-updated{display:inline-block;padding:5px 14px;background:rgba(37,99,235,.07);border-radius:20px;font-size:12px;font-weight:600;color:var(--p)}
+.tab-bar-wrap{background:#fff;border-bottom:2px solid var(--bd);position:sticky;top:58px;z-index:200}
+.tab-bar{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px);display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{padding:14px 24px;font-size:13px;font-weight:600;color:var(--mt);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .18s;display:flex;align-items:center;gap:7px;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap;font-family:"DM Sans",sans-serif}
+.tab-btn:hover{color:var(--p)}.tab-btn.active{color:var(--p);border-bottom-color:var(--p)}
+.layout{display:flex;max-width:1280px;margin:0 auto;padding:clamp(16px,4vw,48px);gap:48px;align-items:flex-start}
+.sidebar{width:220px;flex-shrink:0;position:sticky;top:120px}
+.sidebar-title{font-size:11px;font-weight:700;color:var(--dm);text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px}
+.sidebar-link{display:block;font-size:13px;font-weight:500;color:var(--mt);text-decoration:none;padding:7px 10px;border-radius:8px;margin-bottom:2px;transition:all .15s;border-left:3px solid transparent}
+.sidebar-link:hover{background:var(--bg);color:var(--p)}.sidebar-link.active{background:rgba(37,99,235,.07);color:var(--p);font-weight:600;border-left-color:var(--p)}
+.main{flex:1;min-width:0;padding-bottom:80px}
+@media(max-width:768px){.layout{flex-direction:column}.sidebar{width:100%;position:static}}
+.section{display:none}.section.active{display:block}
+.doc-section{margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--bd)}
+.doc-section:last-child{border-bottom:none}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.section-icon{width:40px;height:40px;border-radius:10px;background:rgba(37,99,235,.08);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.section-title{font-size:20px;font-weight:800;color:var(--tx)}
+.doc-block{margin-bottom:16px}
+.doc-block h3{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:10px}
+.doc-list{list-style:none;padding:0;margin:0}
+.doc-list li{font-size:14px;color:var(--mt);padding:8px 0 8px 20px;position:relative;border-bottom:1px solid var(--bg);line-height:1.65}
+.doc-list li:last-child{border-bottom:none}
+.doc-list li::before{content:"";position:absolute;left:0;top:17px;width:6px;height:6px;border-radius:50%;background:var(--p)}
+.highlight-box{background:rgba(37,99,235,.04);border:1px solid rgba(37,99,235,.12);border-radius:10px;padding:14px 18px;margin:14px 0}
+.highlight-box.warn{background:rgba(245,158,11,.04);border-color:rgba(245,158,11,.2)}
+.highlight-box.green{background:rgba(22,163,74,.04);border-color:rgba(22,163,74,.2)}
+.highlight-box p{margin:0;font-size:13px}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;background:var(--bg);border:1px solid var(--bd);color:var(--mt)}
+.contact-card{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:18px;margin-top:16px;display:flex;align-items:center;gap:14px}
+.contact-avatar{width:40px;height:40px;border-radius:50%;background:var(--gr);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.contact-email{font-size:13px;font-weight:600;color:var(--p);text-decoration:none}
+.contact-email:hover{text-decoration:underline}
+.contact-label{font-size:11px;color:var(--dm);margin-top:2px}
+.doc-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+.doc-table th{background:var(--bg);padding:10px 14px;text-align:left;font-weight:700;font-size:12px;color:var(--tx);border-bottom:2px solid var(--bd)}
+.doc-table td{padding:10px 14px;border-bottom:1px solid var(--bg);color:var(--mt);vertical-align:top}
+.doc-table tr:last-child td{border-bottom:none}
+footer{padding:clamp(40px,6vw,64px) clamp(16px,4vw,48px) 36px;border-top:1px solid var(--bd)}
+</style>
+
+<!-- TAKEOVA unified UI design system -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style id="mine-ui-system">
+/* ============================================================================
+   TAKEOVA — Unified UI Design System  (v1)
+   ----------------------------------------------------------------------------
+   One source of truth for brand colour, type, and surface treatment across the
+   product (the three dashboards) and the learn page — so they finally match the
+   marketing site instead of looking like a generic admin template.
+
+   HOW IT WORKS
+   The dashboards are already variable-driven (var(--p), var(--tx), var(--bd)…).
+   This file REDEFINES those variables to one unified, on-brand palette. Because
+   a variable's value is substituted into every rule that uses it — even rules
+   marked !important — these tokens win cascade-wide without rewriting any markup.
+   It also loads the brand typefaces (the product was falling back to system
+   fonts) and adds a few quality-floor touches (focus rings, smoothing).
+
+   USE
+   Either link this file (<link rel="stylesheet" href="/mine-ui.css">) AFTER the
+   page's own styles, or paste it into a <style id="mine-ui-system"> just before
+   </head>. It must load last so its tokens override the page's local ones.
+   ========================================================================== */
+
+/* Brand typefaces — Bricolage Grotesque (display) + Plus Jakarta Sans (body),
+   the same pairing as the marketing site. */
+
+:root {
+  /* ── Brand primary (from the marketing site: blue-600) ── */
+  --p:        #2563EB;
+  --p-700:    #1D4ED8;   /* hover / pressed */
+  --p-50:     #EFF6FF;   /* faint tint / selected bg */
+
+  /* ── Slate neutrals (match the landing page's family) ── */
+  --tx:       #0F172A;   /* primary text  (slate-900) */
+  --mt:       #64748B;   /* muted text    (slate-500) */
+  --dm:       #94A3B8;   /* dim / hint    (slate-400) */
+  --bd:       #E2E8F0;   /* hairline border (slate-200) */
+  --bd2:      #CBD5E1;   /* stronger border (slate-300) */
+  --bg:       #F8FAFC;   /* app background (slate-50) */
+  --bg2:      #FFFFFF;   /* card / panel surface */
+
+  /* ── Accent set (kept; used for status + category colour) ── */
+  --gn:       #16A34A;   /* success / revenue up */
+  --or:       #EA580C;   /* attention / in-progress */
+  --pu:       #7C3AED;   /* secondary accent */
+  --pk:       #EC4899;   /* tertiary accent */
+  --rd:       #DC2626;   /* error / destructive */
+  --gold:     #D97706;   /* rewards / premium */
+
+  /* ── Surface treatment ── */
+  --sh:       0 1px 2px rgba(15,23,42,.04), 0 2px 8px rgba(15,23,42,.06);
+  --sh-lg:    0 4px 12px rgba(15,23,42,.08), 0 10px 28px rgba(15,23,42,.07);
+  --r-sm:     8px;
+  --r:        12px;
+  --r-lg:     16px;
+}
+
+/* ── Base typography: product UI in Plus Jakarta Sans ── */
+body, button, input, textarea, select, .btn {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Display face on the things that carry the brand: headings, panel titles,
+   and the big stat numbers (mirrors the marketing headlines). ── */
+h1, h2, h3, h4,
+.stitle, .section-title, .guide-title, .sn, .hero-title, .panel-title, .page-title {
+  font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -.018em;
+}
+.sn { letter-spacing: -.04em; }   /* tighten the big numerals */
+
+/* ── Quality floor: visible keyboard focus + honoured reduced-motion ── */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--p);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="landing.html" class="logo">TAKEOVA</a>
+    <div class="nav-links">
+      <a href="landing.html">Home</a>
+      <a href="learn.html">Learn</a>
+      <a href="landing.html#mine-pricing">Pricing</a>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-ghost btn-sm" onclick="window.location.href='https://takeova.ai'"  >Log In</button>
+      <button class="btn btn-primary btn-sm" onclick="window.location.href='https://takeova.ai'"  >Get Started Free</button>
+    </div>
+  </div>
+</nav>
+
+<div class="hero fade">
+  <div class="last-updated">Last updated: March 2026</div>
+  <h1 style="margin-top:14px">Legal &amp; <span class="grad">Privacy</span></h1>
+  <p>Everything about how TAKEOVA handles your data, our terms, and your rights as a user.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <button onclick="switchTab('privacy')" class="btn btn-primary btn-sm">🔒 Privacy Policy</button>
+    <button onclick="switchTab('terms')" class="btn btn-ghost btn-sm">📋 Terms of Service</button>
+    <button onclick="switchTab('gdpr')" class="btn btn-ghost btn-sm">🛡️ GDPR</button>
+    <button onclick="switchTab('security')" class="btn btn-ghost btn-sm">🔐 Security</button>
+  </div>
+</div>
+
+<div class="tab-bar-wrap">
+  <div class="tab-bar">
+    <button class="tab-btn active" id="tab-privacy" onclick="switchTab('privacy')">🔒 Privacy Policy</button>
+    <button class="tab-btn" id="tab-terms" onclick="switchTab('terms')">📋 Terms of Service</button>
+    <button class="tab-btn" id="tab-gdpr" onclick="switchTab('gdpr')">🛡️ GDPR</button>
+    <button class="tab-btn" id="tab-security" onclick="switchTab('security')">🔐 Security</button>
+    <button class="tab-btn" id="tab-cookies" onclick="switchTab('cookies')">🍪 Cookies</button>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="sidebar"><div class="sidebar-title">On this page</div><div id="sidebar-links"></div></div>
+  <div class="main">
+
+    <!-- PRIVACY -->
+    <div class="section active fade" id="section-privacy">
+      <div class="doc-section" id="priv-collect">
+        <div class="section-header"><div class="section-icon">📥</div><div class="section-title">Information We Collect</div></div>
+        <div class="doc-block"><p>When you create a TAKEOVA account we collect the following categories of data:</p>
+        <ul class="doc-list">
+          <li><strong>Account information</strong> — your name, email address, and password (stored as a secure bcrypt hash, never plain text)</li>
+          <li><strong>Site content</strong> — websites, pages, products, courses, and any content you create inside TAKEOVA</li>
+          <li><strong>Payment information</strong> — billing details processed entirely by Stripe. TAKEOVA never stores card numbers, CVCs, or bank details</li>
+          <li><strong>Usage data</strong> — which features you use, how often, and how your sites perform</li>
+          <li><strong>Contact data</strong> — customers and leads you import or who submit forms on your sites</li>
+          <li><strong>Communications</strong> — support tickets and emails you send to our team</li>
+        </ul></div>
+        <div class="highlight-box green"><p>✅ <strong>We never sell your data.</strong> We never have and never will.</p></div>
+      </div>
+      <div class="doc-section" id="priv-use">
+        <div class="section-header"><div class="section-icon">⚙️</div><div class="section-title">How We Use Your Data</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li>To provide, operate, and improve the TAKEOVA platform</li>
+          <li>To process payments and manage your subscription</li>
+          <li>To send transactional emails — order confirmations, password resets, billing receipts</li>
+          <li>To provide customer support and respond to your requests</li>
+          <li>To send product updates and announcements (opt out any time)</li>
+          <li>To detect and prevent fraud, abuse, and security incidents</li>
+          <li>To comply with legal obligations</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="priv-storage">
+        <div class="section-header"><div class="section-icon">🗄️</div><div class="section-title">Data Storage &amp; Security</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li>All data stored on encrypted servers (AES-256 at rest)</li>
+          <li>Passwords hashed with bcrypt — impossible to reverse</li>
+          <li>All API traffic encrypted via HTTPS / TLS 1.3</li>
+          <li>Session tokens (JWT) expire automatically and are invalidated on logout</li>
+          <li>Database backups taken daily and stored in a separate region</li>
+        </ul></div>
+        <div class="badge-row"><span class="badge">🔒 TLS 1.3</span><span class="badge">🔑 AES-256</span><span class="badge">💳 PCI DSS via Stripe</span><span class="badge">🛡️ bcrypt passwords</span></div>
+      </div>
+      <div class="doc-section" id="priv-rights">
+        <div class="section-header"><div class="section-icon">⚖️</div><div class="section-title">Your Rights</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li><strong>Export</strong> — download all your data as CSV from the dashboard at any time</li>
+          <li><strong>Delete</strong> — permanently delete your account from Settings → Account → Delete Account</li>
+          <li><strong>Opt out</strong> — unsubscribe from marketing emails via any email footer, or Settings → Notifications</li>
+          <li><strong>Correct</strong> — update your personal information from your profile at any time</li>
+          <li><strong>Access</strong> — request a full copy of all data we hold by emailing privacy@takeova.ai</li>
+        </ul></div>
+        <div class="highlight-box"><p>📧 For any data requests, email <strong>privacy@takeova.ai</strong>. We respond within 30 days.</p></div>
+      </div>
+      <div class="doc-section" id="priv-third">
+        <div class="section-header"><div class="section-icon">🔗</div><div class="section-title">Third-Party Services</div></div>
+        <div class="doc-block">
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table class="doc-table">
+            <thead><tr><th>Service</th><th>Purpose</th><th>Data shared</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Stripe</strong></td><td>Payment processing</td><td>Billing details (PCI DSS compliant)</td></tr>
+              <tr><td><strong>SendGrid</strong></td><td>Transactional email</td><td>Email address, message content</td></tr>
+              <tr><td><strong>Twilio</strong></td><td>SMS services</td><td>Phone number, message content</td></tr>
+              <tr><td><strong>Anthropic Claude</strong></td><td>AI features</td><td>Your prompts (not stored or trained on by Anthropic)</td></tr>
+              <tr><td><strong>AWS S3</strong></td><td>File storage</td><td>Files you upload</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+      <div class="doc-section" id="priv-contact">
+        <div class="section-header"><div class="section-icon">✉️</div><div class="section-title">Contact — Privacy</div></div>
+        <div class="contact-card"><div class="contact-avatar">🔒</div><div><a href="mailto:privacy@takeova.ai" class="contact-email">privacy@takeova.ai</a><div class="contact-label">Privacy Officer · Response within 30 days</div></div></div>
+      </div>
+    </div>
+
+    <!-- TERMS -->
+    <div class="section fade" id="section-terms">
+      <div class="doc-section" id="terms-account">
+        <div class="section-header"><div class="section-icon">👤</div><div class="section-title">Account Terms</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li>You must be 18 years or older to create a TAKEOVA account</li>
+          <li>You are responsible for maintaining the security of your account and password</li>
+          <li>One account per person or legal entity — accounts may not be shared</li>
+          <li>You must provide accurate, complete, and up-to-date information</li>
+          <li>You are responsible for all activity that occurs under your account</li>
+          <li>Notify us immediately at security@takeova.ai if you suspect unauthorised access</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="terms-use">
+        <div class="section-header"><div class="section-icon">✅</div><div class="section-title">Acceptable Use</div></div>
+        <div class="doc-block"><p>You agree not to use TAKEOVA to:</p><ul class="doc-list">
+          <li>Post, distribute, or sell illegal content or conduct illegal activities</li>
+          <li>Send spam, phishing emails, or distribute malware</li>
+          <li>Infringe on trademarks, copyrights, or other intellectual property</li>
+          <li>Resell or white-label TAKEOVA services without written authorisation</li>
+          <li>Use AI features to generate harmful, abusive, or deceptive content</li>
+          <li>Attempt to reverse engineer or access non-public areas of the platform</li>
+        </ul></div>
+        <div class="highlight-box warn"><p>⚠️ Violations may result in immediate account suspension without refund.</p></div>
+      </div>
+      <div class="doc-section" id="terms-payment">
+        <div class="section-header"><div class="section-icon">💳</div><div class="section-title">Payment Terms</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li>Subscriptions are billed monthly or annually depending on your plan</li>
+          <li>Annual plans are charged upfront and include a 20% discount vs monthly</li>
+          <li>Cancellations take effect at the end of the current billing period</li>
+          <li>No refunds for partial billing periods</li>
+          <li>Overage charges ($5 per edit beyond plan limit) are billed immediately</li>
+          <li>Platform transaction fees: 5% Starter, 3% Growth, 1% Pro, 0% Enterprise</li>
+          <li>Failed payments retried 3 times over 7 days before account is paused</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="terms-ownership">
+        <div class="section-header"><div class="section-icon">🏷️</div><div class="section-title">Content Ownership</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li>You retain full ownership of all content, sites, products, and data you create</li>
+          <li>TAKEOVA does not claim any ownership over your content</li>
+          <li>You grant TAKEOVA a limited licence to host and serve your content to your visitors</li>
+          <li>Upon account deletion, all content is permanently removed within 30 days</li>
+          <li>You can export all your data at any time before deletion</li>
+        </ul></div>
+        <div class="highlight-box green"><p>✅ <strong>Your content is yours.</strong> TAKEOVA never uses your site content or customer data for any purpose beyond delivering the service.</p></div>
+      </div>
+      <div class="doc-section" id="terms-sla">
+        <div class="section-header"><div class="section-icon">📊</div><div class="section-title">Service Level</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li><strong>Uptime target:</strong> 99.9% monthly uptime for all plans</li>
+          <li><strong>Scheduled maintenance:</strong> announced at least 24 hours in advance</li>
+          <li><strong>AI output:</strong> no guarantee of quality, accuracy, or fitness for any particular purpose</li>
+          <li><strong>Data retention:</strong> data retained for 30 days after account deletion to allow recovery requests</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="terms-liability">
+        <div class="section-header"><div class="section-icon">⚖️</div><div class="section-title">Limitation of Liability</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li>TAKEOVA is provided "as-is" without warranties of any kind</li>
+          <li>Maximum liability is limited to fees paid in the 12 months prior to any claim</li>
+          <li>We are not liable for indirect losses including lost revenue, lost data, or business interruption</li>
+          <li>We are not responsible for third-party services (Stripe, email providers, etc.) going offline</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="terms-contact">
+        <div class="section-header"><div class="section-icon">✉️</div><div class="section-title">Contact — Legal</div></div>
+        <div class="contact-card"><div class="contact-avatar">📋</div><div><a href="mailto:legal@takeova.ai" class="contact-email">legal@takeova.ai</a><div class="contact-label">Legal Team · Response within 5 business days</div></div></div>
+      </div>
+    </div>
+
+    <!-- GDPR -->
+    <div class="section fade" id="section-gdpr">
+      <div class="doc-section" id="gdpr-overview">
+        <div class="section-header"><div class="section-icon">🛡️</div><div class="section-title">GDPR Compliance</div></div>
+        <div class="doc-block"><p>TAKEOVA is fully committed to GDPR compliance for all EU and UK users.</p></div>
+        <div class="badge-row"><span class="badge">🇪🇺 EU GDPR compliant</span><span class="badge">🇬🇧 UK GDPR compliant</span><span class="badge">🔏 DPA available on request</span></div>
+      </div>
+      <div class="doc-section" id="gdpr-roles">
+        <div class="section-header"><div class="section-icon">🔄</div><div class="section-title">Data Controller vs Processor</div></div>
+        <div class="doc-block">
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table class="doc-table">
+            <thead><tr><th>Role</th><th>Who</th><th>What data</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Data Controller</strong></td><td>TAKEOVA</td><td>Your account data, usage data, billing info</td></tr>
+              <tr><td><strong>Data Controller</strong></td><td>You (the TAKEOVA user)</td><td>Your customers' personal data collected via your TAKEOVA sites</td></tr>
+              <tr><td><strong>Data Processor</strong></td><td>TAKEOVA</td><td>Your customers' data — processed on your behalf</td></tr>
+            </tbody>
+          </table></div>
+          <p style="margin-top:12px">As a TAKEOVA user, you are the data controller for personal data your customers submit through your sites. You are responsible for having a compliant privacy policy on your sites and handling data subject requests from your customers.</p>
+        </div>
+      </div>
+      <div class="doc-section" id="gdpr-lawful">
+        <div class="section-header"><div class="section-icon">📜</div><div class="section-title">Lawful Bases for Processing</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li><strong>Contract performance</strong> — processing necessary to deliver the TAKEOVA service</li>
+          <li><strong>Legitimate interests</strong> — fraud prevention, security, platform improvement</li>
+          <li><strong>Legal obligation</strong> — tax records, compliance with court orders</li>
+          <li><strong>Consent</strong> — marketing emails (withdraw consent any time)</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="gdpr-rights">
+        <div class="section-header"><div class="section-icon">⚖️</div><div class="section-title">Your GDPR Rights</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li><strong>Right to access (Art. 15)</strong> — request a copy of all personal data we hold</li>
+          <li><strong>Right to rectification (Art. 16)</strong> — correct inaccurate or incomplete data</li>
+          <li><strong>Right to erasure (Art. 17)</strong> — request deletion of your data</li>
+          <li><strong>Right to restrict processing (Art. 18)</strong> — pause processing during a dispute</li>
+          <li><strong>Right to data portability (Art. 20)</strong> — receive data in machine-readable format (CSV export in dashboard)</li>
+          <li><strong>Right to object (Art. 21)</strong> — object to processing based on legitimate interests</li>
+        </ul></div>
+        <div class="highlight-box"><p>📧 To exercise any GDPR right, email <strong>privacy@takeova.ai</strong>. We will respond within 30 days.</p></div>
+      </div>
+      <div class="doc-section" id="gdpr-transfers">
+        <div class="section-header"><div class="section-icon">🌍</div><div class="section-title">International Data Transfers</div></div>
+        <div class="doc-block"><p>TAKEOVA's infrastructure is primarily US-based. For EU/UK to US transfers we rely on:</p><ul class="doc-list">
+          <li>Standard Contractual Clauses (SCCs) with all sub-processors</li>
+          <li>EU-US Data Privacy Framework where applicable</li>
+          <li>Contractual obligations on sub-processors to maintain equivalent data protection standards</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="gdpr-dpa">
+        <div class="section-header"><div class="section-icon">📄</div><div class="section-title">Data Processing Agreement</div></div>
+        <div class="doc-block"><p>If your use of TAKEOVA requires a Data Processing Agreement (DPA), email us at <strong>privacy@takeova.ai</strong> with "DPA Request" in the subject line. We'll respond within 2 business days.</p></div>
+        <div class="contact-card"><div class="contact-avatar">🛡️</div><div><a href="mailto:privacy@takeova.ai" class="contact-email">privacy@takeova.ai</a><div class="contact-label">GDPR &amp; DPA requests</div></div></div>
+      </div>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="section fade" id="section-security">
+      <div class="doc-section" id="sec-overview">
+        <div class="section-header"><div class="section-icon">🔐</div><div class="section-title">Security Overview</div></div>
+        <div class="doc-block"><p>Security is built into every layer of the TAKEOVA platform — from how we store passwords to how we process payments.</p></div>
+        <div class="badge-row"><span class="badge">🔒 TLS 1.3</span><span class="badge">🔑 AES-256</span><span class="badge">💳 PCI DSS via Stripe</span><span class="badge">🛡️ bcrypt</span><span class="badge">🏥 Daily backups</span></div>
+      </div>
+      <div class="doc-section" id="sec-infra">
+        <div class="section-header"><div class="section-icon">🏗️</div><div class="section-title">Infrastructure Security</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li><strong>Encryption in transit</strong> — all traffic uses TLS 1.3. HTTP automatically redirected to HTTPS</li>
+          <li><strong>Encryption at rest</strong> — all databases and file storage encrypted with AES-256</li>
+          <li><strong>DDoS protection</strong> — rate limiting and IP-level protection on all API endpoints</li>
+          <li><strong>Access controls</strong> — TAKEOVA staff access to production is logged, audited, and restricted to need-to-know</li>
+          <li><strong>Dependency scanning</strong> — automated vulnerability scanning of all packages on every deploy</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="sec-account">
+        <div class="section-header"><div class="section-icon">👤</div><div class="section-title">Account Security</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li><strong>Password hashing</strong> — bcrypt with cost factor 12 and salt. We cannot see or recover your password</li>
+          <li><strong>Session management</strong> — JWT tokens expire automatically and are invalidated on logout</li>
+          <li><strong>Brute force protection</strong> — accounts locked after repeated failed login attempts</li>
+          <li><strong>Mobile app</strong> — auth tokens stored in the device's secure enclave (iOS Keychain / Android Keystore)</li>
+          <li><strong>Biometric authentication</strong> — optional Face ID / Touch ID in the mobile app</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="sec-payments">
+        <div class="section-header"><div class="section-icon">💳</div><div class="section-title">Payment Security</div></div>
+        <div class="doc-block"><p>TAKEOVA never touches card data. All payment processing is handled by <strong>Stripe</strong> (PCI DSS Level 1 — the highest certification level).</p><ul class="doc-list">
+          <li>Card numbers, CVCs, and expiry dates never pass through TAKEOVA servers</li>
+          <li>Stripe tokenises all card data before it leaves the customer's browser</li>
+          <li>Your Stripe Connect account is separate from TAKEOVA — you control your payouts directly</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="sec-backups">
+        <div class="section-header"><div class="section-icon">🏥</div><div class="section-title">Backups &amp; Recovery</div></div>
+        <div class="doc-block"><ul class="doc-list">
+          <li>Automated database backups every 24 hours</li>
+          <li>Backups stored in a geographically separate region</li>
+          <li>Backups retained for 30 days</li>
+          <li>Recovery Point Objective (RPO): 24 hours · Recovery Time Objective (RTO): 4 hours</li>
+        </ul></div>
+      </div>
+      <div class="doc-section" id="sec-disclosure">
+        <div class="section-header"><div class="section-icon">🚨</div><div class="section-title">Vulnerability Disclosure</div></div>
+        <div class="doc-block"><p>If you discover a security vulnerability in TAKEOVA, please report it responsibly. We will respond within 48 hours and credit responsible disclosures in our changelog.</p>
+        <div class="highlight-box warn"><p>⚠️ Please do not publicly disclose vulnerabilities before we've had a chance to fix them.</p></div></div>
+        <div class="contact-card"><div class="contact-avatar">🚨</div><div><a href="mailto:security@takeova.ai" class="contact-email">security@takeova.ai</a><div class="contact-label">Security Team · Response within 48 hours</div></div></div>
+      </div>
+    </div>
+
+    <!-- COOKIES -->
+    <div class="section fade" id="section-cookies">
+      <div class="doc-section" id="cook-what">
+        <div class="section-header"><div class="section-icon">🍪</div><div class="section-title">What Are Cookies</div></div>
+        <div class="doc-block"><p>Cookies are small text files stored in your browser when you visit a website. TAKEOVA uses a minimal set — only what's strictly necessary to operate the platform.</p></div>
+      </div>
+      <div class="doc-section" id="cook-types">
+        <div class="section-header"><div class="section-icon">📂</div><div class="section-title">Cookies We Use</div></div>
+        <div class="doc-block">
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table class="doc-table">
+            <thead><tr><th>Cookie</th><th>Purpose</th><th>Duration</th><th>Essential?</th></tr></thead>
+            <tbody>
+              <tr><td><code>mine_token</code></td><td>Keeps you logged in to your dashboard</td><td>30 days</td><td>✅ Yes</td></tr>
+              <tr><td><code>mine_session</code></td><td>Temporary session for checkout flows</td><td>Session</td><td>✅ Yes</td></tr>
+              <tr><td><code>mine_prefs</code></td><td>UI preferences (dark mode, collapsed panels)</td><td>1 year</td><td>No</td></tr>
+              <tr><td><code>stripe_*</code></td><td>Stripe fraud prevention and payment session</td><td>Varies</td><td>✅ Yes (payments)</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="highlight-box green"><p>✅ TAKEOVA does <strong>not</strong> use advertising cookies or cross-site tracking. No Google Analytics, no Facebook Pixel on our main platform.</p></div>
+      </div>
+      <div class="doc-section" id="cook-control">
+        <div class="section-header"><div class="section-icon">🎛️</div><div class="section-title">Controlling Cookies</div></div>
+        <div class="doc-block"><p>You can control cookies through your browser settings. Disabling essential cookies will prevent you from logging in.</p><ul class="doc-list">
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" style="color:var(--p)">Chrome cookie settings</a></li>
+          <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank" style="color:var(--p)">Firefox cookie settings</a></li>
+          <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" style="color:var(--p)">Safari cookie settings</a></li>
+        </ul></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:28px;margin-bottom:28px">
+      <div><a href="landing.html" class="logo" style="display:block;margin-bottom:8px">TAKEOVA</a><div style="font-size:12px;color:var(--dm);line-height:1.6">AI-powered business platform.</div></div>
+      <div><div style="font-weight:700;font-size:12px;margin-bottom:8px">Product</div><a href="landing.html#mine-features" style="display:block;font-size:12px;color:var(--dm);margin-bottom:4px;text-decoration:none">Features</a><a href="landing.html#mine-pricing" style="display:block;font-size:12px;color:var(--dm);margin-bottom:4px;text-decoration:none">Pricing</a></div>
+      <div><div style="font-weight:700;font-size:12px;margin-bottom:8px">Learn</div><a href="learn.html" style="display:block;font-size:12px;color:var(--dm);margin-bottom:4px;text-decoration:none">Tutorials &amp; Guides</a></div>
+      <div><div style="font-weight:700;font-size:12px;margin-bottom:8px">Legal</div>
+        <a href="legal.html" onclick="switchTab('privacy')" style="display:block;font-size:12px;color:var(--p);margin-bottom:4px;text-decoration:none;font-weight:600">Privacy Policy</a>
+        <a href="legal.html" onclick="switchTab('terms')" style="display:block;font-size:12px;color:var(--p);margin-bottom:4px;text-decoration:none;font-weight:600">Terms of Service</a>
+        <a href="legal.html" onclick="switchTab('gdpr')" style="display:block;font-size:12px;color:var(--dm);margin-bottom:4px;text-decoration:none">GDPR</a>
+        <a href="legal.html" onclick="switchTab('security')" style="display:block;font-size:12px;color:var(--dm);text-decoration:none">Security</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--bd);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div style="font-size:11px;color:var(--dm)">© 2026 TAKEOVA. All rights reserved. Powered by MINE technology.</div>
+      <div style="display:flex;gap:12px"><span style="font-size:10px;color:var(--dm)">🔒 SSL</span><span style="font-size:10px;color:var(--dm)">💳 PCI</span><span style="font-size:10px;color:var(--dm)">🛡️ GDPR</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TABS={
+  privacy:{sections:['priv-collect','priv-use','priv-storage','priv-rights','priv-third','priv-contact']},
+  terms:{sections:['terms-account','terms-use','terms-payment','terms-ownership','terms-sla','terms-liability','terms-contact']},
+  gdpr:{sections:['gdpr-overview','gdpr-roles','gdpr-lawful','gdpr-rights','gdpr-transfers','gdpr-dpa']},
+  security:{sections:['sec-overview','sec-infra','sec-account','sec-payments','sec-backups','sec-disclosure']},
+  cookies:{sections:['cook-what','cook-types','cook-control']},
+};
+const LABELS={
+  'priv-collect':'Information We Collect','priv-use':'How We Use Your Data','priv-storage':'Data Storage & Security',
+  'priv-rights':'Your Rights','priv-third':'Third-Party Services','priv-contact':'Contact',
+  'terms-account':'Account Terms','terms-use':'Acceptable Use','terms-payment':'Payment Terms',
+  'terms-ownership':'Content Ownership','terms-sla':'Service Level','terms-liability':'Limitation of Liability','terms-contact':'Contact',
+  'gdpr-overview':'GDPR Overview','gdpr-roles':'Controller vs Processor','gdpr-lawful':'Lawful Bases',
+  'gdpr-rights':'Your Rights','gdpr-transfers':'International Transfers','gdpr-dpa':'Data Processing Agreement',
+  'sec-overview':'Security Overview','sec-infra':'Infrastructure','sec-account':'Account Security',
+  'sec-payments':'Payment Security','sec-backups':'Backups & Recovery','sec-disclosure':'Vulnerability Disclosure',
+  'cook-what':'What Are Cookies','cook-types':'Cookies We Use','cook-control':'Controlling Cookies',
+};
+let observer;
+function switchTab(tab){
+  if(!TABS[tab])return;
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('section-'+tab).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  buildSidebar(tab);
+  setupObserver(tab);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function buildSidebar(tab){
+  document.getElementById('sidebar-links').innerHTML=TABS[tab].sections.map(id=>
+    `<a href="#${id}" class="sidebar-link" id="sl-${id}" onclick="highlightSidebar('${id}')">${LABELS[id]||id}</a>`
+  ).join('');
+}
+function highlightSidebar(id){
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+  const el=document.getElementById('sl-'+id);
+  if(el)el.classList.add('active');
+}
+function setupObserver(tab){
+  if(observer)observer.disconnect();
+  observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)highlightSidebar(e.target.id);});
+  },{rootMargin:'-15% 0px -75% 0px'});
+  TABS[tab].sections.forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
+}
+window.addEventListener('DOMContentLoaded',()=>{
+  const params=new URLSearchParams(window.location.search);
+  const hash=window.location.hash.replace('#','');
+  let startTab='privacy';
+  const tabParam=params.get('tab');
+  if(tabParam&&TABS[tabParam])startTab=tabParam;
+  else if(hash){
+    for(const[key,val]of Object.entries(TABS)){
+      if(val.sections.includes(hash)||key===hash){startTab=key;break;}
+    }
+  }
+  switchTab(startTab);
+  if(hash){setTimeout(()=>{const el=document.getElementById(hash);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},200);}
+});
+</script>
+</body>
+</html>

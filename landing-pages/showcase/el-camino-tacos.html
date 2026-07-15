@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Camino Tacos — Street Tacos, Real Fire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Fredoka:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--pink:#E63950;--pink-d:#C42B40;--yellow:#F6BE2C;--turq:#14A098;--ink:#26201C;--cream:#FFF6E9;--corn:#FFE9B8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.02em}
+  .round{font-family:'Fredoka',sans-serif}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+  a{color:inherit;text-decoration:none}
+  nav{background:var(--pink);color:#fff;position:sticky;top:0;z-index:50;border-bottom:4px solid var(--ink)}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:14px 26px}
+  .logo{font-family:'Fredoka';font-weight:700;font-size:1.5rem;display:flex;align-items:center;gap:9px;color:#fff}
+  .taco{font-size:1.5rem;transform:rotate(-12deg)}
+  .nlinks{display:flex;gap:26px;font-family:'Fredoka';font-weight:500;font-size:1.02rem}
+  .nlinks a:hover{color:var(--yellow)}
+  .find{background:var(--yellow);color:var(--ink);padding:10px 20px;border-radius:30px;font-family:'Fredoka';font-weight:600;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
+  .find:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink)}
+  /* hero */
+  .hero{background:var(--yellow);position:relative;overflow:hidden;padding:64px 0 80px;border-bottom:4px solid var(--ink)}
+  .blob{position:absolute;border-radius:50%;opacity:.55}
+  .blob1{width:200px;height:200px;background:var(--turq);top:-40px;right:8%}
+  .blob2{width:130px;height:130px;background:var(--pink);bottom:30px;right:24%}
+  .blob3{width:90px;height:90px;background:var(--turq);top:40%;left:4%}
+  .hero .wrap{position:relative;z-index:2;text-align:center}
+  .flag{display:inline-block;background:var(--ink);color:var(--yellow);font-family:'Fredoka';font-weight:600;padding:8px 20px;border-radius:30px;margin-bottom:24px;transform:rotate(-2deg)}
+  .hero h1{font-size:clamp(3rem,9vw,6.5rem);line-height:.9;margin-bottom:20px;color:var(--ink)}
+  .hero h1 span{color:var(--pink);display:inline-block;transform:rotate(-2deg)}
+  .hero p{font-size:1.3rem;font-weight:500;max-width:40ch;margin:0 auto 32px}
+  .hbtn{background:var(--pink);color:#fff;padding:16px 34px;border-radius:34px;font-family:'Fredoka';font-weight:600;font-size:1.15rem;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:inline-block}
+  .hbtn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  /* ticker */
+  .tick{background:var(--ink);color:var(--cream);padding:14px 0;overflow:hidden;white-space:nowrap}
+  .tick .run{display:inline-block;font-family:'Fredoka';font-weight:600;font-size:1.1rem;animation:run 22s linear infinite}
+  .tick .run span{margin:0 20px}
+  .tick .run .y{color:var(--yellow)}
+  @keyframes run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* menu */
+  .sec{padding:80px 0}
+  .center{text-align:center;margin-bottom:48px}
+  .center .e{font-family:'Fredoka';color:var(--turq);font-weight:600;font-size:1.05rem;letter-spacing:.06em;margin-bottom:8px}
+  .center h2{font-size:clamp(2.4rem,5vw,3.6rem)}
+  .menu{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;max-width:880px;margin:0 auto}
+  .item{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:16px 0;border-bottom:3px dotted var(--corn)}
+  .item .nm{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.3rem}
+  .item .nm small{display:block;font-family:'DM Sans';font-weight:400;font-size:.9rem;color:#7A6F66;letter-spacing:0}
+  .item .pr{font-family:'Fredoka';font-weight:700;font-size:1.3rem;color:var(--pink);white-space:nowrap}
+  .item .hot{font-size:.95rem}
+  /* find truck */
+  .truck{background:var(--turq);color:#fff;padding:84px 0;border-top:4px solid var(--ink);border-bottom:4px solid var(--ink)}
+  .truck .wrap{text-align:center}
+  .truck .e{font-family:'Fredoka';font-weight:600;color:var(--corn);margin-bottom:10px}
+  .truck h2{font-size:clamp(2.2rem,5vw,3.4rem);color:#fff;margin-bottom:36px}
+  .sched{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;max-width:880px;margin:0 auto}
+  .day{background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.4);border-radius:14px;padding:22px 16px}
+  .day .d{font-family:'Fredoka';font-weight:700;font-size:1.2rem;color:var(--yellow)}
+  .day .loc{font-weight:500;margin-top:6px}
+  .day .t{font-size:.9rem;opacity:.85;margin-top:3px}
+  /* cta */
+  .band{background:var(--pink);color:#fff;padding:80px 0;text-align:center;border-bottom:4px solid var(--ink)}
+  .band h2{font-size:clamp(2.4rem,6vw,4rem);color:#fff;margin-bottom:14px;line-height:.95}
+  .band p{font-size:1.2rem;font-weight:500;margin-bottom:28px}
+  .band a{background:var(--yellow);color:var(--ink);padding:16px 36px;border-radius:34px;font-family:'Fredoka';font-weight:600;font-size:1.15rem;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);display:inline-block}
+  .band a:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  footer{background:var(--ink);color:#C9BCB0;padding:42px 0 26px;text-align:center;font-size:.92rem}
+  footer .logo{justify-content:center;color:#fff;margin-bottom:12px}
+  footer .links{display:flex;gap:24px;justify-content:center;margin:14px 0;flex-wrap:wrap;font-family:'Fredoka';font-weight:500}
+  footer a:hover{color:var(--yellow)}
+  @media(max-width:760px){.nlinks{display:none}.menu{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion){*{animation:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="#" class="logo"><span class="taco"></span>El Camino</a>
+  <div class="nlinks"><a href="#menu">Menu</a><a href="#find">Find Us</a><a href="#">Catering</a><a href="#find">Order</a></div>
+  <a href="#find" class="find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:.9em;height:.9em;display:inline-block;vertical-align:middle"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Find the truck</a>
+</div></nav>
+
+<header class="hero">
+  <span class="blob blob1"></span><span class="blob blob2"></span><span class="blob blob3"></span>
+  <div class="wrap">
+    <span class="flag round">Slingin' tacos since 2019</span>
+    <h1>Street tacos.<br><span>Real fire.</span></h1>
+    <p>Mesquite-grilled, made-to-order, and chasing the best spots in Brisbane. Follow the smoke.</p>
+    <a href="#menu" class="hbtn">See the menu →</a>
+  </div>
+</header>
+
+<div class="tick"><div class="run">
+  <span>AL PASTOR</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>CARNE ASADA</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>BAJA FISH</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>BIRRIA</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>CHIPOTLE MUSHROOM</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>AL PASTOR</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>CARNE ASADA</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>BAJA FISH</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>BIRRIA</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span><span>CHIPOTLE MUSHROOM</span><span class="y"><svg viewBox="0 0 24 24" fill="currentColor" style="width:.85em;height:.85em;display:inline-block;vertical-align:middle"><polygon points="12 2 15 9 22 9.3 16.5 14 18.3 21 12 17.3 5.7 21 7.5 14 2 9.3 9 9 12 2"/></svg></span>
+</div></div>
+
+<section class="sec" id="menu"><div class="wrap">
+  <div class="center"><div class="e round">Order up!</div><h2>The Menu</h2></div>
+  <div class="menu">
+    <div class="item"><div class="nm">Al Pastor <span class="hot"></span><small>Marinated pork, pineapple, onion, coriander</small></div><div class="pr">$7</div></div>
+    <div class="item"><div class="nm">Carne Asada<small>Grilled steak, salsa verde, lime</small></div><div class="pr">$8</div></div>
+    <div class="item"><div class="nm">Baja Fish<small>Crispy fish, cabbage slaw, chipotle crema</small></div><div class="pr">$8</div></div>
+    <div class="item"><div class="nm">Birria <span class="hot"></span><small>Slow-braised beef, consommé for dipping</small></div><div class="pr">$9</div></div>
+    <div class="item"><div class="nm">Chipotle Mushroom<small>Smoky mushrooms, black bean, avocado (v)</small></div><div class="pr">$7</div></div>
+    <div class="item"><div class="nm">Pollo Verde<small>Grilled chicken, tomatillo, queso fresco</small></div><div class="pr">$7</div></div>
+    <div class="item"><div class="nm">Loaded Nachos<small>The works — share it or don't</small></div><div class="pr">$13</div></div>
+    <div class="item"><div class="nm">Elote Cup<small>Charred corn, lime, cotija, chilli</small></div><div class="pr">$6</div></div>
+  </div>
+</div></section>
+
+<section class="truck" id="find"><div class="wrap">
+  <div class="e round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:.9em;height:.9em;display:inline-block;vertical-align:middle"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> This week</div>
+  <h2>Where's the truck?</h2>
+  <div class="sched">
+    <div class="day"><div class="d">Wed</div><div class="loc">Howard Smith Wharves</div><div class="t">5–9pm</div></div>
+    <div class="day"><div class="d">Thu</div><div class="loc">West End Markets</div><div class="t">5–10pm</div></div>
+    <div class="day"><div class="d">Fri</div><div class="loc">Fortitude Valley</div><div class="t">6–11pm</div></div>
+    <div class="day"><div class="d">Sat</div><div class="loc">Teneriffe Park</div><div class="t">12–10pm</div></div>
+    <div class="day"><div class="d">Sun</div><div class="loc">Davies Park Market</div><div class="t">8am–2pm</div></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>Got a party?<br>We'll bring the truck.</h2>
+  <p>Weddings, birthdays, work do's — tacos for 30 to 300.</p>
+  <a href="#">Book catering </a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo" style="display:flex;align-items:center;gap:8px"><span class="taco"></span>El Camino Tacos</div>
+  <div class="links"><a href="#">Menu</a><a href="#">Find Us</a><a href="#">Catering</a><a href="#">@elcaminobne</a></div>
+  <p>© 2026 El Camino Tacos · Built with MINE</p>
+</div></footer>
+</body>
+</html>

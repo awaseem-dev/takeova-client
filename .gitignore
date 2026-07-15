@@ -1,0 +1,97 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment — NEVER commit these
+.env
+.env.local
+.env.production
+.env.development
+.env.*.local
+!.env.example
+!.env.production.template
+
+# Build output
+build/
+dist/
+out/
+.next/
+.cache/
+.parcel-cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+logs/
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+backend/db/*.db
+backend/db/*.sqlite
+
+# Uploads (don't commit user files)
+backend/uploads/
+uploads/
+*.zip
+!mine_final_last_version_*.zip
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temp
+tmp/
+temp/
+*.tmp
+
+# Lock files (optional — include or exclude based on team preference)
+# package-lock.json
+# yarn.lock
+
+# Cloudflare / Vercel / Netlify
+.vercel
+.netlify
+.wrangler
+
+# Stripe CLI
+.stripe
+
+# Service worker cache
+sw-cache.json
+
+# Internal docs / handoff / audit material — not needed to run or deploy the app
+_archive/
+_HANDOFF_DOCS/
+_AUDIT_DOCS/
+_BRAND_ASSETS/
+docs/
+AD_CREATOR_SETUP.md
+DEV_HANDOFF_FINAL_20260610.md
+DEV_HANDOFF_FINAL_20260610.pdf
+DEV_NOTES_2026-06-23_employee-identity.md
+DEV_NOTES_2026-06-23_wiring.md
+LAUNCH_CHECKLIST.md
+MINE_Deployment_Guide_v2.pdf
+SECURITY_HANDOFF.md
+SECURITY_HANDOFF.pdf
+SETUP_ADDITIONS.md
+endpoint-catalog.md
+build_deploy_pdf.py
+make_deployment_pdf.py
+mine-endpoint-probe.js
+mine-ui-preview.html
+mine-ui.css

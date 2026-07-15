@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — TAKEOVA</title>
+<meta name="description" content="TAKEOVA builds and runs the whole business for non-technical owners — website, bookings, customers, invoicing and payments — from a single sentence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--p:#2563EB;--p-700:#1D4ED8;--tx:#0F172A;--mt:#64748B;--dm:#94A3B8;--bd:#E2E8F0;--bg:#F8FAFC;--card:#fff;--ink-grad:linear-gradient(135deg,#1D4ED8,#2563EB)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--tx);background:var(--bg);line-height:1.65}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  nav{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:15px 28px}
+  .logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.4rem;display:flex;align-items:center;gap:9px}
+  .logo .m{width:30px;height:30px;border-radius:8px;background:var(--ink-grad);display:grid;place-items:center;color:#fff;font-size:.9rem}
+  .nlinks{display:flex;gap:30px;font-weight:500;font-size:.95rem;color:var(--mt)}
+  .nlinks a:hover{color:var(--tx)}
+  .cta{background:var(--p);color:#fff;padding:11px 22px;border-radius:10px;font-weight:600;font-size:.92rem;transition:.2s}
+  .cta:hover{background:var(--p-700)}
+  .hero{text-align:center;padding:78px 0 40px}
+  .pre{display:inline-flex;align-items:center;gap:8px;background:#EFF4FF;color:var(--p-700);padding:7px 16px;border-radius:30px;font-weight:600;font-size:.82rem;margin-bottom:24px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:800;line-height:1.05;margin-bottom:20px;max-width:18ch;margin-inline:auto}
+  .hero h1 span{background:var(--ink-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{font-size:1.22rem;color:var(--mt);max-width:60ch;margin:0 auto}
+  section.block{padding:46px 0}
+  .block h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:800;margin-bottom:18px;max-width:20ch}
+  .block p.lead{font-size:1.12rem;color:var(--mt);max-width:64ch;margin-bottom:14px}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .panel{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:34px}
+  .panel.dark{background:var(--tx);color:#fff;border:0}
+  .panel.dark p{color:#CBD5E1}
+  .panel h3{font-size:1.15rem;margin-bottom:10px}
+  .panel .row{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid rgba(148,163,184,.2);font-size:.98rem;color:var(--mt)}
+  .panel.dark .row{border-color:rgba(255,255,255,.12);color:#CBD5E1}
+  .panel .row:last-child{border:0}
+  .panel .row b{color:var(--tx)}.panel.dark .row b{color:#fff}
+  .x{color:#EF4444;font-weight:700}.tk{color:#10B981;font-weight:700}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:30px}
+  .c{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:26px;transition:.2s}
+  .c:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(15,23,42,.1);border-color:#CBD5E1}
+  .c .ic{width:46px;height:46px;border-radius:12px;background:#EFF4FF;display:grid;place-items:center;font-size:1.3rem;margin-bottom:16px}
+  .c h3{font-size:1.12rem;margin-bottom:8px}
+  .c p{color:var(--mt);font-size:.96rem}
+  .who{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:38px;text-align:center}
+  .who .pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+  .who .pill{background:var(--bg);border:1px solid var(--bd);padding:9px 17px;border-radius:30px;font-weight:600;font-size:.92rem;color:var(--tx)}
+  .band{background:var(--tx);color:#fff;border-radius:22px;padding:64px 40px;text-align:center;margin:30px 0 70px;position:relative;overflow:hidden}
+  .band::after{content:"";position:absolute;width:380px;height:380px;background:radial-gradient(circle,rgba(37,99,235,.4),transparent 70%);top:-120px;right:-80px}
+  .band>*{position:relative;z-index:2}
+  .band h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;margin-bottom:14px}
+  .band p{color:#CBD5E1;font-size:1.15rem;max-width:48ch;margin:0 auto 30px}
+  .band a{background:var(--p);color:#fff;padding:16px 34px;border-radius:12px;font-weight:600;font-size:1.05rem;display:inline-block;transition:.2s}
+  .band a:hover{background:var(--p-700);transform:translateY(-2px)}
+  footer{border-top:1px solid var(--bd);padding:40px 0;color:var(--mt);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+  footer .links{display:flex;gap:22px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
+  @media(max-width:760px){.nlinks{display:none}.split{grid-template-columns:1fr;gap:28px}.band{padding:48px 24px}}
+  @media(prefers-reduced-motion){*{transition:none!important;scroll-behavior:auto}}
+
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--tx);border-radius:2px;transition:.25s;display:block}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--bd);padding:6px 28px 16px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:14px 4px;font-weight:600;color:var(--tx);border-bottom:1px solid var(--bd);font-size:1rem}
+  .mobile-menu a:last-child{border-bottom:0}
+  .mobile-menu .mcta{background:var(--p);color:#fff;border-radius:10px;text-align:center;margin-top:12px;padding:14px;border-bottom:0}
+  @media(max-width:760px){.burger{display:flex}.nav .cta{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="landing2.html" class="logo">TAKEOVA</a>
+  <div class="nlinks"><a href="learn.html">Features</a><a href="showcase.html">Showcase</a><a href="about.html">About</a><a href="help.html">Help</a><a href="contact.html">Contact</a></div>
+  <a href="landing2.html#build" class="cta">Build your site free</a>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="learn.html">Features</a>
+  <a href="showcase.html">Showcase</a>
+  <a href="about.html">About</a>
+  <a href="help.html">Help</a>
+  <a href="contact.html">Contact</a>
+  <a href="landing2.html#build" class="mcta">Build your site free</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="pre">Our mission</div>
+  <h1>We build the <span>whole business</span> — not just the website.</h1>
+  <p>TAKEOVA exists for the millions of small-business owners who were told to "just get a website," then left to wire together a dozen tools they never asked to learn. We think the software should do that part.</p>
+</div></header>
+
+<section class="block"><div class="wrap split">
+  <div>
+    <h2>Running a small business shouldn't require a tech team.</h2>
+    <p class="lead">A plumber, a yoga teacher, a café owner — they're experts at their craft, not at stitching together a website builder, a booking app, a CRM, an invoicing tool, an email platform and a payment processor that all refuse to talk to each other.</p>
+    <p class="lead">So most owners either pay a developer they can't really afford, or duct-tape free tools together and lose hours every week to admin. Neither is good enough.</p>
+  </div>
+  <div class="panel">
+    <h3>The usual way to "get online"</h3>
+    <div class="row"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> <span>A <b>website builder</b> for the site</span></div>
+    <div class="row"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> <span>A separate <b>booking app</b></span></div>
+    <div class="row"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> <span>A <b>CRM</b> for customers</span></div>
+    <div class="row"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> <span>An <b>invoicing</b> tool + a payment gateway</span></div>
+    <div class="row"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> <span>An <b>email/marketing</b> platform</span></div>
+    <div class="row"><span class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> <span>And a <b>developer</b> to connect it all</span></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap split">
+  <div class="panel dark">
+    <h3>The TAKEOVA way</h3>
+    <div class="row"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><polyline points="20 6 9 17 4 12"/></svg></span> <span>Describe your business in <b>one sentence</b></span></div>
+    <div class="row"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><polyline points="20 6 9 17 4 12"/></svg></span> <span>Get a real <b>website</b> in minutes</span></div>
+    <div class="row"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><polyline points="20 6 9 17 4 12"/></svg></span> <span><b>Bookings, customers, invoicing, payments</b> — wired in</span></div>
+    <div class="row"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><polyline points="20 6 9 17 4 12"/></svg></span> <span><b>AI employees</b> that do the ongoing work</span></div>
+    <div class="row"><span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><polyline points="20 6 9 17 4 12"/></svg></span> <span>All in <b>one place</b>, one bill, plain English</span></div>
+  </div>
+  <div>
+    <h2>You describe it. TAKEOVA builds it — then runs it.</h2>
+    <p class="lead">Tell TAKEOVA what you do and it generates your website: design, copy, layout, structure. But the site is just the front door. Behind it, TAKEOVA sets up the whole operation — taking bookings, tracking customers, sending invoices, collecting payments, following up by email.</p>
+    <p class="lead">Then it staffs that operation with AI employees who handle the repetitive work, so the business keeps moving whether or not you're at a screen.</p>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <h2>What makes TAKEOVA different</h2>
+  <div class="cards">
+    <div class="c"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5z"/></svg></div><h3>Describe-it-and-done</h3><p>No templates to fight, no code, no blank canvas. Say what your business is and TAKEOVA makes the decisions for you — then lets you tweak anything by chat.</p></div>
+    <div class="c"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div><h3>One place, not twelve</h3><p>Site, bookings, CRM, invoicing, payments and marketing live together and share the same data. Nothing to integrate, nothing to reconcile.</p></div>
+    <div class="c"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Built for non-technical owners</h3><p>Plain language instead of jargon-filled dashboards. If you can describe your business to a friend, you can run it in TAKEOVA.</p></div>
+    <div class="c"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>It runs, not just builds</h3><p>16 AI employees handle the busywork — replies, follow-ups, invoices, content, outreach — so going live is the start, not another to-do list.</p></div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="who">
+    <section style="max-width:760px;margin:0 auto;padding:48px 24px;text-align:center">
+<h2>The technology behind it</h2>
+<p style="font-size:16px;line-height:1.7;color:#475569;margin-top:16px">TAKEOVA is powered by <strong>MINE technology</strong> &mdash; the AI engine built by MINE Intelligence that does the real work behind the scenes: understanding what your business needs, building your site, and running the day-to-day so you don't have to. TAKEOVA is the product you use; MINE is the intelligence underneath it.</p>
+</section>
+<h2 style="margin-inline:auto">Who TAKEOVA is for</h2>
+    <p class="lead" style="margin-inline:auto">Owners who'd rather spend their time on the work they love than on software — and the agencies who serve them.</p>
+    <div class="pills">
+      <span class="pill">Tradies</span><span class="pill">Salons &amp; spas</span><span class="pill">Clinics &amp; dentists</span>
+      <span class="pill">Cafés &amp; restaurants</span><span class="pill">Studios &amp; gyms</span><span class="pill">Shops &amp; makers</span>
+      <span class="pill">Photographers</span><span class="pill">Consultants</span><span class="pill">Agencies (white-label)</span>
+    </div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <section class="band">
+    <h2>See it for yourself.</h2>
+    <p>Browse ten real businesses already built on TAKEOVA — then build yours in a sentence.</p>
+    <a href="showcase.html">View the showcase →</a>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  <div>© 2026 TAKEOVA · Powered by TAKEOVA</div>
+  <div class="links"><a href="learn.html">Features</a><a href="showcase.html">Showcase</a><a href="about.html">About</a><a href="help.html">Help</a><a href="contact.html">Contact</a><a href="legal.html">Legal</a></div>
+</div></footer>
+<script>
+function toggleMenu(btn){
+  var m=document.getElementById('mobileMenu');
+  var open=m.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',open?'true':'false');
+}
+</script>
+</body>
+</html>

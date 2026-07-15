@@ -1,0 +1,17 @@
+# MINE Backend — Docker Compose (backend-only)
+# Run from the BACKEND directory: cd backend && docker-compose up
+# For full stack (backend + frontend), use the root docker-compose.yml instead.
+version: "3.8"
+services:
+  backend:
+    build: .
+    ports: ["127.0.0.1:4000:4000"]
+    env_file: ./.env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true

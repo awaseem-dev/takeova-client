@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noir Maison — Hand-Poured Candles &amp; Home Fragrance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--noir:#14110F;--noir2:#1F1B18;--bone:#EDE9E3;--bone2:#F6F3EE;--gold:#B8975A;--gold-l:#C9AC74;--grey:#8A847C}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;color:var(--noir);background:var(--bone2);line-height:1.8;font-weight:300}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.01em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 30px}
+  a{color:inherit;text-decoration:none}
+  .ann{background:var(--noir);color:var(--bone);text-align:center;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;padding:11px;font-weight:300}
+  nav{background:var(--bone2);border-bottom:1px solid #E2DCD3}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:22px 30px}
+  .logo{font-family:'Cormorant Garamond';font-size:1.7rem;letter-spacing:.16em;font-weight:500}
+  .nlinks{display:flex;gap:36px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+  .nlinks a:hover{color:var(--gold)}
+  .bag{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:7px}
+  /* hero */
+  .hero{background:var(--noir);color:var(--bone);padding:96px 0;text-align:center;position:relative;overflow:hidden}
+  .flame{position:absolute;left:50%;top:46px;transform:translateX(-50%);width:6px;height:60px;background:radial-gradient(ellipse at bottom,var(--gold-l),transparent 70%);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;filter:blur(2px);animation:fl 3s ease-in-out infinite}
+  @keyframes fl{0%,100%{transform:translateX(-50%) scaleY(1)}50%{transform:translateX(-52%) scaleY(1.12)}}
+  .hero .wrap{position:relative;z-index:2}
+  .hero .pre{letter-spacing:.3em;text-transform:uppercase;font-size:.74rem;color:var(--gold-l);margin-bottom:26px}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.6rem);font-weight:400;line-height:1.05;margin-bottom:24px}
+  .hero h1 em{font-style:italic;color:var(--gold-l)}
+  .hero p{max-width:42ch;margin:0 auto 36px;color:#BDB6AC;font-size:1.05rem;font-weight:300}
+  .shop{border:1px solid var(--gold);color:var(--gold-l);padding:15px 38px;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;display:inline-block;transition:.4s}
+  .shop:hover{background:var(--gold);color:var(--noir)}
+  /* collection */
+  .sec{padding:90px 0}
+  .center{text-align:center;margin-bottom:58px}
+  .center .pre{letter-spacing:.26em;text-transform:uppercase;font-size:.74rem;color:var(--gold);margin-bottom:14px}
+  .center h2{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:400}
+  .center p{color:var(--grey);max-width:46ch;margin:8px auto 0}
+  .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  .prod{text-align:center;cursor:pointer}
+  .prod .img{aspect-ratio:4/5;border-radius:3px;margin-bottom:20px;position:relative;overflow:hidden;display:grid;place-items:center;transition:.4s}
+  .prod:hover .img{transform:translateY(-6px)}
+  .jar{width:46%;height:60%;border-radius:6px 6px 10px 10px;position:relative;box-shadow:inset 0 -20px 30px rgba(0,0,0,.15)}
+  .jar::after{content:"";position:absolute;left:50%;top:-9px;transform:translateX(-50%);width:3px;height:14px;background:var(--noir)}
+  .i1{background:linear-gradient(160deg,#2A2622,#14110F)}.i1 .jar{background:linear-gradient(160deg,#4A4038,#2C2620)}
+  .i2{background:linear-gradient(160deg,#E7DFD2,#D8CCB8)}.i2 .jar{background:linear-gradient(160deg,#F2EBDD,#DDD0BC)}
+  .i3{background:linear-gradient(160deg,#3A2A2E,#241A1D)}.i3 .jar{background:linear-gradient(160deg,#6A4A52,#3A2A2E)}
+  .i4{background:linear-gradient(160deg,#2C3530,#181F1B)}.i4 .jar{background:linear-gradient(160deg,#4E5C52,#2C3530)}
+  .i5{background:linear-gradient(160deg,#3A3228,#211C16)}.i5 .jar{background:linear-gradient(160deg,#6A5C44,#3A3228)}
+  .i6{background:linear-gradient(160deg,#D6CFC4,#C2B8A6)}.i6 .jar{background:linear-gradient(160deg,#E4DCCF,#CFC3AE)}
+  .prod h3{font-size:1.45rem;font-weight:500}
+  .prod .scent{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin:5px 0 9px}
+  .prod .pr{font-family:'Cormorant Garamond';font-size:1.3rem;color:var(--gold)}
+  /* story */
+  .story{background:var(--noir);color:var(--bone);padding:100px 0;text-align:center}
+  .story h2{font-size:clamp(2rem,5vw,3rem);font-weight:400;max-width:18ch;margin:0 auto 20px;color:var(--bone)}
+  .story h2 em{font-style:italic;color:var(--gold-l)}
+  .story p{max-width:48ch;margin:0 auto;color:#BDB6AC;font-weight:300}
+  /* perks */
+  .perks{padding:50px 0;border-bottom:1px solid #E2DCD3}
+  .perks .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;text-align:center}
+  .perk .t{font-family:'Cormorant Garamond';font-size:1.2rem}
+  .perk .d{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin-top:4px}
+  footer{background:var(--noir2);color:#9A938A;padding:50px 0 30px;text-align:center;font-size:.84rem}
+  footer .logo{color:var(--bone);margin-bottom:14px;font-size:1.4rem}
+  footer .links{display:flex;gap:28px;justify-content:center;margin:16px 0;flex-wrap:wrap;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+  footer a:hover{color:var(--gold)}
+  @media(max-width:860px){.prods{grid-template-columns:1fr 1fr}.nlinks{display:none}}
+  @media(max-width:520px){.prods{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="ann">Complimentary shipping on orders over $75 · Hand-poured in small batches</div>
+<nav><div class="nav">
+  <a href="#" class="logo">NOIR MAISON</a>
+  <div class="nlinks"><a href="#shop">The Collection</a><a href="#story">Our Craft</a><a href="#">Gifting</a><a href="#">Refills</a></div>
+  <a href="#" class="bag">Bag (0)</a>
+</div></nav>
+
+<header class="hero">
+  <span class="flame"></span>
+  <div class="wrap">
+    <div class="pre">Maison de Parfum</div>
+    <h1>Light a little<br><em>darkness.</em></h1>
+    <p>Slow-burning soy candles and home fragrance, composed like perfume and poured by hand in Brisbane.</p>
+    <a href="#shop" class="shop">Shop the collection</a>
+  </div>
+</header>
+
+<section class="sec" id="shop"><div class="wrap">
+  <div class="center"><div class="pre">The Collection</div><h2>Six scents, one quiet mood</h2><p>Each candle burns for over 50 hours — enough to fill a room many times over.</p></div>
+  <div class="prods">
+    <div class="prod"><div class="img i1"><div class="jar"></div></div><h3>Midnight Fig</h3><div class="scent">Fig · Cedar · Musk</div><div class="pr">$48</div></div>
+    <div class="prod"><div class="img i2"><div class="jar"></div></div><h3>Pale Linen</h3><div class="scent">Cotton · White Tea · Iris</div><div class="pr">$48</div></div>
+    <div class="prod"><div class="img i3"><div class="jar"></div></div><h3>Velvet Rose</h3><div class="scent">Rose · Oud · Amber</div><div class="pr">$52</div></div>
+    <div class="prod"><div class="img i4"><div class="jar"></div></div><h3>Black Pine</h3><div class="scent">Pine · Vetiver · Smoke</div><div class="pr">$48</div></div>
+    <div class="prod"><div class="img i5"><div class="jar"></div></div><h3>Amber Hour</h3><div class="scent">Amber · Tonka · Saffron</div><div class="pr">$52</div></div>
+    <div class="prod"><div class="img i6"><div class="jar"></div></div><h3>Sea Salt &amp; Sage</h3><div class="scent">Salt · Sage · Driftwood</div><div class="pr">$48</div></div>
+  </div>
+</div></section>
+
+<section class="story" id="story"><div class="wrap">
+  <h2>Made slowly, the way <em>good things are.</em></h2>
+  <p>We blend each fragrance ourselves, pour into reusable vessels, and hand-finish every label. No shortcuts, no synthetic shine — just a candle worth lighting on your best nights and your quietest ones.</p>
+</div></section>
+
+<section class="perks"><div class="wrap">
+  <div class="perk"><div class="t">100% Soy Wax</div><div class="d">Clean, slow burn</div></div>
+  <div class="perk"><div class="t">50+ Hour Burn</div><div class="d">Every vessel</div></div>
+  <div class="perk"><div class="t">Refillable</div><div class="d">Return &amp; save 20%</div></div>
+  <div class="perk"><div class="t">Carbon Neutral</div><div class="d">Every order</div></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo">NOIR MAISON</div>
+  <div class="links"><a href="#">Shop</a><a href="#">Our Craft</a><a href="#">Stockists</a><a href="#">Account</a></div>
+  <p>© 2026 Noir Maison · Built with MINE</p>
+</div></footer>
+</body>
+</html>

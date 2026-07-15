@@ -1,0 +1,36 @@
+{
+  "name": "mine-app",
+  "version": "1.0.0",
+  "description": "MINE — native mobile app wrapper. Wraps the MINE web dashboards in a native iOS + Android shell with full native bridges: camera, push notifications, Stripe Terminal Tap to Pay, QR scanning, file system, deep linking, share sheet.",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "init": "npm install && npx cap add ios && npx cap add android",
+    "sync": "npx cap sync",
+    "ios": "npx cap open ios",
+    "android": "npx cap open android",
+    "build": "echo 'Web build = MINE dashboards are loaded from the deployed backend; no build step needed' && npx cap sync"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.1.0",
+    "@capacitor/cli": "^6.1.0",
+    "@capacitor/ios": "^6.1.0",
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/browser": "^6.0.0",
+    "@capacitor/camera": "^6.0.0",
+    "@capacitor/filesystem": "^6.0.0",
+    "@capacitor/geolocation": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
+    "@capacitor/keyboard": "^6.0.0",
+    "@capacitor/local-notifications": "^6.0.0",
+    "@capacitor/network": "^6.0.0",
+    "@capacitor/preferences": "^6.0.0",
+    "@capacitor/push-notifications": "^6.0.0",
+    "@capacitor/share": "^6.0.0",
+    "@capacitor/splash-screen": "^6.0.0",
+    "@capacitor/status-bar": "^6.0.0",
+    "@capacitor-mlkit/barcode-scanning": "^6.0.0",
+    "mine-stripe-terminal": "file:./plugins/stripe-terminal"
+  }
+}

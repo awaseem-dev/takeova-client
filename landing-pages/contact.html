@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — TAKEOVA</title>
+<meta name="description" content="Get in touch with TAKEOVA — support, privacy, security and legal. Send us a message and we'll reply within one business day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--p:#2563EB;--p-700:#1D4ED8;--tx:#0F172A;--mt:#64748B;--dm:#94A3B8;--bd:#E2E8F0;--bg:#F8FAFC;--card:#fff;--ink-grad:linear-gradient(135deg,#1D4ED8,#2563EB)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--tx);background:var(--bg);line-height:1.65}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  nav{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto;padding:15px 28px}
+  .logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.4rem;display:flex;align-items:center;gap:9px}
+  .logo .m{width:30px;height:30px;border-radius:8px;background:var(--ink-grad);display:grid;place-items:center;color:#fff;font-size:.9rem}
+  .nlinks{display:flex;gap:30px;font-weight:500;font-size:.95rem;color:var(--mt)}
+  .nlinks a:hover{color:var(--tx)}
+  .cta{background:var(--p);color:#fff;padding:11px 22px;border-radius:10px;font-weight:600;font-size:.92rem;transition:.2s}
+  .cta:hover{background:var(--p-700)}
+  .hero{text-align:center;padding:72px 0 18px}
+  .pre{display:inline-flex;align-items:center;gap:8px;background:#EFF4FF;color:var(--p-700);padding:7px 16px;border-radius:30px;font-weight:600;font-size:.82rem;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;line-height:1.06;margin-bottom:16px}
+  .hero p{font-size:1.18rem;color:var(--mt);max-width:52ch;margin:0 auto}
+  .layout{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;padding:44px 0 30px;align-items:start}
+  .card{background:#fff;border:1px solid var(--bd);border-radius:18px;padding:30px}
+  .card h2{font-size:1.5rem;margin-bottom:6px}
+  .card .hint{color:var(--mt);font-size:.96rem;margin-bottom:22px}
+  label{display:block;font-weight:600;font-size:.9rem;margin:0 0 7px}
+  input,textarea,select{width:100%;border:1px solid var(--bd);border-radius:11px;padding:13px 15px;font-family:inherit;font-size:1rem;color:var(--tx);background:var(--bg);outline:0;transition:.15s;margin-bottom:16px}
+  input:focus,textarea:focus,select:focus{border-color:var(--p);background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  textarea{resize:vertical;min-height:130px}
+  .send{background:var(--p);color:#fff;border:0;border-radius:11px;padding:14px 26px;font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer;transition:.2s;width:100%}
+  .send:hover{background:var(--p-700)}
+  .note{font-size:.82rem;color:var(--dm);margin-top:12px;text-align:center}
+  .ok{display:none;background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46;border-radius:12px;padding:16px 18px;font-weight:600;margin-bottom:16px}
+  .ways .w{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--bd)}
+  .ways .w:last-child{border:0}
+  .ways .ic{width:44px;height:44px;border-radius:11px;background:#EFF4FF;display:grid;place-items:center;font-size:1.2rem;flex-shrink:0}
+  .ways .w h3{font-size:1.02rem;margin-bottom:2px}
+  .ways .w p{color:var(--mt);font-size:.93rem}
+  .ways .w a{color:var(--p-700);font-weight:600}
+  .ident{background:var(--bg);border:1px dashed var(--bd);border-radius:14px;padding:20px;margin-top:22px;font-size:.9rem;color:var(--mt)}
+  .ident b{color:var(--tx)}
+  footer{border-top:1px solid var(--bd);padding:40px 0;color:var(--mt);font-size:.9rem;margin-top:30px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;align-items:center}
+  footer .links{display:flex;gap:22px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
+  @media(max-width:820px){.layout{grid-template-columns:1fr}}
+  @media(max-width:760px){.nlinks{display:none}}
+  @media(prefers-reduced-motion){*{transition:none!important;scroll-behavior:auto}}
+
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--tx);border-radius:2px;transition:.25s;display:block}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--bd);padding:6px 28px 16px}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:14px 4px;font-weight:600;color:var(--tx);border-bottom:1px solid var(--bd);font-size:1rem}
+  .mobile-menu a:last-child{border-bottom:0}
+  .mobile-menu .mcta{background:var(--p);color:#fff;border-radius:10px;text-align:center;margin-top:12px;padding:14px;border-bottom:0}
+  @media(max-width:760px){.burger{display:flex}.nav .cta{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="landing2.html" class="logo">TAKEOVA</a>
+  <div class="nlinks"><a href="learn.html">Features</a><a href="showcase.html">Showcase</a><a href="about.html">About</a><a href="help.html">Help</a><a href="contact.html">Contact</a></div>
+  <a href="landing2.html#build" class="cta">Build your site free</a>
+  <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="learn.html">Features</a>
+  <a href="showcase.html">Showcase</a>
+  <a href="about.html">About</a>
+  <a href="help.html">Help</a>
+  <a href="contact.html">Contact</a>
+  <a href="landing2.html#build" class="mcta">Build your site free</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="pre">Contact</div>
+  <h1>Get in touch</h1>
+  <p>Questions, feedback, or need a hand? Send a message and a real person will get back to you — usually within one business day.</p>
+</div></header>
+
+<section class="wrap">
+  <div class="layout">
+    <div class="card">
+      <h2>Send us a message</h2>
+      <div class="hint">We read every message. Choose a topic so it reaches the right person.</div>
+      <div class="ok" id="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:.8em;height:.8em;vertical-align:-1px" ><polyline points="20 6 9 17 4 12"/></svg> Thanks — your message is on its way. We'll reply by email soon.</div>
+      <form id="cform" onsubmit="return submitForm(event)">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required placeholder="Jordan Smith">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@email.com">
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option value="Support">Support — I need help</option>
+          <option value="Sales">Sales &amp; plans</option>
+          <option value="Agency / white-label">Agency / white-label</option>
+          <option value="Privacy">Privacy</option>
+          <option value="Security">Security</option>
+          <option value="Other">Something else</option>
+        </select>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+        <button class="send" type="submit">Send message</button>
+        <div class="note">By sending, you agree to our <a href="legal.html" style="color:var(--dm);text-decoration:underline">Privacy policy</a>.</div>
+      </form>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2>Other ways to reach us</h2>
+        <div class="hint">Prefer email? Reach the right team directly.</div>
+        <div class="ways">
+          <div class="w"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.9" y1="4.9" x2="9.2" y2="9.2"/><line x1="14.8" y1="14.8" x2="19.1" y2="19.1"/><line x1="14.8" y1="9.2" x2="19.1" y2="4.9"/><line x1="4.9" y1="19.1" x2="9.2" y2="14.8"/></svg></div><div><h3>Support</h3><p>Help with your site or account.<br><a href="mailto:support@takeova.ai">support@takeova.ai</a></p></div></div>
+          <div class="w"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><h3>Privacy</h3><p>Your data and privacy rights.<br><a href="mailto:privacy@takeova.ai">privacy@takeova.ai</a></p></div></div>
+          <div class="w"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h3>Security</h3><p>Report a vulnerability.<br><a href="mailto:security@takeova.ai">security@takeova.ai</a></p></div></div>
+          <div class="w"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;display:block" ><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div><h3>Legal</h3><p>Terms, policies, requests.<br><a href="mailto:legal@takeova.ai">legal@takeova.ai</a></p></div></div>
+        </div>
+        <div class="ident">
+          <b>TAKEOVA</b><br>
+          Brisbane, Queensland, Australia<br>
+          <span style="color:var(--dm)">support@takeova.ai · takeova.ai</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div>© 2026 TAKEOVA · Powered by TAKEOVA</div>
+  <div class="links"><a href="learn.html">Features</a><a href="showcase.html">Showcase</a><a href="about.html">About</a><a href="help.html">Help</a><a href="contact.html">Contact</a><a href="legal.html">Legal</a></div>
+</div></footer>
+<script>
+  // Posts to /api/contact if available; always falls back to the user's email client so a message is never lost.
+  async function submitForm(e){
+    e.preventDefault();
+    var name=document.getElementById('name').value.trim();
+    var email=document.getElementById('email').value.trim();
+    var topic=document.getElementById('topic').value;
+    var message=document.getElementById('message').value.trim();
+    var payload={name:name,email:email,topic:topic,message:message};
+    try{
+      var r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      if(r.ok){ showOk(); return false; }
+      throw new Error('no endpoint');
+    }catch(err){
+      // Fallback: open a pre-filled email to support
+      var body=encodeURIComponent('From: '+name+' <'+email+'>\nTopic: '+topic+'\n\n'+message);
+      var subj=encodeURIComponent('['+topic+'] Message from '+name);
+      window.location.href='mailto:support@takeova.ai?subject='+subj+'&body='+body;
+      showOk();
+      return false;
+    }
+  }
+  function showOk(){
+    document.getElementById('ok').style.display='block';
+    document.getElementById('cform').reset();
+    document.getElementById('ok').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+</script>
+<script>
+function toggleMenu(btn){
+  var m=document.getElementById('mobileMenu');
+  var open=m.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',open?'true':'false');
+}
+</script>
+</body>
+</html>

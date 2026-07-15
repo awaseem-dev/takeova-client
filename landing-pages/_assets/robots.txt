@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mine.app/sitemap.xml
+
+# Block internal app routes
+Disallow: /api/
+Disallow: /dashboard
+Disallow: /agency-dashboard

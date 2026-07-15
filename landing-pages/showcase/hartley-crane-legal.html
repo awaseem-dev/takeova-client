@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hartley &amp; Crane — Lawyers &amp; Advisors · Brisbane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#14233D;--navy2:#1E3354;--brass:#A98E5F;--brass-l:#C2A876;--ivory:#F6F4EF;--paper:#FCFBF8;--grey:#5C6573;--line:#E4E0D6}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--paper);line-height:1.7}
+  h1,h2,h3{font-family:'Spectral',serif;font-weight:500;letter-spacing:-.005em}
+  .serif{font-family:'Spectral',serif}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 30px}
+  a{color:inherit;text-decoration:none}
+  .top{background:var(--navy);color:#A9B6C9;font-size:.82rem;padding:9px 0}
+  .top .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .top a:hover{color:#fff}
+  nav{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:20px 30px}
+  .logo{font-family:'Spectral';font-size:1.5rem;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:11px}
+  .crest{width:34px;height:34px;border:1.5px solid var(--brass);display:grid;place-items:center;color:var(--brass);font-family:'Spectral';font-weight:600;font-size:1rem}
+  .nlinks{display:flex;gap:32px;font-size:.92rem;font-weight:500;color:var(--grey)}
+  .nlinks a:hover{color:var(--navy)}
+  .consult{background:var(--navy);color:#fff;padding:12px 22px;font-size:.88rem;font-weight:500;transition:.2s}
+  .consult:hover{background:var(--navy2)}
+  /* hero */
+  .hero{background:var(--navy);color:var(--ivory);padding:90px 0}
+  .hero .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:60px;align-items:center}
+  .est{color:var(--brass-l);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;margin-bottom:24px;display:flex;align-items:center;gap:14px}
+  .est::before{content:"";width:40px;height:1px;background:var(--brass)}
+  .hero h1{font-family:'Spectral';font-size:clamp(2.6rem,5.5vw,4.4rem);font-weight:500;line-height:1.1;margin-bottom:22px}
+  .hero h1 em{font-style:italic;color:var(--brass-l)}
+  .hero p{font-size:1.18rem;color:#BCC6D6;max-width:46ch;margin-bottom:32px}
+  .hbtns{display:flex;gap:16px;flex-wrap:wrap}
+  .pri{background:var(--brass);color:var(--navy);padding:15px 30px;font-weight:600;transition:.2s}
+  .pri:hover{background:var(--brass-l)}
+  .sec-link{border-bottom:1px solid var(--brass);padding-bottom:3px;color:var(--ivory);align-self:center}
+  .pillars{border-left:1px solid rgba(169,142,95,.4);padding-left:30px}
+  .pillars div{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .pillars div:last-child{border:none}
+  .pillars .n{font-family:'Spectral';font-size:1.8rem;color:var(--brass-l)}
+  .pillars .t{font-size:.92rem;color:#BCC6D6}
+  /* practice */
+  .sec{padding:90px 0}
+  .lbl{color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;font-weight:600;margin-bottom:14px}
+  .sec h2{font-size:clamp(2rem,4vw,3rem);font-weight:500;margin-bottom:12px}
+  .sub{color:var(--grey);font-size:1.08rem;max-width:54ch;margin-bottom:48px}
+  .areas{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+  .area{padding:32px 28px;border-bottom:1px solid var(--line);transition:.2s;display:flex;gap:22px}
+  .area:nth-child(odd){border-right:1px solid var(--line)}
+  .area:hover{background:var(--ivory)}
+  .area .rn{font-family:'Spectral';font-size:1.1rem;color:var(--brass);min-width:34px}
+  .area h3{font-size:1.4rem;font-weight:500;margin-bottom:8px}
+  .area p{color:var(--grey);font-size:.97rem}
+  /* quote band */
+  .qb{background:var(--ivory);padding:84px 0;text-align:center}
+  .qb p{font-family:'Spectral';font-style:italic;font-size:clamp(1.6rem,3.5vw,2.4rem);max-width:24ch;margin:0 auto;line-height:1.35}
+  .qb .by{margin-top:26px;color:var(--grey);font-size:.92rem;letter-spacing:.04em}
+  .qb .by b{color:var(--navy);font-weight:600}
+  /* cta */
+  .band{background:var(--navy);color:#fff;padding:80px 0;text-align:center}
+  .band h2{font-size:clamp(2rem,4vw,3rem);font-weight:500;margin-bottom:14px;color:#fff}
+  .band h2 em{font-style:italic;color:var(--brass-l)}
+  .band p{color:#BCC6D6;font-size:1.1rem;margin-bottom:28px}
+  .band a{background:var(--brass);color:var(--navy);padding:15px 34px;font-weight:600;display:inline-block;transition:.2s}
+  .band a:hover{background:var(--brass-l)}
+  footer{background:var(--navy2);color:#9AA7BA;padding:46px 0 28px;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:22px;align-items:center}
+  footer .logo{color:#fff;font-size:1.2rem}footer a:hover{color:var(--brass-l)}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.pillars{border-left:none;border-top:1px solid rgba(169,142,95,.4);padding-left:0;padding-top:16px}.areas{grid-template-columns:1fr}.area:nth-child(odd){border-right:none}.nlinks{display:none}}
+  @media(prefers-reduced-motion){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>Brisbane CBD · Level 14, 320 Adelaide Street</span><span><a href="tel:0732290410">(07) 3229 0410</a> · <a href="#">advice@hartleycrane.com.au</a></span></div></div>
+<nav><div class="nav">
+  <a href="#" class="logo"><span class="crest">H<span style="color:var(--navy)">·</span>C</span>Hartley &amp; Crane</a>
+  <div class="nlinks"><a href="#practice">Expertise</a><a href="#">Our People</a><a href="#">Insights</a><a href="#contact">Contact</a></div>
+  <a href="#contact" class="consult">Book a consultation</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="est">Established 2009</div>
+    <h1>Clear counsel when the <em>stakes are real.</em></h1>
+    <p>A boutique Brisbane firm advising families and businesses on the decisions that matter most — with the rigour of a large practice and the attention of a small one.</p>
+    <div class="hbtns"><a href="#contact" class="pri">Request a consultation</a><a href="#practice" class="sec-link">Our areas of expertise →</a></div>
+  </div>
+  <div class="pillars">
+    <div><div class="n">15+ yrs</div><div class="t">Advising South-East Queensland</div></div>
+    <div><div class="n">2,000+</div><div class="t">Matters resolved</div></div>
+    <div><div class="n">Fixed fees</div><div class="t">On most engagements</div></div>
+  </div>
+</div></header>
+
+<section class="sec" id="practice"><div class="wrap">
+  <div class="lbl">Areas of expertise</div>
+  <h2>Considered advice across four practices</h2>
+  <p class="sub">Whatever you're facing, you'll work directly with a senior lawyer — not be passed down the chain.</p>
+  <div class="areas">
+    <div class="area"><span class="rn">01</span><div><h3>Property &amp; Conveyancing</h3><p>Residential and commercial transactions, leasing, and development — handled cleanly from contract to settlement.</p></div></div>
+    <div class="area"><span class="rn">02</span><div><h3>Wills &amp; Estates</h3><p>Wills, powers of attorney, estate planning and probate, with the sensitivity these matters deserve.</p></div></div>
+    <div class="area"><span class="rn">03</span><div><h3>Business &amp; Commercial</h3><p>Structuring, contracts, acquisitions and disputes — practical advice that protects what you've built.</p></div></div>
+    <div class="area"><span class="rn">04</span><div><h3>Family Law</h3><p>Separation, parenting and property settlements, guided with discretion and a steady hand.</p></div></div>
+  </div>
+</div></section>
+
+<section class="qb"><div class="wrap">
+  <p>"We measure our work not by the hours billed, but by the burdens lifted."</p>
+  <div class="by">— <b>Eleanor Hartley</b>, Principal</div>
+</div></section>
+
+<section class="band" id="contact"><div class="wrap">
+  <h2>Let's talk it <em>through.</em></h2>
+  <p>Book a confidential, no-obligation consultation with one of our principals.</p>
+  <a href="#">Request a consultation</a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo" style="display:flex;align-items:center;gap:9px"><span class="crest" style="border-color:var(--brass-l);color:var(--brass-l)">H<span style="color:#fff">·</span>C</span>Hartley &amp; Crane</div>
+  <div>Liability limited by a scheme approved under Professional Standards Legislation</div>
+  <div>© 2026 Hartley &amp; Crane · Built with MINE</div>
+</div></footer>
+</body>
+</html>

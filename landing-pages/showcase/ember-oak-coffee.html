@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember &amp; Oak — Small-Batch Coffee Roasters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Spline+Sans+Mono:wght@400;500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--espresso:#2C1E16;--bean:#3B2A20;--cream:#F2E8DC;--amber:#C9772F;--sage:#7E8A5A;--paper:#FBF6EE}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Work Sans',sans-serif;color:var(--espresso);background:var(--paper);line-height:1.65}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.02em}
+  .mono{font-family:'Spline Sans Mono',monospace}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+  a{color:inherit;text-decoration:none}
+  nav{background:var(--espresso);color:var(--cream)}
+  .nav{display:flex;align-items:center;justify-content:space-between;max-width:1120px;margin:0 auto;padding:18px 26px}
+  .logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.35rem;display:flex;align-items:center;gap:9px}
+  .logo b{color:var(--amber)}
+  .nlinks{display:flex;gap:30px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  .nlinks a:hover{color:var(--amber)}
+  .shopbtn{background:var(--amber);color:var(--espresso);padding:9px 19px;border-radius:4px;font-weight:600;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase}
+  /* hero */
+  .hero{background:var(--espresso);color:var(--cream);padding:64px 0 80px;position:relative;overflow:hidden}
+  .ring{position:absolute;border:1px solid rgba(201,119,47,.25);border-radius:50%}
+  .r1{width:300px;height:300px;top:-80px;right:60px}.r2{width:480px;height:480px;top:-160px;right:-40px}
+  .hero .wrap{position:relative;z-index:2}
+  .tag{font-family:'Spline Sans Mono';color:var(--amber);font-size:.85rem;letter-spacing:.15em;margin-bottom:22px}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.2rem);line-height:.98;margin-bottom:22px;max-width:15ch}
+  .hero h1 span{color:var(--amber)}
+  .hero p{font-size:1.15rem;color:#D6C6B4;max-width:46ch;margin-bottom:34px}
+  .hb{display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:var(--espresso);padding:15px 28px;border-radius:5px;font-weight:600;transition:.2s}
+  .hb:hover{background:#dd8636}
+  .hl{margin-left:14px;color:var(--cream);border-bottom:1px solid var(--amber);padding-bottom:2px}
+  /* roast list */
+  .sec{padding:84px 0}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:16px}
+  .head h2{font-size:clamp(2rem,4vw,2.9rem)}
+  .head .ln{font-family:'Spline Sans Mono';color:var(--amber);font-size:.82rem;letter-spacing:.12em}
+  .roasts{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+  .roast{background:var(--cream);border:1px solid #E2D3C0;border-radius:10px;padding:26px;position:relative;transition:.2s}
+  .roast:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(44,30,22,.14)}
+  .roast .origin{font-family:'Spline Sans Mono';font-size:.72rem;letter-spacing:.12em;color:var(--sage);text-transform:uppercase;margin-bottom:8px}
+  .roast h3{font-size:1.5rem;margin-bottom:16px}
+  .roast .notes{font-size:.95rem;color:#6E5848;margin-bottom:20px;min-height:48px}
+  .scale{display:flex;gap:5px;margin-bottom:16px}
+  .scale i{flex:1;height:6px;border-radius:3px;background:#E2D3C0}
+  .scale i.on{background:var(--amber)}
+  .roast .meta{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed #D8C5B0;padding-top:14px}
+  .roast .price{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.4rem}
+  .roast .lvl{font-family:'Spline Sans Mono';font-size:.74rem;color:#8A6F5C}
+  /* sub band */
+  .band{background:var(--sage);color:var(--paper);padding:70px 0}
+  .band .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .band h2{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--paper);max-width:16ch}
+  .band p{opacity:.92;max-width:34ch;margin-top:10px}
+  .band a{background:var(--espresso);color:var(--cream);padding:15px 30px;border-radius:5px;font-weight:600;white-space:nowrap}
+  /* visit */
+  .visit{padding:80px 0;text-align:center}
+  .visit .tag{color:var(--amber)}
+  .visit h2{font-size:clamp(2rem,4vw,2.8rem);margin:10px 0 14px}
+  .visit p{color:#6E5848;font-size:1.1rem}
+  .hours{font-family:'Spline Sans Mono';margin-top:24px;color:var(--espresso);font-size:.95rem;line-height:2}
+  footer{background:var(--espresso);color:#B7A492;padding:46px 0 28px;font-size:.9rem;text-align:center}
+  footer .logo{justify-content:center;color:var(--cream);margin-bottom:12px}
+  footer .links{display:flex;gap:24px;justify-content:center;margin:16px 0;flex-wrap:wrap;font-family:'Spline Sans Mono';font-size:.8rem;letter-spacing:.06em}
+  footer a:hover{color:var(--amber)}
+  @media(max-width:760px){.nlinks{display:none}}
+  @media(prefers-reduced-motion){*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+  <a href="#" class="logo">EMBER <b>&amp;</b> OAK</a>
+  <div class="nlinks"><a href="#roasts">Coffee</a><a href="#wholesale">Wholesale</a><a href="#visit">Café</a><a href="#">Journal</a></div>
+  <a href="#roasts" class="shopbtn">Shop beans</a>
+</div></nav>
+
+<header class="hero">
+  <span class="ring r1"></span><span class="ring r2"></span>
+  <div class="wrap">
+    <div class="tag">ROASTED IN BRISBANE · EST. 2017</div>
+    <h1>Coffee with a <span>fire</span> behind it.</h1>
+    <p>We roast in small batches, three mornings a week, so the bag on your shelf is never more than days from the drum.</p>
+    <a href="#roasts" class="hb">Shop this week's roast →</a><a href="#visit" class="hl">Find the café</a>
+  </div>
+</header>
+
+<section class="sec" id="roasts"><div class="wrap">
+  <div class="head"><h2>This week on the drum</h2><div class="ln">// 4 ACTIVE ROASTS</div></div>
+  <div class="roasts">
+    <div class="roast"><div class="origin">House Blend · Brazil + Ethiopia</div><h3>Hearth</h3><p class="notes">Milk chocolate, roasted hazelnut, a clean caramel finish. Our everyday workhorse.</p><div class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><div class="meta"><span class="price">$22</span><span class="lvl">MED ROAST · 250g</span></div></div>
+    <div class="roast"><div class="origin">Single Origin · Yirgacheffe</div><h3>Sundial</h3><p class="notes">Bright and floral — jasmine, bergamot and stone fruit. Best brewed as filter.</p><div class="scale"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><div class="meta"><span class="price">$26</span><span class="lvl">LIGHT ROAST · 250g</span></div></div>
+    <div class="roast"><div class="origin">Single Origin · Huila, Colombia</div><h3>Cedar</h3><p class="notes">Red apple, brown sugar and a syrupy body that holds up beautifully with milk.</p><div class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="meta"><span class="price">$24</span><span class="lvl">MED-DARK · 250g</span></div></div>
+    <div class="roast"><div class="origin">Decaf · Swiss Water Honduras</div><h3>Dusk</h3><p class="notes">All the comfort, none of the caffeine — cocoa, almond and a soft toffee sweetness.</p><div class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><div class="meta"><span class="price">$23</span><span class="lvl">MED ROAST · 250g</span></div></div>
+  </div>
+</div></section>
+
+<section class="band" id="wholesale"><div class="wrap">
+  <div><h2>Pour our coffee at your place</h2><p>Cafés, offices and restaurants across Brisbane brew Ember &amp; Oak. Wholesale pricing, training and equipment included.</p></div>
+  <a href="#">Become a wholesale partner</a>
+</div></section>
+
+<section class="visit" id="visit"><div class="wrap">
+  <div class="tag">THE CAFÉ</div>
+  <h2>Come sit by the roaster</h2>
+  <p>Watch the beans turn while you drink them. We're on the corner — you'll smell it before you see it.</p>
+  <div class="hours">14 Florence Street, Teneriffe<br>MON–FRI · 6:30am – 3:00pm<br>SAT–SUN · 7:00am – 2:00pm</div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo">EMBER &amp; OAK</div>
+  <div class="links"><a href="#">SHOP</a><a href="#">WHOLESALE</a><a href="#">OUR STORY</a><a href="#">STOCKISTS</a></div>
+  <p>© 2026 Ember &amp; Oak Coffee Roasters · Built with MINE</p>
+</div></footer>
+</body>
+</html>
