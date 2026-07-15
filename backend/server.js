@@ -194,8 +194,6 @@ setInterval(function() {
   }
 }, HOUR / 60); // Check every minute
 
-initDb();
-
 // ═══════════════════════════════════════════════════════════════════════════
 // SCHEMA MIGRATIONS — fixes drift between INSERT sites and CREATE TABLE schemas.
 // Every ADD COLUMN is idempotent (wrapped in try/catch) — running repeatedly
@@ -2125,7 +2123,12 @@ setInterval(async () => {
 }, 24 * 60 * 60 * 1000);  // daily
 
 
-const httpServer = app.listen(PORT, () => {
+// require.main === module is false when this file is `require()`d (e.g. by
+// api/index.js on Vercel) — skip binding a port there, but still run this
+// startup logic inline (schema migrations, one-time backfills, scheduled-job
+// registration) so the DB stays correct even without a long-lived process.
+let httpServer;
+function onServerReady() {
 
 
   // ── Prospector restart recovery ──────────────────────────────────────────
@@ -4151,7 +4154,12 @@ const httpServer = app.listen(PORT, () => {
     try { db.exec("ALTER TABLE ad_creatives ADD COLUMN video_provider TEXT"); } catch(e) {}
   } catch(e) {}
 
-});
+}
+if (require.main === module) {
+  httpServer = app.listen(PORT, onServerReady);
+} else {
+  onServerReady();
+}
 // ─── Session-added routes (21 Apr 2026) ──────────────────────────────────────
 app.use('/api/ai-email',     require('./routes/ai-email'));
 app.use('/api/ai-employees', require('./routes/ai-employees-plus'));
@@ -4188,6 +4196,7 @@ app.use("/api", (req, res) => {
 // ─── GRACEFUL SHUTDOWN ───────────────────────────────────────────────────────
 function shutdown(signal) {
 
+  if (!httpServer) { process.exit(0); return; }
   httpServer.close((err) => {
     if (err) { console.error("[shutdown] Error:", err.message); process.exit(1); }
 
@@ -4198,3 +4207,5 @@ function shutdown(signal) {
 }
 process.on("SIGTERM", () => shutdown("SIGTERM"));
 process.on("SIGINT",  () => shutdown("SIGINT"));
+
+module.exports = app;

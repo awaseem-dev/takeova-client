@@ -1,0 +1,14 @@
+# MINE backend — deployed as its own Netlify site (separate from the
+# frontend site at takeova.netlify.app), using Netlify Functions.
+# Demo/testing only: SQLite data does not persist between invocations and
+# the in-process background jobs (setInterval) never fire on serverless —
+# see netlify/functions/api.js and server.js for the request-scoped wrapper.
+
+[build]
+  functions = "netlify/functions"
+  command = "npm install"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200

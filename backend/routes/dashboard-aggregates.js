@@ -5,7 +5,7 @@
 const express = require("express");
 const router = express.Router();
 const { getDb } = require("../db/init");
-const auth = require("../middleware/auth");
+const { auth } = require("../middleware/auth");
 
 // single-scalar query, defensive
 function v(db, sql, params, def) {

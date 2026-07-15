@@ -19,7 +19,7 @@ const router = express.Router();
 const oauthLimiter = rateLimit({ windowMs: 60000, max: 20, message: { error: "Too many OAuth requests." } });
 const { v4: uuid } = require("uuid");
 const { getDb } = require("../db/init");
-const { signToken } = require("../middleware/auth");
+const { signToken, auth } = require("../middleware/auth");
 const https = require("https");
 const crypto = require("crypto");
 
@@ -454,8 +454,6 @@ module.exports = router;
 //   POST /api/oauth/xero/disconnect → revoke & remove tokens
 //   GET  /api/oauth/xero/refresh   → internal: refresh access token
 // ═══════════════════════════════════════════════════════════════════════════════
-
-const { auth } = require('../middleware/auth');
 
 function ensureAccountingTokensTable() {
   const db = getDb();
